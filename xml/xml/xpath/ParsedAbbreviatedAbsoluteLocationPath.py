@@ -24,8 +24,8 @@ class ParsedAbbreviatedAbsoluteLocationPath:
         self._rel = rel
         nt = ParsedNodeTest.ParsedNodeTest('node', '')
         ppl = ParsedPredicateList.ParsedPredicateList([])
-        as = ParsedAxisSpecifier.ParsedAxisSpecifier('descendant-or-self')
-        self._step = ParsedStep.ParsedStep(as, nt, ppl)
+        as_ = ParsedAxisSpecifier.ParsedAxisSpecifier('descendant-or-self')
+        self._step = ParsedStep.ParsedStep(as_, nt, ppl)
         return
 
     def evaluate(self, context):
