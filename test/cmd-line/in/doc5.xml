@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+	
+<!DOCTYPE doc [
+  <!ELEMENT doc ANY>
+  <!ELEMENT tst ANY>
+  <!ATTLIST doc attr CDATA #IMPLIED>
+]>
+
+<?target data?>
+<doc attr="value">
+  Hu og hei!
+  <tst></tst>
+</doc>  

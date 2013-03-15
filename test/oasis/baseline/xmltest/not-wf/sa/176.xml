@@ -1,0 +1,7 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_element_type(doc, ('', [('#PCDATA', '')], ''))
+dtd_end()
+handle_start_tag(doc, {})
+fatal("Premature document end, element 'doc' not closed")

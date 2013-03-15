@@ -1,0 +1,4 @@
+doc_start()
+handle_doctype(doc, None, 031-1.ent)
+handle_start_tag(doc, {})
+fatal("Undeclared entity 'e'")

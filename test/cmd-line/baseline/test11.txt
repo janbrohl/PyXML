@@ -1,0 +1,7 @@
+xmlproc version 0.70
+
+Parsing 'in/doc3.xml'
+E:in/doc3.xml:8:1: Tekst-data er ikke tillatt i dette elementets innhold
+E:in/doc3.xml:8:7: Elementet 'doc' avsluttet, men innholdet ikke ferdig
+
+Parse complete, 2 error(s) and 0 warning(s)

@@ -1,0 +1,10 @@
+
+<!DOCTYPE doc [
+  <!ELEMENT doc ANY>
+  <!ELEMENT tst ANY>
+]>
+
+<doc>
+  <tst></tsst>
+  Hu og hei!
+</doc>  

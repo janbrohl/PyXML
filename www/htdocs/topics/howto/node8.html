@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>3.2 Error Handling</title>
+<META NAME="description" CONTENT="3.2 Error Handling">
+<META NAME="keywords" CONTENT="xml-howto">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="xml-howto.css">
+<LINK REL="next" HREF="node9.html">
+<LINK REL="previous" HREF="node7.html">
+<LINK REL="up" href="SAX.html">
+<LINK REL="next" HREF="node9.html">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node7.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A href="SAX.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node9.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node7.html">3.1 Starting Out</A>
+<b class="navlabel">Up:</b> <a class="sectref" href="SAX.html">3 SAX: The Simple</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node9.html">3.3 Searching Element Content</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000420000000000000000">
+3.2 Error Handling</A>
+</H2>
+
+<P>
+Now, try running the above code with this file as input:
+<dl><dd><pre class="verbatim">
+&lt;collection&gt;
+  &amp;foo;
+  &lt;comic title="Sandman" number='62'&gt;
+&lt;/collection&gt;
+</pre></dl>
+
+<P>
+The <code>&amp;foo;</code> entity is unknown, and the <code>comic</code> element
+isn't closed (if it was empty, there would be a "<tt class="samp">/</tt>" before the
+closing "<tt class="samp">&gt;</tt>". As a result, you get a SAXParseException, e.g.
+
+<P>
+<dl><dd><pre class="verbatim">
+xml.sax._exceptions.SAXParseException: undefined entity at None:2:2
+</pre></dl>
+
+<P>
+The default code for the <tt class="class">ErrorHandler</tt> interface automatically
+raises an exception for any error; if that is what you want in case of
+an error, you don't need to change the error handler.  Otherwise, you
+should provide your own version of the <tt class="class">ErrorHandler</tt> interface,
+and at minimum override the <tt class="method">error()</tt> and <tt class="method">fatalError()</tt>
+methods.  The minimal implementation for each method can be a single
+line.  The methods in the <tt class="class">ErrorHandler</tt>
+interface-<tt class="method">warning</tt>, <tt class="method">error</tt>, and
+<tt class="method">fatalError</tt>-are all passed a single argument, an exception
+instance.  The exception will always be a subclass of
+<tt class="exception">SAXException</tt>, and calling <code>str()</code> on it will produce
+a readable error message explaining the problem.
+
+<P>
+So, to re-implement a variant of <tt class="class">ErrorRaiser</tt>, simply define
+one of the three methods to print the exception they're passed:
+
+<P>
+<dl><dd><pre class="verbatim">
+    def error(self, exception):
+        import sys
+        sys.stderr.write("\%s\n" \% exception)
+</pre></dl>
+
+<P>
+With this definition, non-fatal errors will result in an error message,
+whereas fatal errors will continue to produce a traceback.
+
+<P>
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node7.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A href="SAX.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node9.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node7.html">3.1 Starting Out</A>
+<b class="navlabel">Up:</b> <a class="sectref" href="SAX.html">3 SAX: The Simple</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node9.html">3.3 Searching Element Content</A>
+<hr>
+<span class="release-info">Release 0.6.1.</span>
+</DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

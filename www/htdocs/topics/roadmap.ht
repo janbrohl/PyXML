@@ -1,0 +1,101 @@
+Title: Python and XML Processing: Development roadmap
+Author: larsga@garshol.priv.no
+Meta:  <META NAME="description" CONTENT="This page shows the immediate
+       plans for further development of the Python/XML package.">
+
+<h3>Development roadmap</h3>
+
+<p>
+<b>Last update:</b> $Date: 2001/03/27 20:54:51 $.
+</p>
+
+<p>
+This document provides a high-level view of what the Python/XML
+developers plan to do with the package in the foreseeable future.
+It also contains some tasks that are considered desirable, but for
+which no one has yet assumed responsibility.
+</p>
+
+<h3>SAX</h3>
+
+<p>
+<b>Responsible:</b> Lars Marius Garshol.
+</p>
+
+<ul>
+  <li>Develop a more complete test suite.
+  <li>Extend the pyexpat driver to support LexicalHandler and
+      DeclHandler.
+  <li>Fully develop the xmlproc driver.
+  <li>Fully develop the Java SAX driver.
+</ul>
+
+<h3>saxtools</h3>
+
+<p>
+<b>Responsible:</b> Lars Marius Garshol.
+</p>
+
+<p>
+This is a collection of SAX-based utilities. To compile a more
+complete list of what it will contain is the first task.
+</p>
+
+<ul>
+  <li>SAX filters for XInclude and XBase support.
+</ul>
+
+<h3>xmlproc</h3>
+
+<p>
+<b>Responsible:</b> Lars Marius Garshol.
+</p>
+
+<ul>
+  <li>Move development to the PyXML CVS tree. This includes moving
+  the test suite.
+  <li>Release version 0.80 with updates for XML 1.0 2nd edition
+  compliance, better validator independence (from parser), better
+  location reporting and base sysid handling, Unicode support and
+  improved convenience APIs. It may be that there will be several
+  releases on the road to 0.80.
+  <li>Try to merge _read_char_ref and parse_charref.</li>
+</ul>
+
+<h3>XPath and XSLT</h3>
+
+<p>
+<b>Responsible:</b> Martin von Loewis.
+</p>
+
+<p>
+It is planned to integrate 4XSLT and 4XPath into the PyXML package.
+</p>
+
+<h3>Documentation</h3>
+
+<p><b>Responsible:</b> Nobody, yet</p>
+
+<ul>
+  <li>Make more passes over it to ensure completeness and correctness
+  <li>Add more demo programs
+  <li>Add more docstrings
+  <li>Greg Stein owes doc on qp_xml
+</ul>
+
+<h3>Miscellanea</h3>
+
+<p><b>Responsible:</b> Nobody, yet</p>
+
+<ul>
+  <li>Re-indent everything to 4-space indents
+  <li>Flesh out the test suite more
+</ul>
+
+<p>
+<b>Responsible:</b> Fred L. Drake, Jr.
+</p>
+
+<ul>
+  <li>Update the XBEL demo and add a test suite
+</ul>

@@ -1,0 +1,4 @@
+doc_start()
+handle_start_tag(doc, {})
+fatal("';' expected")
+fatal("Illegal character number '4' in character reference")

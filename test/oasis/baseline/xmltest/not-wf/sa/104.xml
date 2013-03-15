@@ -1,0 +1,8 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_general_entity(e, '<foo>')
+dtd_end()
+handle_start_tag(doc, {})
+handle_start_tag(foo, {})
+fatal('Element crossed entity boundary')

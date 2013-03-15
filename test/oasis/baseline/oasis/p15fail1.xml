@@ -1,0 +1,4 @@
+doc_start()
+handle_comment('a')
+fatal("'-->' expected")
+fatal('Character data not allowed outside root element')

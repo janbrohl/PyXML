@@ -1,0 +1,11 @@
+
+<!DOCTYPE test-document SYSTEM "doc.dtd" [
+  <!ENTITY % ext-pe2 SYSTEM "ext-pe2.dtd">
+  %ext-pe2;
+]>
+<test-document>
+The purpose of this document is to test whether the parser will inform
+about all relevant events in all the different parts of the document.
+Of especial interest are the DTD and external parameter entities to
+the DTD.
+</test-document>

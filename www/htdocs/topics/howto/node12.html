@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>4.1 Getting A DOM Tree</title>
+<META NAME="description" CONTENT="4.1 Getting A DOM Tree">
+<META NAME="keywords" CONTENT="xml-howto">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="xml-howto.css">
+<LINK REL="next" HREF="node13.html">
+<LINK REL="previous" href="DOM.html">
+<LINK REL="up" href="DOM.html">
+<LINK REL="next" HREF="node13.html">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A href="DOM.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A href="DOM.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node13.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" href="DOM.html">4 DOM: The Document</A>
+<b class="navlabel">Up:</b> <a class="sectref" href="DOM.html">4 DOM: The Document</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node13.html">4.2 Manipulating The Tree</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000510000000000000000">
+4.1 Getting A DOM Tree</A>
+</H2>
+
+<P>
+The easiest way to get a DOM tree is to have it built for you. PyXML
+offers two alternative implementations of the DOM,
+<tt class="module">xml.dom.minidom</tt> and <code>4DOM</code>. <tt class="module">xml.dom.minidom</tt> is
+included in Python 2. It is a minimalistic implementation, which means
+it does not provide all interfaces and operations required by the DOM
+standard. <code>4DOM</code> (XXX reference) is a complete implementation of
+DOM Level 2 (which is currently work in progress), so we will use that
+in the examples.
+
+<P>
+One of the modules in the <tt class="module">xml.dom</tt> package is
+<tt class="module">xml.dom.ext.reader.Sax2</tt>, which provides the functions
+<tt class="function">FromXmlStream</tt>, <tt class="function">FromXml</tt>, <tt class="function">FromXmlFile</tt>,
+and <tt class="function">FromXmlUrl</tt> which will construct a DOM tree from their
+input (a file-like object, a string, a file name, and a URL,
+respectively). They all return a DOM <tt class="class">Document</tt> object.
+
+<P>
+<dl><dd><pre class="verbatim">
+import sys
+from xml.dom.ext.reader.Sax import FromXmlStream
+from xml.dom.ext import PrettyPrint
+
+# parse the document
+doc = FromXmlStream(sys.stdin)
+</pre></dl>
+
+<P>
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A href="DOM.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A href="DOM.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node13.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" href="DOM.html">4 DOM: The Document</A>
+<b class="navlabel">Up:</b> <a class="sectref" href="DOM.html">4 DOM: The Document</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node13.html">4.2 Manipulating The Tree</A>
+<hr>
+<span class="release-info">Release 0.6.1.</span>
+</DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

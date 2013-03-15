@@ -1,0 +1,41 @@
+
+Duration type: needs to support optional parts of the  lexical format
+Datetime type
+Time type
+Date type
+gYearMonth
+gYear
+gMonthDay
+gDay
+gMonth
+hexBinary
+base64Binary
+anyURI
+QName
+NOTATION
+normalizedString
+token
+language
+NMTOKEN
+NMTOKENS
+Name
+NCName
+ID
+IDREF
+IDREFS
+ENTITY
+ENTITIES
+integer
+nonPositiveInteger
+negativeInteger
+long
+int
+short
+byte
+nonNegativeInteger
+unsignedLong
+unsignedInt
+unsignedShort
+unsignedByte
+positiveInteger
+

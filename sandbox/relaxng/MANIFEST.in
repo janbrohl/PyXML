@@ -1,0 +1,4 @@
+include MANIFEST.in TODO simple-test.xml
+include *.py
+recursive-include test *.xml *.rng
+

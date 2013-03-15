@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_comment(' a form feed (\014) is not allowed in a comment ')
+handle_end_tag(doc)
+doc_end()

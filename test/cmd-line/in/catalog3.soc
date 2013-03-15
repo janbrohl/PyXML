@@ -1,0 +1,8 @@
+-- An SGML Open Catalog with unsupported entries in it --
+
+DOCUMENT "in/doc.xml"
+HJSJJDHDD "abc-def" "ghi-jkl"
+
+-- Yee haa --
+
+JKKKJJ foo

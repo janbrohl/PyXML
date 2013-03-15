@@ -1,0 +1,5 @@
+xmlproc version 0.70
+
+Parsing 'in/nstest2.xml'
+<urn:loc.gov:books book>&#10;    <urn:loc.gov:books title>Cheaper by the Dozen</urn:loc.gov:books title>&#10;    <urn:ISBN:0-395-36341-6 number>1568491379</urn:ISBN:0-395-36341-6 number>&#10;    <urn:loc.gov:books notes>&#10;      &#10;      <urn:w3-org-ns:HTML p>&#10;          This is a <urn:w3-org-ns:HTML i>funny</urn:w3-org-ns:HTML i> book!&#10;      </urn:w3-org-ns:HTML p>&#10;    </urn:loc.gov:books notes>&#10;</urn:loc.gov:books book>
+Parse complete, 0 error(s) and 0 warning(s)

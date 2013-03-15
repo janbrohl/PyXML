@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>3 SAX: The Simple API for XML</title>
+<META NAME="description" CONTENT="3 SAX: The Simple API for XML">
+<META NAME="keywords" CONTENT="xml-howto">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="xml-howto.css">
+<LINK REL="next" href="DOM.html">
+<LINK REL="previous" HREF="node4.html">
+<LINK REL="up" HREF="xml-howto.html">
+<LINK REL="next" HREF="node7.html">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node5.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A HREF="xml-howto.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node7.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node5.html">2.1 Related Links</A>
+<b class="navlabel">Up:</b> <a class="sectref" HREF="xml-howto.html">Python/XML HOWTO</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node7.html">3.1 Starting Out</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000400000000000000000">&nbsp;</A>
+<BR>
+3 SAX: The Simple API for XML
+</H1>
+
+<P>
+The Simple API for XML isn't a standard in the formal sense, but an
+informal specification designed by David Megginson, with input from
+many people on the xml-dev mailing list.  SAX defines an event-driven
+interface for parsing XML.  To use SAX, you must create Python class
+instances which implement a specified interface, and the parser will
+then call various methods of those objects.
+
+<P>
+This howto describes version 2 of SAX (also referred to as
+SAX2). Earlier versions of this text did explain SAX1, which is
+primarily of historical interest only.
+
+<P>
+SAX is most suitable for purposes where you want to read through an
+entire XML document from beginning to end, and perform some
+computation, such as building a data structure representating a
+document, or summarizing information in a document (computing an
+average value of a certain element, for example).  It's not very
+useful if you want to modify the document structure in some
+complicated way that involves changing how elements are nested, though
+it could be used if you simply wish to change element contents or
+attributes.  For example, you would not want to re-order chapters in a
+book using SAX, but you might want to change the contents of any
+<code>name</code> elements with the attribute <code>lang</code> equal to
+'greek' into Greek letters.
+
+<P>
+One advantage of SAX is speed and simplicity.  Let's say
+you've defined a complicated DTD for listing comic books, and you wish
+to scan through your collection and list everything written by Neil
+Gaiman.  For this specialized task, there's no need to expend effort
+examining elements for artists and editors and colourists, because
+they're irrelevant to the search.  You can therefore write a class
+instance which ignores all elements that aren't <code>writer</code>.
+
+<P>
+Another advantage is that you don't have the whole document resident
+in memory at any one time, which matters if you are processing really
+huge documents.
+
+<P>
+SAX defines 4 basic interfaces; an SAX-compliant XML parser can be
+passed any objects that support these interfaces, and will call
+various methods as data is processed.  Your task, therefore, is to
+implement those interfaces that are relevant to your application.
+
+<P>
+The SAX interfaces are:
+
+<P>
+<table border align="center" style="border-collapse: collapse">
+  <thead>
+    <tr class="tableheader">
+      <th align="center"><b>Interface</b>&nbsp;</th>
+      <th align="left"><b>Purpose</b>&nbsp;</th>
+      </tr>
+    </thead>
+  <tbody valign='baseline'>
+<P>
+
+    <tr><td align="center" valign="baseline"><code>ContentHandler</code></td>
+        <td align="left">Called for general document events.  This
+interface is the heart of SAX; its methods are called for the start of
+the document, the start and end of elements, and for the characters of
+data contained inside elements.
+</td><P>
+
+    <tr><td align="center" valign="baseline"><code>DTDHandler</code></td>
+        <td align="left">Called to handle DTD events required for basic
+parsing.  This means notation declarations (XML spec section 4.7) and
+unparsed entity declarations (XML spec section 4).
+</td><P>
+
+    <tr><td align="center" valign="baseline"><code>EntityResolver</code></td>
+        <td align="left">Called to resolve references to external
+entities.  If your documents will have no external entity references,
+you won't need to implement this interface. </td><P>
+
+    <tr><td align="center" valign="baseline"><code>ErrorHandler</code></td>
+        <td align="left">Called for error handling.  The parser will call
+methods from this interface to report all warnings and errors.</td><P>
+
+    </tbody>
+</table>
+
+<P>
+Python doesn't support the concept of interfaces, so the interfaces
+listed above are implemented as Python classes.  The default method
+implementations are defined to do nothing--the method body is just a
+Python <code>pass</code> statement-so usually you can simply ignore methods
+that aren't relevant to your application. 
+
+<P>
+Pseudo-code for using SAX looks something like this:
+<dl><dd><pre class="verbatim">
+# Define your specialized handler classes
+from xml.sax import Contenthandler, ...
+class docHandler(ContentHandler):
+    ...
+
+# Create an instance of the handler classes
+dh = docHandler()
+
+# Create an XML parser
+parser = ...
+
+# Tell the parser to use your handler instance
+parser.setContentHandler(dh)
+
+# Parse the file; your handler's method will get called
+parser.parse(sys.stdin)
+</pre></dl>
+
+<P>
+
+<p><hr>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html107"
+  HREF="node7.html">3.1 Starting Out</A>
+<LI><A NAME="tex2html108"
+  HREF="node8.html">3.2 Error Handling</A>
+<LI><A NAME="tex2html109"
+  HREF="node9.html">3.3 Searching Element Content</A>
+<LI><A NAME="tex2html110"
+  HREF="node10.html">3.4 Related Links</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node5.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A HREF="xml-howto.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node7.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node5.html">2.1 Related Links</A>
+<b class="navlabel">Up:</b> <a class="sectref" HREF="xml-howto.html">Python/XML HOWTO</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node7.html">3.1 Starting Out</A>
+<hr>
+<span class="release-info">Release 0.6.1.</span>
+</DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

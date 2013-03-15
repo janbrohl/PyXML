@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>2 Installing the XML Toolkit</title>
+<META NAME="description" CONTENT="2 Installing the XML Toolkit">
+<META NAME="keywords" CONTENT="xml-howto">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="xml-howto.css">
+<LINK REL="next" href="SAX.html">
+<LINK REL="previous" HREF="node2.html">
+<LINK REL="up" HREF="xml-howto.html">
+<LINK REL="next" HREF="node5.html">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node3.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A HREF="xml-howto.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node5.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node3.html">1.1 Related Links</A>
+<b class="navlabel">Up:</b> <a class="sectref" HREF="xml-howto.html">Python/XML HOWTO</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node5.html">2.1 Related Links</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000300000000000000000">
+2 Installing the XML Toolkit</A>
+</H1>
+
+<P>
+Windows users should get the precompiled version at
+<a class="url" href="http://sourceforge.net/projects/pyxml">http://sourceforge.net/projects/pyxml</a>; Mac users will use the
+corresponding precompiled version at <a class="url" href="XXX">XXX</a>.  Linux users may wish
+to use either the Debian package from <a class="url" href="XXX">XXX</a>, or the RPM from
+<a class="url" href="http://sourceforge.net/projects/pyxml">http://sourceforge.net/projects/pyxml</a>.  To compile from source
+on a Unix platform, simply perform the following steps.
+
+<P>
+
+<OL>
+<LI>If you have are using Python 1.5, you need to install the
+distutils first, which are available from
+<a class="url" href="http://www.python.org/sigs/distutils-sig">http://www.python.org/sigs/distutils-sig</a>. Python 1.6 and later
+already includes the distutils, so you can skip this step.
+
+<P>
+</LI>
+<LI>Get a copy of the source distribution from
+<a class="url" href="http://sourceforge.net/projects/pyxml">http://sourceforge.net/projects/pyxml</a>.  Unpack it with the
+following command.
+
+<P>
+<dl><dd><pre class="verbatim">
+gzip -dc xml-package.tgz | tar -xvf -
+</pre></dl>
+
+<P>
+</LI>
+<LI>Run:
+<dl><dd><pre class="verbatim">
+python setup.py install
+</pre></dl>
+
+<P>
+There are any options available for this process.  Fo example, if you'd like
+all the files to be installed relative to a particular directory, you can use
+<code>python setup.py install --prefix=<i>dir</i></code>.  To see a listing
+of these options, run <code>python setup.py install -h</code>.
+
+<P>To properly use <code>setup.py</code>, a C compiler is required - the
+same that was used to build Python itself. On a Unix system, this
+operation may require superuser permissions. <code>setup.py</code> supports
+a number of different commands and options, invoke <code>setup.py</code>
+without any arguments to obtain help.
+
+<P>
+</LI>
+</OL>
+
+<P>
+If you have difficulty installing this software, send a problem report
+to &lt;xml-sig@python.org&gt; describing the problem, or submit a bug report
+at <a class="url" href="http://sourceforget.net/projects/pyxml">http://sourceforget.net/projects/pyxml</a>.
+
+<P>
+There are various demonstration programs in the <span class="file">demo/</span> directory
+of the source distribution.  You may wish to look at them next to get
+an impression of what's possible with the XML tools, and as a source
+of example code.
+
+<P>
+
+<p><hr>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html86"
+  HREF="node5.html">2.1 Related Links</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node3.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A HREF="xml-howto.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node5.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node3.html">1.1 Related Links</A>
+<b class="navlabel">Up:</b> <a class="sectref" HREF="xml-howto.html">Python/XML HOWTO</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node5.html">2.1 Related Links</A>
+<hr>
+<span class="release-info">Release 0.6.1.</span>
+</DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

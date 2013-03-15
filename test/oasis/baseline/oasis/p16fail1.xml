@@ -1,0 +1,6 @@
+doc_start()
+handle_pi(pitarget, '')
+fatal('XML declaration must appear first in document')
+fatal('XML version missing on XML declaration')
+fatal('XML declaration must appear first in document')
+fatal('XML version missing on XML declaration')

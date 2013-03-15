@@ -1,0 +1,27 @@
+Title: Python and XML Processing: Download Page
+Author: xml-sig@python.org
+Meta:  <META NAME="description" CONTENT="This page contains the basic
+	software available for processing XML with Python.">
+
+<H3>Download Page</H3>
+
+<P>You can download the software to parse and process XML here. Unless
+you're doing something very out of the ordinary, start by downloading the
+XML-SIG's software distribution.  The distribution contains contains XML
+parsers implemented in both C and Python, a Python implementation of SAX and
+DOM, sample code, documentation, and a test suite.
+
+<UL>
+
+  <LI> <a
+href=
+"http://sourceforge.net/project/showfiles.php?group_id=6473"
+>Version 0.8.1</a>, the latest release of the PyXML distribution, is available.
+
+</UL>
+
+<p>Brave users who need the cutting-edge, or want to help with development, can
+access <A HREF="http://sourceforge.net/cvs/?group_id=6473">the XML-SIG's CVS
+repository</A>.
+
+

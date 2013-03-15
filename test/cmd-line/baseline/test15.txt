@@ -1,0 +1,6 @@
+xmlproc version 0.70
+
+Parsing 'in/doc4.xml'
+E:in/doc4.xml:1:19: Unsupported XML version
+
+Parse complete, 1 error(s)

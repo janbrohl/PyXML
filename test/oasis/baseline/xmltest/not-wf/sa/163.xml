@@ -1,0 +1,7 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_element_type(doc, ('', [('#PCDATA', '')], ''))
+new_parameter_entity(e, '')
+dtd_end()
+fatal('Character data not allowed outside root element')

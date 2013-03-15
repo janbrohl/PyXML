@@ -1,0 +1,5 @@
+doc_start()
+set_entity_info(1.0, None, None)
+fatal("'?>' expected")
+fatal('Character data not allowed outside root element')
+fatal('Premature document end, no root element')

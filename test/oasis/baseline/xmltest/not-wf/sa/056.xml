@@ -1,0 +1,4 @@
+doc_start()
+handle_doctype(doc, None, None)
+fatal("'>' expected")
+fatal('Character data not allowed outside root element')

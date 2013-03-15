@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The XML Bookmark Exchange Language</TITLE>
+<META NAME="description" CONTENT="The XML Bookmark Exchange Language">
+<META NAME="keywords" CONTENT="xbel">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="xbel.css">
+<LINK REL="next" HREF="contents.html">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<div class=navigation>
+<table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html2"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html1"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html3"
+ HREF="contents.html">Contents</A>
+<br><hr><p></div>
+<!--End of Navigation Panel-->
+<h1 align=center>The XML Bookmark Exchange Language</h1>
+<center>
+<p><strong>Fred L. Drake, Jr.</strong></p>
+<p>
+        Corporation for National Research Initiatives (CNRI) 
+<BR>
+1895 Preston White Drive, Reston, Va 20191, USA 
+<BR>
+E-mail: <font face=sans-serif>fdrake@acm.org</font>
+</p>
+<p><strong>28 October, 1998</strong><br><strong>Release 1.0</strong></p>
+</center>
+<p>
+
+<P>
+
+<H3>Abstract:</H3>
+<DIV CLASS="ABSTRACT">
+
+The XML Bookmark Exchange Language (XBEL) is a rich interchange
+format for ``bookmark'' data as used by most Internet browsers.  This
+document describes the origin of the design, the requirements which
+drove the design process, and the resulting document type.
+</DIV>
+<P>
+
+<P>
+
+<p><hr>
+<!--Table of Child-Links-->
+
+
+<UL>
+<LI><A NAME="tex2html4"
+ HREF="contents.html">Contents</A>
+<LI><A NAME="tex2html5"
+ HREF="origins.html"><SPAN CLASS="arabic">1</SPAN>. Introduction
+         </A>
+<UL>
+<LI><A NAME="tex2html6"
+ HREF="origins.html"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Origins
+              </A>
+<LI><A NAME="tex2html7"
+ HREF="origins.html"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Contributors
+              </A>
+<LI><A NAME="tex2html8"
+ HREF="origins.html"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Availability
+              </A>
+<LI><A NAME="tex2html9"
+ HREF="origins.html"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Formal Identification
+              </A>
+</UL>
+<LI><A NAME="tex2html10"
+ HREF="requirements.html"><SPAN CLASS="arabic">2</SPAN>. Requirements
+         </A>
+<UL>
+<LI><A NAME="tex2html11"
+ HREF="requirements.html"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Relation to Browser Functionality
+              </A>
+<LI><A NAME="tex2html12"
+ HREF="requirements.html"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Advanced Application Support
+              </A>
+<LI><A NAME="tex2html13"
+ HREF="requirements.html"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Extensibility
+              </A>
+</UL>
+<LI><A NAME="tex2html14"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>. XBEL Document Structure
+         </A>
+<UL>
+<LI><A NAME="tex2html15"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Date/time Attribute Values
+              </A>
+<LI><A NAME="tex2html16"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Top-level Information
+              </A>
+<UL>
+<LI><A NAME="tex2html17"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;xbel&gt;</TT> Element
+                   </A>
+</UL>
+<LI><A NAME="tex2html18"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Common Elements
+              </A>
+<UL>
+<LI><A NAME="tex2html19"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;title&gt;</TT> Element
+                   </A>
+<LI><A NAME="tex2html20"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> The <TT>&lt;desc&gt;</TT> Element
+                   </A>
+<LI><A NAME="tex2html21"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> The <TT>&lt;info&gt;</TT> Element
+                   </A>
+<LI><A NAME="tex2html22"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> The <TT>&lt;metadata&gt;</TT> Element
+                   </A>
+</UL>
+<LI><A NAME="tex2html23"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Data Organization
+              </A>
+<UL>
+<LI><A NAME="tex2html24"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;folder&gt;</TT> Element
+                   </A>
+<LI><A NAME="tex2html25"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> The <TT>&lt;separator&gt;</TT> Element
+                   </A>
+</UL>
+<LI><A NAME="tex2html26"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Bookmark Data
+              </A>
+<UL>
+<LI><A NAME="tex2html27"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;bookmark&gt;</TT> Element
+                   </A>
+</UL>
+<LI><A NAME="tex2html28"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Internal References
+              </A>
+<UL>
+<LI><A NAME="tex2html29"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;alias&gt;</TT> Element
+                   </A>
+</UL>
+</UL>
+<LI><A NAME="tex2html30"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>. DTD Structure
+         </A>
+<UL>
+<LI><A NAME="tex2html31"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Use of Parameter Entities
+              </A>
+<UL>
+<LI><A NAME="tex2html32"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&#37;nodes.mix;</TT> Entity
+                   </A>
+<LI><A NAME="tex2html33"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> The <TT>&#37;node.att;</TT> Entity
+                   </A>
+<LI><A NAME="tex2html34"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> The <TT>&#37;url.att;</TT> Entity
+                   </A>
+</UL>
+<LI><A NAME="tex2html35"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Extending the DTD
+              </A>
+<LI><A NAME="tex2html36"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN> General Entities
+              </A>
+</UL>
+<LI><A NAME="tex2html37"
+ HREF="public-text.html">A. Public Text
+         </A>
+<LI><A NAME="tex2html38"
+ HREF="cite_xbel-home.html">Bibliography</A>
+<LI><A NAME="tex2html39"
+ HREF="about.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<p>
+<div class=navigation><hr><table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html2"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html1"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html3"
+ HREF="contents.html">Contents</A>
+</div>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

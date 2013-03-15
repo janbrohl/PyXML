@@ -1,0 +1,5 @@
+doc_start()
+handle_doctype(doc, None, None)
+handle_doctype(doc, None, None)
+fatal('Construct started, but never completed')
+fatal('Premature document end, no root element')

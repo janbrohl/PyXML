@@ -1,0 +1,8 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_element_type(doc, ('', [('#PCDATA', '')], ''))
+new_parameter_entity(pe, '<!---->')
+fatal('Illegal construct')
+fatal('Premature end of internal DTD subset')
+dtd_end()

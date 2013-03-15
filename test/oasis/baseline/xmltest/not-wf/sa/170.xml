@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_data('\367\200\200\200')
+handle_end_tag(doc)
+doc_end()

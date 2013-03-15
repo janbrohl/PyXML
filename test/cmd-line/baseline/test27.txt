@@ -1,0 +1,29 @@
+xmlproc version 0.70
+Parsing catalog file 'in/catalog2.xml'
+E:in/catalog2.xml:2:8: Ukjent XCatalog-element: XCtlg.
+You must specify a system identifier if the catalog has no DOCUMENT entry
+
+Usage:
+
+  xvcmd.py [options] [urlstodocs]
+
+  ---Options:  
+  -c catalog:   path to catalog file to use to resolve public identifiers
+  -l language:  ISO 3166 language code for language to use in error messages
+  -o format:    Format to output parsed XML. 'e': ESIS, 'x': canonical XML
+                and 'n': normalized XML. No data will be output if this
+                option is not specified.
+  urlstodocs:   URLs to the documents to parse. (You can use plain file names
+                as well.) Can be omitted if a catalog is specified and contains
+                a DOCUMENT entry.
+  -n:           Report qualified names as 'URI name'. (Namespace processing.)
+  --nowarn:     Suppress warnings.
+  --entstck:    Show entity stack on errors.
+  --rawxml:     Show raw XML string where error occurred.
+            
+  Catalog files with URLs that end in '.xml' are assumed to be XCatalogs,
+  all others are assumed to be SGML Open Catalogs.
+
+  If the -c option is not specified the environment variables XMLXCATALOG
+  and XMLSOCATALOG will be used (in that order).
+

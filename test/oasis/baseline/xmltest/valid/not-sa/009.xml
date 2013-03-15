@@ -1,0 +1,8 @@
+doc_start()
+handle_doctype(doc, whatever, 009.ent)
+dtd_start()
+new_attribute(doc, a2, CDATA, #DEFAULT, 'v2')
+dtd_end()
+handle_start_tag(doc, {'a2' : 'v2'})
+handle_end_tag(doc)
+doc_end()

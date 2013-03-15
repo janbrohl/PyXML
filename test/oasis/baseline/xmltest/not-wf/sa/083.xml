@@ -1,0 +1,7 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_external_entity(e, None, 'nul', n)
+dtd_end()
+handle_start_tag(doc, {})
+fatal('References to unparsed entities not allowed in element content')

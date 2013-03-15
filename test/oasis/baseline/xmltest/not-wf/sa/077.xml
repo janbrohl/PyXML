@@ -1,0 +1,6 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_general_entity(foo, '&bar;')
+dtd_end()
+fatal("Undeclared entity 'bar'")

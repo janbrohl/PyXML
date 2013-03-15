@@ -1,0 +1,415 @@
+<html><head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>pirxx._pirxx.PyXMLReader Conformance Report</title><style type="text/css"><!--
+h1, h2, h3, h4, h5, h6 {
+  color: maroon;
+  text-align: center;
+}
+dl,ul,ol {
+    margin-top: 1pt;
+}
+//--></style></head><body bgcolor="#eeeeff"><h1>XML Processor Conformance Report:<br clear="none"><em>pirxx._pirxx.PyXMLReader</em></h1><p>This document is the output of an
+    <a href="http://xmlconf.sourceforge.net/" shape="rect">XML test harness</a>.
+    It reports on the conformance of the following configuration: </p><center><table bgcolor="#ffffff" cellpadding="4" border="1"><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">XML Parser</td><td colspan="1" rowspan="1">pirxx._pirxx.PyXMLReader</td></tr><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Test Harness</td><td colspan="1" rowspan="1">sax2tests 1.7</td></tr><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Runtime Environment</td><td colspan="1" rowspan="1">Python 2.1 (#15, Apr 16 2001, 18:25:49) [MSC 32 bit (Intel)] / PyXML 0.7</td></tr><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Host OS Info</td><td colspan="1" rowspan="1">nt / win32</td></tr><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Suite of Testcases</td><td colspan="1" rowspan="1">OASIS draft v1.0 Second Edition; with 15 March updates by Mary Brady)</td></tr><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Test Run Date</td><td colspan="1" rowspan="1">2001-09-07 00:45:38</td></tr></table></center><p> A summary of test results follows.  To know the actual test status,
+    <b>someone must examine the result of each passed negative test</b>
+    (and informative test) to make sure it failed for the right reason.
+    That examination may cause the counts of failed tests to increase
+    (and passed tests to decrease), changing a provisional "conforms" status
+    to a "does not conform".  </p><center><table bgcolor="#ffffff" cellpadding="4" border="1"><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1"><b>Summary</b></td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Validating</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Non-Validating</td></tr><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Total Tests</td><td align="right" colspan="1" rowspan="1">1819</td><td align="right" colspan="1" rowspan="1">1819</td></tr><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Sucessful Tests</td><td align="right" colspan="1" rowspan="1">1793</td><td align="right" colspan="1" rowspan="1">1738</td></tr><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Important Failures</td><td align="right" colspan="1" rowspan="1">26</td><td align="right" colspan="1" rowspan="1">81</td></tr><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Ignorable Failures</td><td align="right" colspan="1" rowspan="1">0</td><td align="right" colspan="1" rowspan="1">0</td></tr></table></center><p> Sections of this report are:
+        <a href="#explanation" shape="rect">Explanation of Tables</a>;
+        <a href="#positive" shape="rect">Positive Tests</a>, cases where this processor should
+        report no errors;
+        <a href="#negative" shape="rect">Negative Tests</a>, documents for which this processor
+        must report the known errors; and
+        <a href="#optional" shape="rect">Informative Tests</a>, documents with errors which
+        processors are not required to report. </p>
+          Test harness messages:
+            <ul><li>Validation mode is 'both'</li><li>Found 107 (0 LOW / 54 MED / 53 HI) conformance violations in 3638 tests.</li><li>Needed 53,269 secs to run the tests.</li></ul><h2><a name="explanation" shape="rect">Explanation of Tables</a></h2><p>Sections presenting test results are composed largely of tables, with
+        explanations focussing on exactly what those tables indicate. "Section",
+        "Test ID" and "Description" are the related fields from the test definition.
+        "Mode" indicates the parsing mode ""NV" for non-validating, and "V" for validating.
+        </p><p>
+        "Diagnostic" consists of the output of the test harness, indicating the type of error.
+        The following list shows the usual keywords that allow you to categorize the
+        message, the exact output depends on the test harness.
+        </p><dl><dt><b>FATAL</b></dt><dd>The diagnostic was reported as a fatal error.  Such errors are
+            primarily well-formedness errors, such as the violation of XML 1.0
+            syntax rules or of well formedness constraints.
+            <em>In some underfeatured parser APIs, this may be the
+            only kind of error that gets reported.</em></dd><dt><b>ERROR</b></dt><dd>The diagnostic was reported as a recoverable error.  Such
+            errors primarily used to report validation errors, which are all
+            violations of validity constraints, but some other errors are also
+            classed as nonfatal.</dd><dt><b>WARNING</b></dt><dd>The diagnostic was reported as a warning; warnings are purely
+            informative and may be emitted in a number of cases identified by
+            the XML 1.0 specification (as well as in other cases).</dd></dl><p> Other comments may indicate other categories of conformance issue.
+        For example, some errors relate to problematic implementation of SAX;
+        and in exceptional cases, the harness can be forced to report a failure
+        on some test. </p><dl><dt><b>EXCEPTION</b></dt><dd>This indicates an exception outside of the above three classes
+            of errors; such messages are outside the SAX specification and most
+            often indicate either a problem within the parser (it should map
+            the exception to a call of the error handler) or a problem with the
+            test itself (like a missing file).</dd></dl><p> In all cases, negative tests that appear to pass must be individually
+        examined in the report below.
+        The diagnostic provided by the processor must correspond to the description
+        of the test provided; if the processor does not report the matching error,
+        the seeming "pass" is in fact an error of a type the test harness could
+        not detect or report.  That error is either a conformance bug, or an error
+        in the diagnostic being produced; or, rarely, both.</p><h2><a name="positive" shape="rect">Positive Tests</a></h2><p>All conformant XML 1.0 processors must accept "valid" input documents
+        without reporting any errors, and moreover must report the correct output
+        data to the application when processing those documents.  Nonvalidating
+        processors must also accept "invalid" input documents without reporting any errors.
+        These are called "Positive Tests" because they ensure that the processor
+        just "does the right thing" without reporting any problems.</p><p>In the interest of brevity, the only tests listed here are those which
+        produce diagnostics of some kind, such as test failures.  In some cases,
+        warnings may be reported when processing these documents, but these do not
+        indicate failures.</p><p>No interpretation of these results is necessary; every "error" or
+        "fatal" message presented here is an XML conformance failure.  Maintainers
+        of an XML processor will generally want to fix their software so that it
+        conforms fully to the XML specification.</p><h3>Valid Documents</h3><p>All XML processors must accept all valid documents.  This group
+        of tests must accordingly produce no test failures.</p><p>There are <b>6</b> failures of this type.</p><table width="100%" bgcolor="#ffffff" cellpadding="4" border="1"><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Section and [Rules]</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Test ID</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Mode</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Description</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Diagnostic</td></tr><tr valign="top"><td>2.9 [32]</td><td>sa02</td><td>V</td><td>
+    A document may be marked 'standalone' if any
+	attributes that need normalization are
+	defined within the internal DTD subset.</td><td>Error for valid file<br><strong>FATAL ERROR</strong>:<br>sun\valid\sa02.xml:41:18: Bad standalone declaration<br></td></tr><tr valign="top"><td>2.9 [32]</td><td>sa03</td><td>V</td><td>
+    A document may be marked 'standalone' if any
+    the defined entities need expanding are internal,
+    and no attributes need defaulting or normalization.
+    On output, requires notations to be correctly reported.
+    </td><td>Error for valid file<br><strong>FATAL ERROR</strong>:<br>sun\valid\sa03.xml:21:22: Bad standalone declaration<br></td></tr><tr valign="top"><td>2.2</td><td>ibm-valid-P02-ibm02v01.xml</td><td>NV</td><td>
+    Tests <strong>Char</strong> with 3 characters - 2 boundaries plus 1 in the middle - for
+     each range plus #x20 #x9 #xD #xA
+  </td><td>Error for valid file<br><strong>FATAL ERROR</strong>:<br>ibm\valid\P02\ibm02v01.xml:14:58: Invalid character (Unicode: 0xDBFF)<br></td></tr><tr valign="top"><td>2.2</td><td>ibm-valid-P02-ibm02v01.xml</td><td>V</td><td>
+    Tests <strong>Char</strong> with 3 characters - 2 boundaries plus 1 in the middle - for
+     each range plus #x20 #x9 #xD #xA
+  </td><td>Error for valid file<br><strong>FATAL ERROR</strong>:<br>ibm\valid\P02\ibm02v01.xml:14:58: Invalid character (Unicode: 0xDBFF)<br></td></tr><tr valign="top"><td>B.</td><td>ibm-valid-P87-ibm87v01.xml</td><td>NV</td><td>
+    This test case covers 65 legal character ranges plus 30 single legal 
+    characters for CombiningChar in P87 using a PI target Name
+</td><td>Error for valid file<br><strong>FATAL ERROR</strong>:<br>ibm\valid\P87\ibm87v01.xml:6:114: Unterminated processing instruction<br></td></tr><tr valign="top"><td>B.</td><td>ibm-valid-P87-ibm87v01.xml</td><td>V</td><td>
+    This test case covers 65 legal character ranges plus 30 single legal 
+    characters for CombiningChar in P87 using a PI target Name
+</td><td>Error for valid file<br><strong>FATAL ERROR</strong>:<br>ibm\valid\P87\ibm87v01.xml:6:114: Unterminated processing instruction<br></td></tr></table><h2><a name="negative" shape="rect">Negative Tests</a></h2><p> All conformant XML 1.0 processors must reject documents which are not
+        well-formed.  In addition, validating processors
+        must report the validity errors for invalid documents.
+        These are called <em>Negative Tests</em> because the test is intended
+        to establish that errors are reported when they should be.
+        </p><p> Moreover, the processor must both fail for the appropriate reason (given
+        by the parser diagnostic) and must report an error at the right level ("error"
+        or "fatal").  If both criteria were not considered, a processor which failed
+        frequently (such as by failing to parse any document at all) would appear to
+        pass a large number of conformance tests   Unfortunately, the test driver can
+        only tell whether the error was reported at the right level.  It can't
+        determine whether the processor failed for the right reason. </p><p> That's where a person to interpret these test results is critical.  Such
+        a person analyses the diagnostics, reported here, for negative tests not
+        already known to be failures (for not reporting an error, or reporting one
+        at the wrong level).  If the diagnostic reported for such tests doesn't match
+        the failure from the test description, there is an error in the diagnostic or
+        in the processor's XML conformance (or sometimes in both).</p><h3>Invalid Documents</h3><p> Validating processors must correctly report "error" diagnostics
+        for all documents which are well formed but invalid.  Such errors must
+        also be, "at user option", recoverable so that the validating parser
+        may be used in a nonvalidating mode by ignoring all validity errors.
+        <em>Some parser APIs do not support recoverability.</em>
+        Such issues should be noted in the documentation for the API, and
+        for its test harness.
+        </p><p>There are <b>58</b> failures of this type.</p><table width="100%" bgcolor="#ffffff" cellpadding="4" border="1"><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Section and [Rules]</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Test ID</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Mode</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Description</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Diagnostic</td></tr><tr valign="top"><td>4.1</td><td>not-wf-not-sa-005</td><td>NV</td><td>
+    Tests the <em>Entity Declared</em> VC by referring to an
+    undefined parameter entity within an external entity.</td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>xmltest\not-wf\not-sa\005.ent:2:4: Entity 'e' was not found<br></td></tr><tr valign="top"><td>2.8</td><td>invalid--001</td><td>NV</td><td>
+    Tests the "Proper Declaration/PE Nesting" validity constraint by
+    fragmenting a comment between two parameter entities.</td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>xmltest\invalid\001.ent:3:8: Partial markup in entity value<br></td></tr><tr valign="top"><td>3.2.1</td><td>invalid--002</td><td>NV</td><td>
+    Tests the "Proper Group/PE Nesting" validity constraint by
+    fragmenting a content model between two parameter entities.</td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>xmltest\invalid\002.ent:2:19: Partial markup in entity value<br></td></tr><tr valign="top"><td>2.8</td><td>invalid--003</td><td>NV</td><td>
+    Tests the "Proper Declaration/PE Nesting" validity constraint by
+    fragmenting an element declaration between two parameter entities.</td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>xmltest\invalid\003.ent:2:19: Partial markup in entity value<br></td></tr><tr valign="top"><td>2.8</td><td>invalid--004</td><td>NV</td><td>
+    Tests the "Proper Declaration/PE Nesting" validity constraint by
+    fragmenting an element declaration between three parameter entities.</td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>xmltest\invalid\004.ent:3:24: Partial markup in entity value<br></td></tr><tr valign="top"><td>2.8</td><td>invalid--005</td><td>NV</td><td>
+    Tests the "Proper Declaration/PE Nesting" validity constraint by
+    fragmenting an element declaration between two parameter entities.</td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>xmltest\invalid\005.ent:2:28: Partial markup in entity value<br></td></tr><tr valign="top"><td>2.8</td><td>invalid--006</td><td>NV</td><td>
+    Tests the "Proper Declaration/PE Nesting" validity constraint by
+    fragmenting an element declaration between two parameter entities.</td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>xmltest\invalid\006.ent:2:18: Partial markup in entity value<br></td></tr><tr valign="top"><td>4.1</td><td>inv-dtd06</td><td>NV</td><td>
+    Tests "Entity Declared" VC for a parameter entity.  <em>NOTE:  there
+    are both VCs and WFCs with this name, which is a specification issue
+    in that it is both confusing and in some ways self-contradictory.
+    The WFC does not apply to PEs, and even the clause which might
+    seem to suggest it could is ruled out in this test.</em></td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>sun\invalid\dtd06.xml:3:16: Entity 'undefined' was not found<br></td></tr><tr valign="top"><td>3.3.1</td><td>id01</td><td>NV</td><td>
+    Tests the ID (is a Name) VC</td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>sun\invalid\id01.xml:6:25: The values for attribute 'id' must be names or name tokens<br></td></tr><tr valign="top"><td>3.3.1</td><td>id02</td><td>NV</td><td>
+    Tests the ID (appears once) VC</td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>sun\invalid\id02.xml:7:25: ID 'a42' has already been used<br></td></tr><tr valign="top"><td>3.3.1</td><td>id06</td><td>NV</td><td>
+    Tests the IDREF (is a Name) VC</td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>sun\invalid\id06.xml:11:18: The values for attribute 'idref' must be names or name tokens<br></td></tr><tr valign="top"><td>3.3.1</td><td>id07</td><td>NV</td><td>
+    Tests the IDREFS (is a Names) VC</td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>sun\invalid\id07.xml:12:23: The values for attribute 'idrefs' must be names or name tokens<br></td></tr><tr valign="top"><td>2.9</td><td>inv-not-sa01</td><td>V</td><td>
+    Tests the Standalone Document Declaration VC, ensuring that
+    optional whitespace causes a validity error.</td><td>No error for invalid document reported<br></td></tr><tr valign="top"><td>2.9</td><td>inv-not-sa03</td><td>NV</td><td>
+    Tests the Standalone Document Declaration VC, ensuring that
+    a reference to externally defined entity causes a validity error.</td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>sun\invalid\not-sa03.xml:11:28: Reference to external declaration in standalone document. Entity=number<br></td></tr><tr valign="top"><td>3.3.1</td><td>attr01</td><td>NV</td><td>
+    Tests the "Entity Name" VC for the ENTITY attribute type.</td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>sun\invalid\attr01.xml:9:24: Attribute 'affiliated' refers to an unknown entity 'food'<br></td></tr><tr valign="top"><td>3.3.1</td><td>attr02</td><td>NV</td><td>
+    Tests the "Entity Name" VC for the ENTITIES attribute type.</td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>sun\invalid\attr02.xml:12:36: Attribute 'affiliated' refers to an unknown entity 'food'<br></td></tr><tr valign="top"><td>3.3.1</td><td>attr03</td><td>NV</td><td>
+    Tests the "Notation Attributes" VC for the
+    NOTATION attribute type, first clause:  value must be one
+    of the ones that's declared.</td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>sun\invalid\attr03.xml:16:19: Attribute 'type' does not match its defined enumeration or notation list<br></td></tr><tr valign="top"><td>3.3.1</td><td>attr05</td><td>NV</td><td>
+    Tests the "Name Token" VC for the NMTOKEN attribute type.</td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>sun\invalid\attr05.xml:9:23: The values for attribute 'token' must be names or name tokens<br></td></tr><tr valign="top"><td>3.3.1</td><td>attr06</td><td>NV</td><td>
+    Tests the "Name Token" VC for the NMTOKENS attribute type.</td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>sun\invalid\attr06.xml:9:32: Attribute 'token' does not support multiple values<br></td></tr><tr valign="top"><td>3.3.1</td><td>attr07</td><td>NV</td><td>
+    Tests the "Enumeration" VC by providing
+    a value which wasn't one of the choices.</td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>sun\invalid\attr07.xml:9:20: Attribute 'type' does not match its defined enumeration or notation list<br></td></tr><tr valign="top"><td>3.3.2</td><td>attr08</td><td>NV</td><td>
+    Tests the "Fixed Attribute Default" VC by
+    providing the wrong value.</td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>sun\invalid\attr08.xml:9:57: Attribute 'xmlns' has a value, 'http://over.the.rainbow.com/somewhere', that does not match its #FIXED value, 'http://java.sun.com/historical'<br></td></tr><tr valign="top"><td>2.4 2.7 [18] 3</td><td>empty</td><td>V</td><td>
+    CDATA section containing only white space does not match the nonterminal S, and cannot 
+    appear in these positions. </td><td>No error for invalid document reported<br></td></tr><tr valign="top"><td>2.3 [6]</td><td>o-p06fail1</td><td>NV</td><td>
+     Requires at least one name.
+    </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>oasis\p06fail1.xml:12:14: This type of attribute cannot have an empty value<br></td></tr><tr valign="top"><td>2.3 [8]</td><td>o-p08fail1</td><td>NV</td><td>
+     at least one Nmtoken is required.
+    </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>oasis\p08fail1.xml:9:10: This type of attribute cannot have an empty value<br></td></tr><tr valign="top"><td>2.3 [8]</td><td>o-p08fail2</td><td>NV</td><td>
+     an invalid Nmtoken character.
+    </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>oasis\p08fail2.xml:9:19: The values for attribute 'att' must be names or name tokens<br></td></tr><tr valign="top"><td>2.8 [24]</td><td>o-p24pass3</td><td>NV</td><td>
+    Test shows whitespace is allowed in prolog before version info.     </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>oasis\p24pass3.xml:1:6: No processing instruction starts with 'xml'<br></td></tr><tr valign="top"><td>2.8</td><td>ibm-invalid-P29-ibm29i01.xml</td><td>NV</td><td>
+    This test violates VC: Proper Declaration/PE Nesting in P29.  
+    The last character of a markup declaration is not contained in the same 
+    parameter-entity text replacement.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P29\ibm29i01.dtd:2:30: Partial markup in entity value<br></td></tr><tr valign="top"><td>2.9</td><td>ibm-invalid-P32-ibm32i01.xml</td><td>V</td><td>
+    This test violates VC: Standalone Document Declaration in P32.
+    The standalone document declaration has the value yes, BUT there is an
+    external markup declaration of attributes with default values, and the 
+    associated element appears in the document with specified values for those
+    attributes.
+    </td><td>No error for invalid document reported<br></td></tr><tr valign="top"><td>2.9</td><td>ibm-invalid-P32-ibm32i02.xml</td><td>NV</td><td>
+    This test violates VC: Standalone Document Declaration in P32.
+    The standalone document declaration has the value yes, BUT there is an 
+    external markup declaration of an entity (other than amp, lt, gt, apos,
+    quot), and references to this entity appear in the document.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P32\ibm32i02.xml:9:25: Reference to external declaration in standalone document. Entity=animal_content<br></td></tr><tr valign="top"><td>3.1</td><td>ibm-invalid-P41-ibm41i02.xml</td><td>NV</td><td>
+    This test violates VC: Attribute Value Type in P41. attr3 for Element b is 
+    given a value that does not match the declaration in the DTD.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P41\ibm41i02.xml:10:53: Attribute 'attr3' has a value, 'shoudbefixed', that does not match its #FIXED value, 'fixed'<br></td></tr><tr valign="top"><td>3.1</td><td>ibm-invalid-P41-ibm41i02.xml</td><td>V</td><td>
+    This test violates VC: Attribute Value Type in P41. attr3 for Element b is 
+    given a value that does not match the declaration in the DTD.
+  </td><td>No error for invalid document reported<br><strong>WARNING</strong>:<br>ibm\invalid\P41\ibm41i02.xml:8:3: Element 'PCDATA' was referenced in a content model but never declared<br></td></tr><tr valign="top"><td>3.2.1</td><td>ibm-invalid-P49-ibm49i01.xml</td><td>NV</td><td>
+    Violates VC:Proper Group/PE Nesting in P49. Open and close parenthesis for a
+    choice content model  are in different PE replace Texts.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P49\ibm49i01.dtd:8:36: Partial markup in entity value<br></td></tr><tr valign="top"><td>3.2.1</td><td>ibm-invalid-P50-ibm50i01.xml</td><td>NV</td><td>
+    Violates VC:Proper Group/PE Nesting in P50. Open and close parenthesis for a
+    seq content model  are in different PE replace Texts.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P50\ibm50i01.dtd:7:29: Partial markup in entity value<br></td></tr><tr valign="top"><td>3.2.2</td><td>ibm-invalid-P51-ibm51i01.xml</td><td>NV</td><td>
+    Violates VC:Proper Group/PE Nesting in P51. Open and close parenthesis for a
+    Mixed content model are in different PE replace Texts.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P51\ibm51i01.dtd:10:29: Partial markup in entity value<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i01.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: ID. The value of the ID 
+    attribute "UniqueName" is "@999" which does not meet the Name production.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i01.xml:8:32: The values for attribute 'UniqueName' must be names or name tokens<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i02.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: ID. The two ID attributes 
+    "attr" and "UniqueName" have the same value "Ac999" for the element "b" and 
+    the element "tokenizer".
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i02.xml:11:18: ID 'Ac999' has already been used<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i07.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: IDREF. The value of the 
+    IDREF attribute "reference" is "@456" which does not meet the Name production.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i07.xml:13:26: The values for attribute 'reference' must be names or name tokens<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i09.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: IDREFS. The value of the 
+    IDREFS attribute "reference" is "AC456 #567" which does not meet the Names 
+    production.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i09.xml:16:33: The values for attribute 'reference' must be names or name tokens<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i11.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: Entity Name. The value of 
+    the ENTITY attribute "sun" is "ima ge" which does not meet the Name production.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i11.xml:11:26: Attribute 'sun' does not support multiple values<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i12.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: Entity Name. The value of 
+    the ENTITY attribute "sun" is "notimage" which does not match the name of any 
+    unparsed entity declared.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i12.xml:11:28: Attribute 'sun' refers to an unknown entity 'notimage'<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i13.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: Entity Name. The value of 
+    the ENTITY attribute "sun" is "parsedentity" which matches the name of a parsed 
+    entity instead of an unparsed entity declared.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i13.xml:11:32: Attributes of type ENTITY/ENTITIES must refer to an external, unparsed entity<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i14.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: Entity Name. The value of 
+    the ENTITIES attribute "sun" is "#image1 @image" which does not meet the Names 
+    production.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i14.xml:12:34: The values for attribute 'sun' must be names or name tokens<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i15.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: ENTITIES. The value of the 
+    ENTITIES attribute "sun" is "image3 image4" which does not match the names of 
+    two unparsed entities declared.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i15.xml:12:33: Attribute 'sun' refers to an unknown entity 'image3'<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i16.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: ENTITIES. The value of the 
+    ENTITIES attribute "sun" is "parsedentity1 parsedentity2" which matches the names
+    of two parsed entities instead of two unparsed entities declared.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i16.xml:12:47: Attributes of type ENTITY/ENTITIES must refer to an external, unparsed entity<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i17.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: Name Token. The value of the
+    NMTOKEN attribute "thistoken" is "x : image" which does not meet the Nmtoken 
+    production.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i17.xml:10:35: Attribute 'thistoken' does not support multiple values<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P56-ibm56i18.xml</td><td>NV</td><td>
+    Tests invalid TokenizedType which is against P56 VC: Name Token. The value of the
+    NMTOKENS attribute "thistoken" is "@lang y: #country" which does not meet the 
+    Nmtokens production.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P56\ibm56i18.xml:10:44: The values for attribute 'thistoken' must be names or name tokens<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P58-ibm58i01.xml</td><td>NV</td><td>
+    Tests invalid NotationType which is against P58 VC: Notation Attributes. The 
+    attribute "content-encoding" with value "raw" is not a value from the list 
+    "(base64|uuencode)".
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P58\ibm58i01.xml:13:31: Attribute 'content-encoding' does not match its defined enumeration or notation list<br></td></tr><tr valign="top"><td>3.3.1</td><td>ibm-invalid-P59-ibm59i01.xml</td><td>NV</td><td>
+    Tests invalid Enumeration which is against P59 VC: Enumeration. The value of the 
+    attribute is "ONE" which matches neither "one" nor "two" as declared in the 
+    Enumeration in the AttDef in the AttlistDecl.  
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P59\ibm59i01.xml:12:19: Attribute 'value' does not match its defined enumeration or notation list<br></td></tr><tr valign="top"><td>3.3.2</td><td>ibm-invalid-P60-ibm60i02.xml</td><td>NV</td><td>
+    Tests invalid DefaultDecl which is against P60 VC: Fixed Attribute Default.. The 
+    attribute "chapter" for the element "one" is declared as #FIXED with the given
+    value "Introduction" in the DefaultDecl in the AttlistDecl, but the value of a
+    instance of this attribute is assigned to "JavaBeans".
+  </td><td>Non-validating parser reported error for invalid document<br><strong>ERROR</strong>:<br>ibm\invalid\P60\ibm60i02.xml:10:25: Attribute 'chapter' has a value, 'JavaBeans', that does not match its #FIXED value, 'Introduction'<br></td></tr><tr valign="top"><td>4.1</td><td>ibm-invalid-P68-ibm68i01.xml</td><td>NV</td><td>
+    Tests invalid EntityRef which is against P68 VC: Entity Declared. The GE with 
+    the name "ge2" is referred in the file ibm68i01.dtd", but not declared. 
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P68\ibm68i01.dtd:3:31: Entity 'ge2' was not found<br></td></tr><tr valign="top"><td>4.1</td><td>ibm-invalid-P68-ibm68i02.xml</td><td>NV</td><td>
+    Tests invalid EntityRef which is against P68 VC: Entity Declared. The GE with 
+    the name "ge1" is referred before declared in the file ibm68i01.dtd". 
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P68\ibm68i02.dtd:2:31: Entity 'ge1' was not found<br></td></tr><tr valign="top"><td>4.1</td><td>ibm-invalid-P68-ibm68i03.xml</td><td>NV</td><td>
+    Tests invalid EntityRef which is against P68 VC: Entity Declared. The GE with 
+    the name "ge2" is referred in the file ibm68i03.ent", but not declared. 
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P68\ibm68i03.ent:3:31: Entity 'ge2' was not found<br></td></tr><tr valign="top"><td>4.1</td><td>ibm-invalid-P68-ibm68i04.xml</td><td>NV</td><td>
+    Tests invalid EntityRef which is against P68 VC: Entity Declared. The GE with 
+    the name "ge1" is referred before declared in the file ibm68i04.ent". 
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P68\ibm68i04.ent:2:31: Entity 'ge1' was not found<br></td></tr><tr valign="top"><td>4.1</td><td>ibm-invalid-P69-ibm69i01.xml</td><td>NV</td><td>
+    Tests invalid PEReference which is against P69 VC: Entity Declared. The Name 
+    "pe2" in the PEReference in the file ibm69i01.dtd does not match the Name of
+    any declared PE. 
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P69\ibm69i01.dtd:5:6: Entity 'pe2' was not found<br></td></tr><tr valign="top"><td>4.1</td><td>ibm-invalid-P69-ibm69i02.xml</td><td>NV</td><td>
+    Tests invalid PEReference which is against P69 VC: Entity Declared. The PE with 
+    the name "pe1" is referred before declared in the file ibm69i02.dtd
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P69\ibm69i02.dtd:4:6: Entity 'pe1' was not found<br></td></tr><tr valign="top"><td>4.1</td><td>ibm-invalid-P69-ibm69i03.xml</td><td>NV</td><td>
+    Tests invalid PEReference which is against P69 VC: Entity Declared. The Name 
+    "pe3" in the PEReference in the file ibm69i03.ent does not match the Name of
+    any declared PE. 
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P69\ibm69i03.ent:5:6: Entity 'pe3' was not found<br></td></tr><tr valign="top"><td>4.1</td><td>ibm-invalid-P69-ibm69i04.xml</td><td>NV</td><td>
+    Tests invalid PEReference which is against P69 VC: Entity Declared. The PE with 
+    the name "pe2" is referred before declared in the file ibm69i04.ent.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\invalid\P69\ibm69i04.ent:4:6: Entity 'pe2' was not found<br></td></tr><tr valign="top"><td>4.1</td><td>ibm-not-wf-P69-ibm69n05.xml</td><td>NV</td><td>
+    Based on E29 substantial source: minutes XML-Syntax 1999-02-24 E38 in
+    XML 1.0 Errata, this WFC does not apply to P69, but the VC Entity declared 
+    still apply. 
+    Tests PEReference which is against P69 WFC: Entity Declared. The PE
+    with the name "paaa" is referred before declared in the DTD.
+  </td><td>Non-validating parser reported error for invalid document<br><strong>FATAL ERROR</strong>:<br>ibm\not-wf\P69\ibm69n05.xml:6:7: Entity 'paaa' was not found<br></td></tr></table><h3>Documents which are not Well-Formed</h3><p>All XML processors must correctly reject (with a "fatal"
+        error) all XML documents which are not well-formed.</p><p>There are <b>43</b> failures of this type.</p><table width="100%" bgcolor="#ffffff" cellpadding="4" border="1"><tr><td bgcolor="#ffffcc" colspan="1" rowspan="1">Section and [Rules]</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Test ID</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Mode</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Description</td><td bgcolor="#ffffcc" colspan="1" rowspan="1">Diagnostic</td></tr><tr valign="top"><td>2.8</td><td>valid-sa-094</td><td>NV</td><td>
+    
+    This refers to an undefined parameter entity reference within
+    a markup declaration in the internal DTD subset, violating
+    the <em>PEs in Internal Subset</em> WFC.</td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>2.8</td><td>valid-sa-094</td><td>V</td><td>
+    
+    This refers to an undefined parameter entity reference within
+    a markup declaration in the internal DTD subset, violating
+    the <em>PEs in Internal Subset</em> WFC.</td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>4.3.1 [77]</td><td>encoding07</td><td>NV</td><td>
+    Text declarations (which optionally begin any external entity)
+    are required to have "encoding=...". </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>2.3 [3]</td><td>o-p03fail1</td><td>NV</td><td>
+    Use of illegal character within XML document.     </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>2.3 [3]</td><td>o-p03fail1</td><td>V</td><td>
+    Use of illegal character within XML document.     </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>4.7</td><td>ibm-not-wf-P82-ibm82n02.xml</td><td>NV</td><td>
+    Tests NotationDecl with a required field missing. The Name in the 
+    NotationDecl is missing in the DTD. 
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>4.7</td><td>ibm-not-wf-P82-ibm82n03.xml</td><td>NV</td><td>
+    Tests NotationDecl with a required field missing. The externalID or
+    the PublicID is missing in the NotationDecl in the DTD. 
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>4.7</td><td>ibm-not-wf-P82-ibm82n04.xml</td><td>NV</td><td>
+    Tests NotationDecl with wrong field ordering. The Name occurs after
+    the "SYSTEM" and the externalID in the NotationDecl in the DTD. 
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>4.7</td><td>ibm-not-wf-P83-ibm83n01.xml</td><td>NV</td><td>
+    Tests PublicID with wrong key word. The string "public" is used as 
+    the key word in the PublicID in the NotationDcl in the DTD. 
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>4.7</td><td>ibm-not-wf-P83-ibm83n03.xml</td><td>NV</td><td>
+    Tests PublicID with a required field missing. The key word "PUBLIC"
+    is missing in the PublicID in the NotationDcl in the DTD. 
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>4.7</td><td>ibm-not-wf-P83-ibm83n06.xml</td><td>NV</td><td>
+    Tests PublicID with wrong field ordering. The key word "PUBLIC" 
+    occurs after the PubidLiteral in the PublicID in the NotationDcl. 
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n121.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x0E31    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n121.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x0E31    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n122.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x0E34    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n122.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x0E34    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n123.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x0E46    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n123.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x0E46    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n136.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x0EB1    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n136.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x0EB1    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n137.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x0EB4    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n137.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x0EB4    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n19.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x0387    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n19.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x0387    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n45.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x064B    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n45.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x064B    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n50.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x06D6    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n50.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x06D6    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n51.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x06E7    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n51.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x06E7    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n53.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x093E    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n53.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x093E    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n54.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x0962    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n54.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x0962    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n63.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x09E2    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n63.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x09E2    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n73.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x0A70    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n73.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x0A70    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n76.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x0ABC    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n76.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x0ABC    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n89.xml</td><td>NV</td><td>
+    Tests BaseChar with an illegal character. The character #x0B3E    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P85-ibm85n89.xml</td><td>V</td><td>
+    Tests BaseChar with an illegal character. The character #x0B3E    
+    occurs as the first character of the PITarget in the PI in the DTD.  
+  </td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P86-ibm86n04.xml</td><td>NV</td><td>
+    Tests Ideographic with an illegal character. The character #x302A    
+    occurs as the first character in the PITarget in the PI in the DTD.  
+</td><td>No error for non-wellformed document reported<br></td></tr><tr valign="top"><td>B.</td><td>ibm-not-wf-P86-ibm86n04.xml</td><td>V</td><td>
+    Tests Ideographic with an illegal character. The character #x302A    
+    occurs as the first character in the PITarget in the PI in the DTD.  
+</td><td>No error for non-wellformed document reported<br></td></tr></table><h2><a name="optional" shape="rect">Informative Tests</a></h2><p> Certain XML documents are specified to be errors, but the handling
+        of those documents is not fully determined by the XML 1.0 specification.
+        As a rule, these errors may be reported in any manner whatsoever, or
+        completely ignored, without consequence in terms of conformance to the
+        XML 1.0 specification.  And some of these documents don't have errors;
+        documents in encodings other than UTF-8 and UTF-16 are legal, but not
+        all processors are required to parse them.  </p><p>Such "optional" errors are listed here for informational purposes, since
+        processors which ignore such errors may cause document creators to create
+        documents which are not accepted by all conformant XML 1.0 processors.
+        (And of course, processors which produce incorrect diagnostics for such
+        cases should be avoided.) </p><p>There are <b>0</b> failures of this type.</p></body></html>

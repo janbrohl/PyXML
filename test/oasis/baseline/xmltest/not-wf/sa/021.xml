@@ -1,0 +1,3 @@
+doc_start()
+fatal("Undeclared entity 'b'")
+fatal("';' expected")

@@ -1,0 +1,6 @@
+<!DOCTYPE root [
+    <!ELEMENT y (#PCDATA|x|x)*>
+    <!-- element types can't repeat in mixed content -->
+]>
+
+<root/>

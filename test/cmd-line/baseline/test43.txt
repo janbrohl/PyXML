@@ -1,0 +1,6 @@
+xmlproc version 0.70
+
+Parsing 'in/doc2.xml'
+<doc>&#10;  <tst>E:in/doc2.xml:8:15: End tag for 'tsst' seen, but 'tst' expected
+</tsst>&#10;  Hu og hei!&#10;E:in/doc2.xml:10:7: End tag for 'doc' seen, but 'tst' expected
+</doc>Parse complete, 2 error(s) and 0 warning(s)

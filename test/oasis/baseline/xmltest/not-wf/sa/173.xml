@@ -1,0 +1,4 @@
+doc_start()
+handle_start_tag(doc, {'a' : '\357\277\277'})
+handle_end_tag(doc)
+doc_end()

@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_data('\012')
+fatal('XML declaration must appear first in document')
+set_entity_info(1.0, None, None)

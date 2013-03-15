@@ -1,0 +1,2 @@
+doc_start()
+fatal("Attribute 'att' occurs twice")

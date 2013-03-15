@@ -1,0 +1,11 @@
+
+<!ELEMENT test-document (#PCDATA)>
+
+<!ENTITY % external-pe SYSTEM "ext-pe.dtd">
+<!ENTITY   external-ge SYSTEM "ext-ge.dtd">
+
+<!ENTITY % test2 "huhei2">
+<!ELEMENT %test2; EMPTY>
+
+%external-pe;
+

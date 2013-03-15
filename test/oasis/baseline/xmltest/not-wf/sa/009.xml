@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+fatal('Not a valid number')
+fatal('Not a valid character number')
+fatal("';' expected")

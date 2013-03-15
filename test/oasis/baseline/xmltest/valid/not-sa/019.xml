@@ -1,0 +1,5 @@
+doc_start()
+handle_doctype(doc, None, 019.ent)
+handle_start_tag(doc, {})
+handle_end_tag(doc)
+doc_end()

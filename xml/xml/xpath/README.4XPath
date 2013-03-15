@@ -1,0 +1,43 @@
+Deleted Files:
+
+ParsedToken.py
+ParsedPredicate.py     [only for testsuite]
+ParsedLocationPath.py  [only for testsuite]
+XPath.py
+
+The following files were taken from 4XPath unmodified:
+    BuiltInExtFunctions.py
+    Context.py
+    CoreFunctions.py
+    ExpandedNameWrapper.py
+    MessageSource.py
+    NamespaceNode.py
+    ParsedStep.py
+    ParsedPredicateList.py
+    ParsedAbsoluteLocationPath.py
+    ParsedRelativeLocationPath.py
+    ParsedAbbreviatedAbsoluteLocationPath.py
+    ParsedAxisSpecifier.py
+    XPathParserBase.py
+    XPathParser.py
+
+The following files were adjusted for use with the Yapps parser:
+    __init__.py
+
+The following files were taken from Ft.Lib:
+    Set.py
+
+The following files were modified not to use Ft.Lib.Set:
+    ParsedAbbreviatedRelativeLocationPath.py
+    ParsedExpr.py    
+
+In the following files, usage of ownerDocument for Document nodes was
+fixed:
+    Util.py - check
+    ParsedAbsoluteLocationPath.py - check
+
+The following files support CDATA_SECTIN_NODEs
+
+    Conversions.py
+    ParsedNodeTest.py
+    __init__.py

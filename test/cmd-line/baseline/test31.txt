@@ -1,0 +1,8 @@
+xmlproc version 0.70
+Parsing catalog file 'in/catalog4.soc'
+E:in/catalog4.soc:6:3: Construct started, but never completed
+Parsing DOCUMENT 'in/doc.xml' from catalog
+
+Parsing 'in/doc.xml'
+
+Parse complete, 1 error(s) and 0 warning(s)

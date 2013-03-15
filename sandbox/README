@@ -1,0 +1,11 @@
+
+The 'sandbox' module is for experimental or alpha-quality code bases.
+They can be developed here until they are ready for evaluation for
+inclusion in the main PyXML distribution.  This prevents iteration of
+development within the core, yet also provides for public development
+of new modules.
+
+Note: a module's presence here does not imply that it *will* go into the
+PyXML distribution, simply that the code will be evaluated for inclusion
+when it's finished.
+

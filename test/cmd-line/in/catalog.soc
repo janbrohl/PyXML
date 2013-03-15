@@ -1,0 +1,3 @@
+-- Sample catalog with DOCUMENT entry for my regression test --
+
+DOCUMENT "doc.xml"

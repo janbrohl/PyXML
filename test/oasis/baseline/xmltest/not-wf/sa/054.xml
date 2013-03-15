@@ -1,0 +1,7 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+fatal('Whitespace expected here')
+fatal('One of \'"\' or \'\'\' expected')
+fatal('Premature end of internal DTD subset')
+dtd_end()

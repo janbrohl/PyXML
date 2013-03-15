@@ -1,0 +1,5 @@
+<!DOCTYPE root [
+<!ELEMENT root ANY>
+<!ATTLIST root xml:lang CDATA #IMPLIED>
+]>
+<root xml:lang="234"/>

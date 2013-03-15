@@ -1,0 +1,4 @@
+doc_start()
+handle_pi(pitarget, '')
+fatal("Processing instruction target names beginning with 'xml' are reserved")
+handle_pi(xmla, '<!DOCTYPE <[ CDATA [</doc> &a%b&#c')

@@ -1,0 +1,5 @@
+doc_start()
+fatal('\'"\' expected')
+fatal('One of \'"\' or \'\'\' expected')
+fatal("'>' expected")
+fatal('Character data not allowed outside root element')

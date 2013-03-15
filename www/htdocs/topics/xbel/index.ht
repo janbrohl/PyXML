@@ -1,0 +1,232 @@
+Title:  The XML Bookmark Exchange Language Resource Page
+Author: xml-sig@python.org
+
+<h3>The XML Bookmark Exchange Language (XBEL)</h3>
+
+<p> The XML Bookmark Exchange Language, or XBEL, is an Internet "bookmarks"
+    interchange format.  It was designed by the <a
+      href="http://www.python.org/sigs/xml-sig/">Python XML Special
+      Interest Group</a> on the group's mailing list.
+    </p>
+
+<p> The original intent was to create an interesting, fun project which was
+    both useful and would demonstrate the Python XML processing software
+    which was being developed at the time.  Mark Hammond contributed the
+    original idea, and other members of the SIG chimed in to add support
+    for their favorite browser features.  After debate which ranged far
+    afield from the original idea, compromises were reached which allow
+    XBEL to be a useful language for describing bookmark data for a range
+    of browsers, including the major browsers and a number of less widely
+    used browsers.
+    </p>
+
+<p> At this time, the formal document type definition (DTD) was finalized
+    and documentation was written.  These are available online here.
+    </p>
+
+<ul>
+    <li><a href="../dtds/xbel-1.0.dtd">The formal DTD</a></li>
+    <li><a href="docs/html/xbel.html">The documentation</a></li>
+</ul>
+
+<p> The documentation is also available in non-HTML versions, for those who
+    like to play with leaves:
+    </p>
+
+<ul>
+    <li><a href="docs/xbel.pdf.gz">Compressed PDF</a></li>
+    <li><a href="docs/xbel.ps.gz">Compressed PostScript</a></li>
+</ul>
+
+<p> XBEL discussion takes place on the
+    <a href="mailto:xml-sig@python.org">XML SIG mailing list</a>.
+    Problems and proposed extensions should be reported in the
+    <a href="http://sourceforge.net/tracker/?atid=707658&group_id=6473&func=browse">XBEL tracker</a>.
+    </p>
+
+<h3>Supporting Software</h3>
+
+<p> Supporting software is provided as part
+    of the Python XML "omnibus" package.  This software is located in the
+    <code>demo/xbel/</code> directory of the distribution.  This includes
+    command-line processes for converting XBEL instances to other common
+    formats, including the Navigator and Internet Explorer formats.
+    </p>
+
+<p> Ken Schenke's <a href="http://bookmarkbridge.sourceforge.net/"
+    >BookmarkBridge</a> is an open source bookmark management tool.
+    It is used to merge bookmarks from different browsers, and uses
+    Python for at least a portion of it's regression testing.
+    </p>
+
+<p> The <a href="http://galeon.sourceforge.net/">Galeon</a> Web
+    browser for the <a href="http://www.gnome.org/">GNOME desktop</a>
+    has been using XBEL as its native bookmark format since version
+    1.1.
+    </p>
+
+<p> The current release of the <a href="http://grail.sourceforge.net/">
+    Grail Internet browser</a> from <a
+      href="http://www.cnri.reston.va.us/">CNRI</a> supports XBEL as
+    a native bookmarks format.
+    </p>
+
+<p> David Faure (faure@kde.com) has made XBEL the bookmarks
+    format for <a href="http://www.konqueror.org/">Konqueror</a>,
+    the KDE web browser since KDE 2.1. KDE also features a separate
+    application to edit XBEL bookmarks, keditbookmarks.
+    </p>
+
+<!--
+<p> Joris Graaumans (joris@cs.uu.nl) has developed a couple of <a
+      href="http://www.cs.uu.nl/~joris/stuff.html">XSLT stylesheets
+      for XBEL</a>.
+    </p>
+-->
+
+<p> Philippe Guglielmetti (goulu@i.am) has created an export template
+    for the <a href="http://www.softgauge.com/compass/">Compass bookmarks
+    manager</a>.  Look for <font face="sans-serif">XBEL.TPL</font> at
+    <a href="http://membres.tripod.fr/Guglielmetti/files/">Philippe's
+    home page</a>.
+    </p>
+
+<p> Roberto Giungato (roberto.giungato@its.it) has created a PHP
+    script to parse XBEL and a <a
+    href="http://www.softgauge.com/compass/">Compass</a> template that
+    maintains foldering information.  See <a
+    href="http://www.giungato.it">his home page</a> for more
+    information.
+    </p>
+
+<p> <a href="http://www.linkagogo.com/">linkaGoGo</a> is a commercial
+    online bookmark/favorites "service" which supports import and
+    export in several formats, including XBEL.
+    </p>
+
+<p> Alco Blom's <a href="http://www.url-manager.com">URL Manager Pro</a>, a Mac OS shareware application for managing
+bookmarks, supports reading files in the XBEL format.  See the home page
+of URL Manager Pro for more information.
+    </p>
+
+<p> <a href="http://sim3.univ-rennes1.fr/users/dameron/xbel/">
+    XBEL Bookmarks Editor</a> is "a platform and browser bookmark
+    representation that allows content-based retrieval.  A platform
+    [independent] application [for easy] bookmark [management]."
+    </p>
+
+<p> <a href="http://elinks.or.cz/">ELinks-0.4.0+</a>, an advanced text WWW
+    browser has built-in XBEL bookmarks support.  Basic bookmarks operations
+    (same as in the native format) and conversion from/to native ELinks'
+    bookmarks format.
+    </p>
+
+<p> <a href="http://sim3.univ-rennes1.fr/users/dameron/be/">be Bookmarks
+    Editor</a> is a Java-based editor to manage bookmarks in XBEL format.
+    </p>
+
+<p> <a href="http://www.aaronland.info/perl/xml-filter/glossary/docs.html">
+    XML::Filter::Glossary</a> , a Per SAX2 filter for keyword lookup and
+    replacement, with support rimarily for XBEL files.
+    </p>
+
+<p> <a href="http://www.webweaver.org/dan/bookmarks/op2xbel.txt">op2xbel.pl</a>
+    is a Perl script Dan Loda wrote to convert Opera bookmarks to  XBEL.
+    </p>
+
+<p> <a href=
+    "http://twistedmatrix.com/users/jh.twistd/moin/moin.cgi/xbel_2d1_2e0_2exsl"
+    >xbel-1.0.xsl</a> is an XSLT script by Jürgen Hermann for converting
+    an XBEL document into a HTML directory.
+    </p>
+
+<p> <a href="http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/135131"
+    >Merging XBEL Bookmark files</a>, by Uche Ogbuji, is a Python recipe for
+    merging 2 XBEL files.
+    </p>
+
+<p> <a href=
+    "http://www.stud.uni-hamburg.de/users/lennart/projects/xbelmark/index.html"
+    >xbelmark.py</a>
+    is a short python script for converting XBEL XML bookmarks into readable
+    HTML, by Lennart Poettering.
+    </p>
+
+<p> <a href="http://gazonk.org/~eloj/projects/operatoxbel.html"
+    >OperaToXBEL.py</a> is a Python script for converting Opera
+    bookmarks to XBEL, by Eddy L O Jansson.
+    </p>
+
+<p> <a href=
+    "http://www.collaboration-world.com/cgi-bin/collaboration-world/project/index.cgi?pid=1/"
+    >XBELette</a>, a "Client-server solution for managing your bookmarks".
+    </p>
+
+<p> <a href="http://www.xefer.com/rebel/">Rebel: A RE(ST API for X)BEL</a>
+    is a convntion proposed for managing the XBEL hierarchicy, and accessing
+    this hierarchy using URL conventions.
+    </p>
+
+<p> <a href="http://www.aaronland.info/perl/apache/xbel/Apache-XBEL.html"
+    >Apache::XBEL</a> is an Apache mod_perl handler that uses XSLT to
+    transform XBEL files into dynamic HTML documents.
+    </p>
+
+<p> <a href="http://www.favorez.com/xml">Favorez</a>
+    is an AxtiveX IE 5+ plug-in program that creates web pages from the
+    users' favorites.  It uses XBEL, and includes an <a href=
+    "http://www.favorez.com/samples/xml/op_my_favorites.xsl"
+    >XSLT stylsheet</a> for converting XBEL to a dynamic folder-based
+    view.  See <a href=
+    "http://mail.python.org/pipermail/xml-sig/2003-May/009456.html"
+    >this announcement</a> for more details and examples.
+    </p>
+
+<p> <a href="http://search.cpan.org/dist/Net-Delicious-Export-Post-XBEL/">Net-Delicious-Export-Post-XBEL</a> is a Perl module to export <a href="http://del.icio.us">del.icio.us</a> postings as XBEL SAX events. 
+    </p>
+
+<p> Waitman C. Gobble, II has posted a <a href="http://wcg2.com/xbook/index.php.txt">sample of PHP code to parse XBEL</a>, in particular XBEL bookmarks generated by Firefox.
+    </p>
+
+<p> Rowan Rodrik has a <a href="http://members.home.nl/bigsmoke/en/code.htm#xbel">collection of XBEL tools, including a set of XSLT sheets to transform an XBEL file to a directory of XHTML files or one, big monolithic XHTML file; and an XSLT sheet to alphabetically sort an XBEL file.</a>
+    </p>
+
+<!-- Easy cut-n-paste :-)
+<p> <a href=""></a>
+    </p>
+-->
+
+<!-- I don't think this section is needed any more.
+     XBEL is now near universal, no?  -Uche 050127
+
+<h3>Available Bookmark Collections</h3>
+
+<p> Some notice of XBEL has been made, and collections are starting to
+    become available.  We will list those we know of here.  If you know
+    of additional collections that should be listed, please send a note
+    to the <a href="http://mail.python.org/mailman/listinfo/xml-sig/"
+    title="XML-SIG Info Page (mailing list)">XML-SIG mailing list</a>.
+    </p>
+
+<ul>
+    <li><a href="http://www.nwalsh.com/bookmarks/" title="The
+          nwalsh.com Home Page - XBEL Bookmarks">SGML/XML Bookmarks</a>
+        -- <a href="http://www.nwalsh.com/~ndw/" title="Norm's Home Page"
+          >Norm Walsh</a>'s collection of links related to SGML and
+          XML.</li>
+    <li><a href="http://www.nwalsh.com/bookmarks/" title="The
+          nwalsh.com Home Page - XBEL Bookmarks">Perl Bookmarks</a>
+        -- Another collection from <a href="http://www.nwalsh.com/~ndw/"
+          title="Norm's Home Page">Norm Walsh</a>, pertaining to the Perl
+        programming language.</li>
+    <li><a href="http://www.pasteur.fr/recherche/BNB/bookmarks/"
+          title="BioNetbook's bookmarks">BioNetbook</a> -- Bookmarks
+        related to biology, maintained by the <a
+          href="http://www.pasteur.fr/" title="Institut
+          Pasteur">Institut Pasteur</a>.  The XBEL version was
+        created by Stephane Bortzmeyer.</li>
+    <li><a href="http://www.webweaver.org/dan/bookmarks/"> Dan Loda's
+          Opera-related bookmarks</a>.</li>
+</ul>
+
+-->

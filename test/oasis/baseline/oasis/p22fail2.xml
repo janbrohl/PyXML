@@ -1,0 +1,7 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_element_type(doc, EMPTY)
+dtd_end()
+fatal('XML declaration must appear first in document')
+set_entity_info(1.0, None, None)

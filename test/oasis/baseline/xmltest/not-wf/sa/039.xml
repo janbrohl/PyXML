@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_start_tag(a, {})
+fatal("End tag for 'aa' seen, but 'a' expected")
+fatal("End tag for 'doc' seen, but 'a' expected")

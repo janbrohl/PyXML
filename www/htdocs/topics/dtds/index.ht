@@ -1,0 +1,41 @@
+Title: XML-SIG DTDs
+Author: xml-sig@python.org
+Meta:  <META NAME="keywords" CONTENT="XBEL DTD">
+Other-Links: 
+   <LI><a href="../index.html">Python/XML page</a>
+
+<h3>XML-SIG Document Type Declarations</h3>
+
+<P>Over the course of the discussions on the XML-SIG mailing list,
+people have occasionally developed Document Type Declarations for some
+interesting markup language.  For reference, copies of these DTDs are
+made available here; you can link to them from other Web pages, and
+XML documents can use the respective URLs for the DTDs in namespace
+declarations.
+
+
+<h4>XBEL: XML Bookmark Exchange Language</h4>
+
+<p> XBEL represents a Web browser's collection of bookmarks. Converters
+are available to convert several browser-specific formats (Netscape,
+MS Internet Explorer, Opera, Lynx) to XBEL and back.  Some sample code
+is included as a demo application in the Python/XML package.
+
+<p> More information is available on the <a href="../xbel/">XBEL</a>
+page.
+
+<UL>
+
+<LI><a href="xbel.dtd">DTD</A>
+
+</UL>
+
+<h4>QEL: Quotation Exchange Language</h4>
+
+<p>QEL is used to store collections of quotations.   
+More information is available on the <a
+href="http://www.amk.ca/qel/">QEL home page</a>.
+
+<UL>
+<LI><a href="qel-2.0.dtd">DTD</A>
+</UL>

@@ -1,0 +1,80 @@
+Title: General XML Information
+Author: xml-sig@python.org
+Meta:  <META NAME="description" CONTENT="A collection of links that will be helpful in learning about XML.">
+
+<H3>General XML Information</H3>
+
+<P>This page collects links to useful general resources about XML.
+
+<UL>
+
+  <LI><A HREF="http://www.w3.org/XML/">W3C's XML page</A><BR> 
+Contains
+the XML 1.0 Recommendation, and working drafts of other
+specificiations related to XML.
+
+  <LI><a
+href="http://www.stud.ifi.uio.no/~larsga/download/xml/xml_eng.html">An
+introduction to XML</a><BR>
+Written by Lars Marius Garshol.
+
+  <LI><A HREF="http://www.oasis-open.org/cover/">Robin Cover's XML
+page</A><BR>
+An excellent starting point for discovering XML-related resources on the Web.
+
+<LI><a href="http://www.ucc.ie/xml/">The XML FAQ</a><BR>
+
+<LI><a href="http://www.jclark.com/xml/">James Clark's collection of
+XML Resources</a><BR>
+Of more interest to advanced XML users, this page includes a specification for Canonical XML, an XML parser
+test suite, and the C source code for the Expat parser.
+a
+
+<LI><A HREF="http://www.schema.net">Schema.net</A><BR> 
+<A HREF="http://www.xmlinfo.com">XML Information</A><BR> 
+<A HREF="http://www.xmlsoftware.com">XML Software</A><BR> 
+
+Three very useful resources maintained by James Tauber.
+Schema.net lists XML Document Type Definitions for various
+application domains; XMLinfo.com lists specifications and other documents; 
+XMLsoftware.com lists software for XML processing.
+
+<LI><A HREF="http://www.xml.com">XML.com</A><BR> XML.com runs various
+articles and columns about XML and its applications on a monthly
+basis.  Perhaps the closest thing to an XML magazine at the moment.
+
+</UL>
+
+<H3>Mailing list archives</H3>
+<UL>
+<LI><a href="http://www.findmail.com/listsaver/xml-dev/">The xml-dev
+mailing list</a><BR>
+xml-dev is for general technical discussion of XML.  Much of
+the discussion about SAX has taken place here.
+
+<LI><a href="http://lists.w3.org/Archives/Public/www-dom/">The www-dom
+mailing list</A><BR>
+www-dom is for public discussion of the Document Object Model
+development effort.
+
+</UL>
+
+<H3>Other XML-based Development Efforts</H3>
+
+<UL>
+
+<LI><A
+HREF="http://www.scripting.com/frontier5/xml/code/rpc.html">Remote
+Procedure Calls</A><BR> 
+A proposal to perform RPC over HTTP using XML
+as the information exchange format.  It's already implemented for
+Frontier, a Macintosh scripting system, and won't be too difficult to
+support this in Python, should it prove useful.  Proposed by Dave
+Winer.
+
+<LI><A
+HREF="http://www.w3.org/TR/1998/NOTE-webbroker-19980511/">WebBroker</A><BR>
+A W3C Note about something similiar to Winer's RPC-over-HTTP-via-XML
+proposal.
+
+</UL>

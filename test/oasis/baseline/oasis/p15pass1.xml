@@ -1,0 +1,6 @@
+doc_start()
+handle_comment('a\012<!DOCTYPE\012<?-\012]]>-<[ CDATA [\012"- -\'-\012-<doc>')
+handle_comment('')
+handle_start_tag(doc, {})
+handle_end_tag(doc)
+doc_end()

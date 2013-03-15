@@ -1,0 +1,16 @@
+This directory contains unit tests for the PyXML package.
+
+To run the tests under CPython, you need to either install PyXML first
+or add the appropriate build directory (created by distutils) to your
+PYTHONPATH environment variable. (This will be
+build/lib.<platform>-<version>, relative to the top level of the PyXML
+source distribution.)  Run the testxml.py script to execute the tests.
+
+Two additional scripts are provided to run a larger set of tests for
+the DOM implementations available in PyXML.  These tests are based
+only on the W3C specifications and the Python bindings.  The script
+chkdom_4dom.py runs the tests on the 4DOM implementation (the primary
+DOM implementation included with PyXML), and chkdom_minidom.py runs
+the same tests on the minidom implementation (shared with the Python
+standard library).  These tests are incredibly detailed, and no known
+Python DOM passes the entire suite.

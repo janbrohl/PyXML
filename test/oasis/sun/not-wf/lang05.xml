@@ -1,0 +1,6 @@
+<!DOCTYPE root [
+<!ELEMENT root ANY>
+<!ATTLIST root xml:lang CDATA #IMPLIED>
+]>
+<root xml:lang="i-en/us"/>
+

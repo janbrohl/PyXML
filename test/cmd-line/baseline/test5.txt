@@ -1,0 +1,7 @@
+xmlproc version 0.70
+Parsing catalog file 'in/catalog.soc'
+Parsing DOCUMENT 'in/doc.xml' from catalog
+
+Parsing 'in/doc.xml'
+
+Parse complete, 0 error(s) and 0 warning(s)

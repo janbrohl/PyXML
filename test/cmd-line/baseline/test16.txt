@@ -1,0 +1,9 @@
+xmlproc version 0.70
+Error: Language 'uggabugga' not available
+
+Parsing 'in/doc4.xml'
+E:in/doc4.xml:1:19: Unsupported XML version
+W:in/doc4.xml:6:3: Element 'tst' has attribute list, but no element declaration
+W:in/doc4.xml:10:9: Unsupported character number '256' in character reference
+
+Parse complete, 1 error(s) and 2 warning(s)

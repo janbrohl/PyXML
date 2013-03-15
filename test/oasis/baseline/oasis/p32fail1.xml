@@ -1,0 +1,3 @@
+doc_start()
+fatal('Construct started, but never completed')
+fatal('Premature document end, no root element')

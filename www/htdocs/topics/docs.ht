@@ -1,0 +1,60 @@
+Title: Python/XML Documentation
+Author: xml-sig@python.org
+Meta:  <META NAME="description" CONTENT="Lists tutorials, manuals, books, and articles about using Python for XML processing.">
+
+<H3>Python/XML Documentation</H3>
+
+<P>This page collects documents about processing XML with Python.
+
+<UL>
+
+<LI>
+<a
+href="howto/xml-howto.html">XML HOWTO</A><BR> 
+The XML HOWTO 
+introduces the PyXML package in a tutorial-style  form.
+
+<!--
+<LI><A HREF="http://www.python.org/doc/howto/xml-ref/">Python/XML reference
+manual</A><BR>
+
+Reference documentation for the Python/XML modules.
+-->
+
+<li><a href="compliance.html">DOM compliance issues</a> describes where
+Python DOM tools differ from the standard.</li>
+<li><a href="http://www.hobby.nl/~scaprea/XML/">"Writing an
+application for a SAX-compliant XML parser"</a> is a tutorial showing
+how to use SAX in Python.
+
+<li><a
+href="ftp://ftp.logilab.org/pub/talks/python-uk-2002.pdf">"Python's
+XML Tools"</a>, slides from a PyXML tutorial presented at the first
+Python UK conference.  (In PDF format.)
+
+<li><a href="http://purl.net/wiki/xml-sig/">XML-SIG Wiki</a>: a set 
+of collectively edited Web pages about Python and XML.
+
+<li><a href="http://uche.ogbuji.net/tech/akara/nodes/2003-01-01/pyxml-akara">Python/XML Akara site</a>: a blog-like collection of
+information, tips and pointers on Python/XML.
+
+</UL>
+
+<H3>General XML Documentation</H3>
+
+<ul>
+<li><a href="http://www.w3.org">The World Wide Web Consortium</a> is the 
+home of many XML-related specifications.
+
+<li><a href="http://www.w3schools.com/default.asp">W3Schools</a> offers
+a collection of XML tutorials.</li>
+
+<li><a href="http://www.zvon.org/">ZVON</a> has over a dozen different
+XML tutorials.
+
+<li><a href="http://www-106.ibm.com/developerworks/xml/">IBM
+DeveloperWorks</a> has many articles on XML.  Two authors, David Mertz 
+and Uche Ogbuji, often use Python for their examples.
+
+</ul>
+

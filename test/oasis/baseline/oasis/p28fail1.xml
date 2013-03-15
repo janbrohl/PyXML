@@ -1,0 +1,8 @@
+doc_start()
+handle_doctype(doc, None, None)
+handle_doctype(doc, None, None)
+dtd_start()
+new_element_type(doc, EMPTY)
+fatal('Illegal construct')
+dtd_end()
+fatal('Premature document end, no root element')

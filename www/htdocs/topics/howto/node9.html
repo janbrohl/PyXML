@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>3.3 Searching Element Content</title>
+<META NAME="description" CONTENT="3.3 Searching Element Content">
+<META NAME="keywords" CONTENT="xml-howto">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="xml-howto.css">
+<LINK REL="next" HREF="node10.html">
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" href="SAX.html">
+<LINK REL="next" HREF="node10.html">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node8.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A href="SAX.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node10.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node8.html">3.2 Error Handling</A>
+<b class="navlabel">Up:</b> <a class="sectref" href="SAX.html">3 SAX: The Simple</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node10.html">3.4 Related Links</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000430000000000000000">
+3.3 Searching Element Content</A>
+</H2>
+
+<P>
+Let's tackle a slightly more complicated task, printing out all issues
+written by a certain author.  This now requires looking at element
+content, because the writer's name is inside a <code>writer</code>
+element: <code>&lt;writer&gt;Peter Milligan&lt;/writer&gt;</code>.
+
+<P>
+The search will be performed using the following algorithm:
+
+<P>
+
+<OL>
+<LI>The <tt class="method">startElement</tt> method will be more complicated.  For
+<code>comic</code> elements, the handler has to save the title and
+number, in case this comic is later found to match the search
+criterion.  For <code>writer</code> elements, it sets a
+<code>inWriterContent</code> flag to true, and sets a <code>writerName</code>
+attribute to the empty string.
+
+<P>
+</LI>
+<LI>Characters outside of XML tags must be processed.  When
+<code>inWriterContent</code> is true, these characters must be added to the
+<code>writerName</code> string.
+
+<P>
+</LI>
+<LI>When the <code>writer</code> element is finished, we've now
+collected all of the element's content in the <code>writerName</code>
+attribute, so we can check if the name matches the one we're searching 
+for, and if so, print the information about this comic.  We must also
+set <code>inWriterContent</code> back to false.
+</LI>
+</OL>
+
+<P>
+Here's the first part of the code; this implements step 1.
+
+<P>
+<dl><dd><pre class="verbatim">
+from xml.sax import ContentHandler
+import string
+
+def normalize_whitespace(text):
+    "Remove redundant whitespace from a string"
+    return string.join(string.split(text), ' ')
+
+class FindWriter(ContentHandler):
+    def __init__(self, search_name):
+        # Save the name we're looking for
+        self.search_name = normalize_whitespace(search_name)
+
+        # Initialize the flag to false
+        self.inWriterContent = 0
+
+    def startElement(self, name, attrs):
+        # If it's a comic element, save the title and issue
+        if name == 'comic':
+            title = normalize_whitespace(attrs.get('title', ""))
+            number = normalize_whitespace(attrs.get('number', ""))
+            self.this_title = title
+            self.this_number = number
+
+        # If it's the start of a writer element, set flag
+        elif name == 'writer':
+            self.inWriterContent = 1
+            self.writerName = ""
+</pre></dl>
+
+<P>
+The <tt class="method">startElement()</tt> method has been discussed previously.  Now
+we have to look at how the content of elements is processed.  
+
+<P>
+The <tt class="function">normalize_whitespace()</tt> function is important, and
+you'll probably use it in your own code.  XML treats whitespace very
+flexibly; you can include extra spaces or newlines wherever you like.
+This means that you must normalize the whitespace before comparing
+attribute values or element content; otherwise the comparision might
+produce a wrong result due to the content of two elements having
+different amounts of whitespace.
+
+<P>
+<dl><dd><pre class="verbatim">
+    def characters(self, ch):
+        if self.inWriterContent:
+            self.writerName = self.writerName + ch
+</pre></dl>
+
+<P>
+The <tt class="method">characters()</tt> method is called for characters that aren't
+inside XML tags.  <var>ch</var> is a string of characters. It is not
+necessarily a byte string; parsers may also provide a buffer object
+that is a slice of the full document, or they may pass Unicode
+objects (as the expat parser does in Python 2.0).
+
+<P>
+You also shouldn't assume that all the characters are passed in a
+single function call.  In the example above, there might be only one
+call to <tt class="method">characters()</tt> for the string "<tt class="samp">Peter Milligan</tt>", or
+it might call <tt class="method">characters()</tt> once for each character.  More
+realistically, if the content contains an entity reference, as in
+"<tt class="samp">Wagner
+&amp;amp; Seagle</tt>", the parser might call the method three times; once for 
+"<tt class="samp">Wagner </tt>", once for "<tt class="samp">&amp;</tt>", represented by the entity
+reference, and again for "<tt class="samp"> Seagle</tt>".
+
+<P>
+For step 2 of <tt class="class">FindWriter</tt>, <tt class="method">characters()</tt> only has to
+check <code>inWriterContent</code>, and if it's true, add the characters to
+the string being built up.
+
+<P>
+Finally, when the <code>writer</code> element ends, the entire name has
+been collected, so we can compare it to the name we're searching for.
+
+<P>
+<dl><dd><pre class="verbatim">
+    def endElement(self, name):
+        if name == 'writer':
+            self.inWriterContent = 0
+            self.writerName = normalize_whitespace(self.writerName)
+            if self.search_name == self.writerName:
+                print 'Found:', self.this_title, self.this_number
+</pre></dl>
+
+<P>
+To avoid being confused by differing whitespace, the
+<tt class="function">normalize_whitespace()</tt> function is called.  This can be
+done because we know that leading and trailing whitespace are
+insignificant for this element, in this DTD.  
+
+<P>
+End tags can't have attributes on them, so there's no <var>attrs</var>
+parameter.  Empty elements with attributes, such as "<tt class="samp">&lt;arc
+name="Season of Mists"/&gt;</tt>", will result in a call to
+<tt class="method">startElement()</tt>, followed immediately by a call to <tt class="method">endElement()</tt>.
+
+<P>
+XXX how are external entities handled?  Anything special need to be
+done for them?
+
+<P>
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node8.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A href="SAX.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node10.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node8.html">3.2 Error Handling</A>
+<b class="navlabel">Up:</b> <a class="sectref" href="SAX.html">3 SAX: The Simple</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node10.html">3.4 Related Links</A>
+<hr>
+<span class="release-info">Release 0.6.1.</span>
+</DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

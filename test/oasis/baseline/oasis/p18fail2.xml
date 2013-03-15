@@ -1,0 +1,3 @@
+doc_start()
+handle_start_tag(doc, {})
+fatal('Illegal construct')

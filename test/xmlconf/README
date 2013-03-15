@@ -1,0 +1,31 @@
+XML Conformance Test
+====================
+
+This directory contains a script that checks SAX2 parsers against the
+"XML Conformance Test Suite, v1.0, Second Edition". You can find the
+necessary files at
+
+    http://www.oasis-open.org/committees/xml-conformance/xml-test-suite.html
+
+To run the tests, get the tarball from
+
+    http://www.oasis-open.org/committees/xml-conformance/suite-v1se/xmlconf-20010315.tar.gz
+
+and patch it using
+
+    http://xmlconf.sourceforge.net/xml/update.sh
+
+Unpack the patched test suite in the PARENT directory of this directory,
+i.e. in the "test" directory. An already patched version is available from
+
+    http://pyxml.sourceforge.net/files/xmlconf-20010315-patched.tar.gz
+
+Finally, run the tests, e.g. for "xmlproc":
+
+    python sax2tests.py --validate=yes --parser=xml.sax.drivers2.drv_xmlproc >results.xml
+
+The test results are printed to stdout in XML form, if you used the above
+command, you can convert the test results to a nice looking HTML page by using 4XSLT:
+
+    4xslt -o results.html results.xml testresults.xsl
+

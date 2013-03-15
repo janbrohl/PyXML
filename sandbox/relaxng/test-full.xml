@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<element name="foo" xmlns="http://relaxng.org/ns/structure/1.0"
+    xmlns:mx="http://xml.mems-exchange.org/">
+  <choice mx:funnyattr="ignore me">
+    <empty/>
+    <choice>
+     <oneOrMore><empty/><text/><notAllowed/></oneOrMore>
+     <zeroOrMore><empty/><text/><notAllowed/></zeroOrMore>
+     <div>
+       <value datatypeLibrary="XXX">foo</value>
+       <value>foo</value>
+     </div>
+    </choice>
+  </choice>
+  <except><empty/><text/></except>
+  <mx:foo>  <mx:bar/>
+  </mx:foo>
+</element>
+

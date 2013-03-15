@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_data('\010')
+handle_end_tag(doc)
+doc_end()

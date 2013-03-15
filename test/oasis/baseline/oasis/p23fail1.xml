@@ -1,0 +1,3 @@
+doc_start()
+fatal("Processing instruction target names beginning with 'xml' are reserved")
+handle_pi(XML, 'version="1.0"')

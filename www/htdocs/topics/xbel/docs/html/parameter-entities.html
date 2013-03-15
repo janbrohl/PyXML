@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>4. DTD Structure
+</TITLE>
+<META NAME="description" CONTENT="4. DTD Structure
+">
+<META NAME="keywords" CONTENT="xbel">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="xbel.css">
+<LINK REL="next" HREF="public-text.html">
+<LINK REL="previous" HREF="top-level.html">
+<LINK REL="up" HREF="xbel.html">
+<LINK REL="next" HREF="public-text.html">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<div class=navigation>
+<table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html159"
+ HREF="public-text.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> <A NAME="tex2html156"
+ HREF="xbel.html"><img width=32 height=32 align=bottom border=0 alt="up"
+ src="./up.gif"></A> <A NAME="tex2html150"
+ HREF="top-level.html"><img width=32 height=32 align=bottom border=0 alt="previous"
+ src="./previous.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html158"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html160"
+ HREF="public-text.html">A. Public Text</A>
+<b>Up:</b> <A NAME="tex2html157"
+ HREF="xbel.html">The XML Bookmark Exchange</A>
+<b>Previous:</b> <A NAME="tex2html151"
+ HREF="top-level.html">3. XBEL Document Structure</A>
+<br><hr><p></div>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html161"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Use of Parameter Entities
+              </A>
+<UL>
+<LI><A NAME="tex2html162"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&#37;nodes.mix;</TT> Entity
+                   </A>
+<LI><A NAME="tex2html163"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> The <TT>&#37;node.att;</TT> Entity
+                   </A>
+<LI><A NAME="tex2html164"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> The <TT>&#37;url.att;</TT> Entity
+                   </A>
+</UL>
+<LI><A NAME="tex2html165"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Extending the DTD
+              </A>
+<LI><A NAME="tex2html166"
+ HREF="parameter-entities.html"><SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN> General Entities
+              </A>
+<UL>
+<LI><A NAME="tex2html167"
+ HREF="parameter-entities.html">Rationale</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION000500000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>. DTD Structure
+         
+</H1>
+
+<P>
+This section discusses how the DTD itself is organized.  This is
+  mostly of interest to the maintainers of XBEL and any descendent
+  document types that may be defined in the future.
+
+<P>
+
+<H2><A NAME="SECTION000510000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Use of Parameter Entities
+              
+</H2>
+
+<P>
+Limited use of parameter entities is made in the XBEL DTD.  The
+    suffix-notation is adopted from the ``XMLspec'' DTD report
+    [<A
+ HREF="cite_xbel-home.html#w3c-xmlspec">Mal98</A>].  Specifically, the "<tt>.mix</tt>" suffix is used
+    for entities which define repeatable-or groups of elements, and
+    "<tt>.att</tt>" is used for entities which define attributes.
+
+<P>
+
+<H3><A NAME="SECTION000511000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&#37;nodes.mix;</TT> Entity
+                   
+</H3>
+
+<P>
+The <TT>&#37;nodes.mix;</TT> entity lists the element types which
+      may be used to form the nodes of the hierarchical data structure
+      described by an XBEL instance.  This entity species a mixture of
+      <TT>&lt;bookmark&gt;</TT>, <TT>&lt;folder&gt;</TT>, <TT>&lt;separator&gt;</TT> and
+      <TT>&lt;alias&gt;</TT> elements.
+
+<P>
+
+<H3><A NAME="SECTION000512000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> The <TT>&#37;node.att;</TT> Entity
+                   
+</H3>
+
+<P>
+This entity is used to define attributes for element types which 
+      hold the real content of the bookmark data.  It is used on the
+      <TT>&lt;bookmark&gt;</TT> and <TT>&lt;folder&gt;</TT> elements.  It defines
+      the optional <TT>added</TT> and <TT>id</TT> attributes.
+
+<P>
+
+<H3><A NAME="SECTION000513000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> The <TT>&#37;url.att;</TT> Entity
+                   
+</H3>
+
+<P>
+This entity defines the attributes which are available on
+      elements which refer to specific resources.  In XBEL 1.0, this
+      is only used on the <TT>&lt;bookmark&gt;</TT> element.  It defines a
+      required <TT>href</TT> attribute and the optional attributes
+      <TT>modified</TT> and <TT>visited</TT>.
+
+<P>
+
+<H2><A NAME="SECTION000520000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Extending the DTD
+              
+</H2>
+
+<P>
+Extensibility of XBEL relies on three foundations: XML namespaces
+    and the acceptability of well-formed instances, localized
+    parameters entities, and the simplicity of the DTD itself.
+
+<P>
+The primary expectation for DTD extensions is that new elements
+    and attributes will be introduced and defined using XML
+    namespaces.  Though still in the stage of a working draft within
+    the W3C, namespaces offer the most flexible extension mechanism
+    available for XML-based markup languages used in wide-spread
+    deployment.  Until validation requirements in the context of
+    namespaces are more clearly defined, XBEL instances using
+    namespaces can apply well-formedness rules as a vehicle for
+    partial validation.
+
+<P>
+More traditional document type extension uses parameter entities
+    reserved for localization.  The XBEL public text provides three
+    such entities as ``hooks'' to allow local customization.  For each 
+    of the parameter entities described in Section
+    <A HREF="parameter-entities.html#parameter-entities">4.1</A>, ``Use of Parameter Entities,'' a
+    <TT>&#37;local.<i>name</i>;</TT> variant is declared and used in the 
+    definition of each of the entities described above.  This is less
+    flexible than the namespace approach, but allows a new document
+    type to be created which can be used for validation with current
+    tools without having to create a new public text from scratch.
+
+<P>
+The third foundation for extensibility, the simplicity of the DTD, 
+    can be effectively used only by taking a ``steal this code''
+    approach to reuse.  XBEL is sufficiently simple that it can easily 
+    be understood in its entirety, and a variant document type created 
+    by crafting a new public text.
+
+<P>
+
+<H2><A NAME="SECTION000530000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN> General Entities
+              
+</H2>
+
+<P>
+The XBEL DTD defines no general entities.
+
+<P>
+
+<H4><A NAME="SECTION000530100000000000000">
+Rationale</A>
+</H4>
+      Since XBEL is intended as an interchange format for software and
+      not as an authoring format, there is no need to support typical
+      entities used to enter special characters.  Entities which do
+      not correspond to Unicode characters are too
+      application-specific to predict meaningfully
+      [<A
+ HREF="cite_xbel-home.html#unicode20">UC96</A>,<A
+ HREF="cite_xbel-home.html#unicode21">UC98</A>].
+
+<P>
+
+<p>
+<div class=navigation><hr><table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html159"
+ HREF="public-text.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> <A NAME="tex2html156"
+ HREF="xbel.html"><img width=32 height=32 align=bottom border=0 alt="up"
+ src="./up.gif"></A> <A NAME="tex2html150"
+ HREF="top-level.html"><img width=32 height=32 align=bottom border=0 alt="previous"
+ src="./previous.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html158"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html160"
+ HREF="public-text.html">A. Public Text</A>
+<b>Up:</b> <A NAME="tex2html157"
+ HREF="xbel.html">The XML Bookmark Exchange</A>
+<b>Previous:</b> <A NAME="tex2html151"
+ HREF="top-level.html">3. XBEL Document Structure</A>
+</div>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,19 @@
+
+=== Changes to xmlproc since version 0.51:
+
+  - 40% speed increase for well-formedness parsing. The improvement
+    for validating parsing seems to be around 25%. (Depends a lot on
+    DTD size versus document size.)
+	
+  - Error reporting improved. Better error messages, and support for
+    error messages in different languages.
+	
+  - xvcmd.py option interpretation improved (-l option added)
+	
+  - Numerous minor parse bug fixes
+  
+  - Some API extensions:
+    - CatalogManager.get_public_ids() method added
+    - DTD.get_elements() method added
+    - Parser.set_error_language() method added
+    - optional bufsize argument added to Parser.parse_resource()

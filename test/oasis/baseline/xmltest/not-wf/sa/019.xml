@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+fatal('Not a valid name')
+fatal("End tag for '' seen, but 'doc' expected")
+fatal("Premature document end, element 'doc' not closed")

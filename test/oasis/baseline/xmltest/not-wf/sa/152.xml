@@ -1,0 +1,3 @@
+doc_start()
+fatal('XML version missing on XML declaration')
+set_entity_info(None, utf-8, None)

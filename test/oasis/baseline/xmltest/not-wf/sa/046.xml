@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_data('\012')
+fatal("One of '>' or '/>' expected")
+fatal("End tag for 'a' seen, but 'doc' expected")

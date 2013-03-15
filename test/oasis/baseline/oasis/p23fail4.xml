@@ -1,0 +1,4 @@
+doc_start()
+set_entity_info(1.0, None, yes)
+fatal("'?>' expected")
+fatal('Character data not allowed outside root element')

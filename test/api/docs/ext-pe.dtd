@@ -1,0 +1,4 @@
+
+<!ENTITY % test "huhei">
+<!ELEMENT %test; EMPTY>
+<!ELEMENT dummy EMPTY>

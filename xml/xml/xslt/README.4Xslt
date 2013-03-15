@@ -1,0 +1,66 @@
+The following files were taken from 4Xslt unmodified:
+
+ParsedPattern.py
+ParsedStepPattern.py
+ParsedRelativePathPattern.py
+ParsedLocationPathPattern.py
+MessageSource.py
+OutputHandler.py
+NullWriter.py
+PlainTextWriter.py
+HtmlWriter.py
+XmlWriter.py
+AttributeElement.py
+AttributeValueTemplate.py
+ChooseElement.py
+WhenElement.py
+OtherwiseElement.py
+CopyElement.py
+CopyOfElement.py
+CommentElement.py
+ElementElement.py
+ForEachElement.py
+IfElement.py
+LiteralText.py
+MessageElement.py
+NumberElement.py
+Roman.py
+ParamElement.py
+ProcessingInstructionElement.py
+SortElement.py
+TemplateElement.py
+TextElement.py
+VariableElement.py
+ValueOfElement.py
+WithParamElement.py
+InternalException.py
+BuiltInExtElements.py
+TextWriter.py
+TextSax.py
+_4xslt.py
+RtfWriter.py
+
+The following files were adjusted for use with the Yapps parser:
+
+xml.xslt.__init__.py
+XPatternParser.py
+XPattern.py
+XPatterParserBase.py   [only for testsuite]
+
+The following files were ported to use minidom:
+
+Processor.py
+XsltContext.py
+StylesheetReader.py
+LiteralText.py
+StyleSheet.py
+LiteralElement.py
+
+The following files where modified not to use Ft.Lib.Uri, and
+pDomlette:
+
+XsltFunctions.py
+ApplyTemplatesElement.py
+AttributeSetElement.py
+CallTemplateElement.py
+OtherXslElement.py

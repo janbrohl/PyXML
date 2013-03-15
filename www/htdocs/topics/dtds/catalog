@@ -1,0 +1,9 @@
+
+  --  This is a SOCAT catalog for public texts provided by the  --
+  --  Python XML-SIG.                                           --
+
+  --  For more information, refer to:                           --
+  --  http://www.python.org/topics/xml/                         --
+
+PUBLIC "+//IDN python.org//DTD XML Bookmark Exchange Language 1.0//EN//XML"  "http://www.python.org/topics/xml/dtds/xbel-1.0.dtd"
+PUBLIC "+//IDN python.org//DTD Quotation Exchange Language 2.0//EN//XML" "http://www.python.org/topics/xml/dtds/qel-2.0.dtd"

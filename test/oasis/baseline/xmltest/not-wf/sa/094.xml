@@ -1,0 +1,5 @@
+doc_start()
+fatal('XML version missing on XML declaration')
+set_entity_info(None, None, None)
+fatal("'?>' expected")
+fatal('Character data not allowed outside root element')

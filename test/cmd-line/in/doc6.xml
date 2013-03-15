@@ -1,0 +1,9 @@
+
+<!DOCTYPE doc [
+  <!ELEMENT doc (empty)>
+  <!ELEMENT empty EMPTY>
+  <!ENTITY e "empty/>">
+]>
+<doc>
+&e;
+</doc>

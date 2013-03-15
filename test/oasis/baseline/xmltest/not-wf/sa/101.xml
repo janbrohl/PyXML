@@ -1,0 +1,4 @@
+doc_start()
+fatal('Not a valid encoding name')
+warning("Unsupported encoding ' utf-8'")
+set_entity_info(1.0,  utf-8, None)

@@ -1,0 +1,4 @@
+xmlproc version 0.70
+
+Parsing 'in/doc3.xml'
+Parse complete, 0 error(s) and 0 warning(s)

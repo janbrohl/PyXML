@@ -1,0 +1,6 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_data('\012')
+fatal('Not a valid name')
+fatal("'=' expected")
+fatal("One of '>' or '/>' expected")

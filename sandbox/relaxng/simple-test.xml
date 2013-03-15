@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<!-- Contrived test file that exercises the parser for the RELAX NG
+     simplified format.
+-->
+
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+<start>
+  <ref name="foo.element"/>
+</start>
+
+<define name="foo.element">
+  <element>  
+    <name ns="http://test-ns">foo</name>
+    <ref name="bar.element"/>
+  </element>
+</define>
+
+<define name="bar.element">
+  <element>  
+    <choice><name ns="http://test-ns">bar</name><name ns="http://test-ns">baz</name></choice>
+    <text/>
+  </element>
+</define>
+
+<define name="quux.element">
+  <element>  
+    <anyName/>
+    <list><empty/></list>
+  </element>
+</define>
+
+<define name="quux.element">
+  <element>  
+    <anyName><except><name ns="http://test-ns">foo</name></except></anyName>
+    <attribute><anyName/><text/></attribute>
+  </element>
+</define>
+
+<define name="frob.element">
+  <element>  
+    <nsName ns="http://test-ns"/>
+    <oneOrMore><text/></oneOrMore>
+  </element>
+</define>
+
+<define name="tweak.element">
+  <element>  
+    <nsName ns="http://test-ns"><except><name ns="http://test-ns">foo</name></except></nsName>
+    <choice><text/>
+      <value type="type1" datatypeLibrary="http://datalib1" 
+         ns="http://namespace">html</value></choice>
+  </element>
+</define>
+
+<define name="group.element">
+  <element>  
+    <nsName ns="http://test-ns"><except><name ns="http://test-ns">foo</name></except></nsName>
+    <group><ref name="bar.element"/><text/></group>
+  </element>
+</define>
+
+<define name="interleave.element">
+  <element>  
+    <nsName ns="http://test-ns"><except><name ns="http://test-ns">foo</name></except></nsName>
+    <interleave><data type="datatype" datatypeLibrary="anyURI">
+        <param name="param1">value1</param>
+    </data>
+    <data type="datatype" datatypeLibrary="anyURI">
+        <except><text/></except>
+    </data>
+    </interleave>
+  </element>
+</define>
+
+</grammar>
+
+    

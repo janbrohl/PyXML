@@ -1,0 +1,5 @@
+doc_start()
+fatal("'<' not allowed in attribute values")
+fatal("'<' not allowed in attribute values")
+fatal('Construct started, but never completed')
+fatal('Premature document end, no root element')

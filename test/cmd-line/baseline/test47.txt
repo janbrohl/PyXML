@@ -1,0 +1,10 @@
+xmlproc version 0.70
+
+Parsing 'in/nstest4.xml'
+E:in/nstest4.xml:12:32: Forventet attributt-type eller liste av alternativer
+<def-ns root>&#10;  W:in/nstest4.xml:17:23: Navnerommets prefiks-navn kan ikke inneholde kolon
+<prefix:test:check>W:in/nstest4.xml:17:23: Navnerommets prefiks-navn kan ikke inneholde kolon
+</prefix:test:check> &#10;&#10;  W:in/nstest4.xml:19:27: Navnerommets URI kan ikke være tomt
+<def-ns test></def-ns test> &#10;  W:in/nstest4.xml:20:18: Navnerommets prefiks er ikke deklarert
+<prefix3:test>W:in/nstest4.xml:20:18: Navnerommets prefiks er ikke deklarert
+</prefix3:test>          &#10;</def-ns root>Parse complete, 1 error(s) and 5 warning(s)

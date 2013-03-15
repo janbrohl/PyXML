@@ -1,0 +1,22 @@
+Title: General SAX Information
+Author: xml-sig@python.org
+Meta:  <META NAME="description" CONTENT="A collection of links that will be helpful in learning about SAX, the Simple API for XML.">
+
+<H3>General SAX Information</H3>
+
+<P>SAX is a common event-based interface for object-oriented XML
+parsers.
+
+<UL>
+  <LI><A HREF="http://www.megginson.com/SAX/">David Megginson's SAX page</A><BR>
+Megginson was the primary force behind SAX's development, and implemented the Java version of SAX.
+
+<LI><A HREF="http://www.megginson.com/SAX/event.html">What is an Event-Based Interface?</a><BR>
+This page explains what an event-based interface is, and contrasts 
+the event-based SAX with the tree-based
+Document Object Model (DOM).
+
+
+</UL>
+
+

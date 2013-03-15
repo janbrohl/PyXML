@@ -1,0 +1,4 @@
+doc_start()
+fatal("'=' expected")
+fatal("One of '>' or '/>' expected")
+fatal("Element 'doc' not open")

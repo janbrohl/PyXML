@@ -1,0 +1,4 @@
+doc_start()
+handle_start_tag(·A, {})
+handle_end_tag(·A)
+doc_end()

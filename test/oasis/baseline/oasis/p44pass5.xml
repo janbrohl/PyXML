@@ -1,0 +1,4 @@
+doc_start()
+handle_start_tag(doc, {'att' : 'val', 'att2' : 'val2', 'att3' : 'val3'})
+handle_end_tag(doc)
+doc_end()

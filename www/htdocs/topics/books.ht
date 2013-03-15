@@ -1,0 +1,83 @@
+Title: XML Books
+Author: xml-sig@python.org
+Meta:  <META NAME="description" CONTENT="A list of books that are helpful when trying to learn about XML, or its big brother SGML.">
+
+<H3>XML Books</H3>
+
+This page lists books that other users have found to be helpful when
+trying to learn about XML, or its big brother SGML.  If you have a
+favorite XML book that you'd like to recommend, please send us an e-mail and let us know about it.
+
+
+    <P><A HREF=
+      "http://www.amazon.com/exec/obidos/ISBN=1565923499/pythonsoftwareacA/"
+      >XML: Principles, Tools, and Techniques</A> (W3 Journal Vol. 2 Issue 4);
+      Dan Connolly (Editor); Paperback. 
+
+      <blockquote>Collects various articles about XML, and the
+then-current XML working draft.  The working draft included here is
+now obsolete, since the final recommendation has been issued and some
+changes were made along the way, but the articles provide a good
+introduction to XML and to the applications for which XML can be
+used.</blockquote>
+      
+     <P><A HREF=
+	"http://www.amazon.com/exec/obidos/ISBN=0130811521/pythonsoftwareacA/"
+        >The XML Handbook</A>; 
+	Charles F. Goldfarb, Paul Prescod; Paperback.
+
+     <P><A HREF=
+	"http://www.amazon.com/exec/obidos/ISBN=0136142230/pythonsoftwareacA/"
+        >The XML and SGML Cookbook</A>; 
+	Rick Jelliffe; Paperback.
+
+    <blockquote>"A quite interesting book for people who already know
+XML. It's kind of a patterns book for XML and SGML. I'm not sure I
+agree with all his advice (and a colleague who has worked a lot with
+these things does not agree at all), but the last part about character
+sets is very good."</blockquote>
+
+    <P><A 
+        HREF=
+        "http://www.amazon.com/exec/obidos/ISBN=0134889673/pythonsoftwareacA/"
+        >PARSEME.1ST: SGML for Software Developers</A>; Sean McGrath;
+        Hardcover.  
+
+	<blockquote>Approaches SGML from the software engineer's viewpoint.  
+	Some of the book discusses using Python for SGML processing.
+	</blockquote>
+
+<blockquote>"... a very good introduction to SGML for
+developers. Anyone who wants to get started on SGML would do very well
+to start here to learn the technical bits."</blockquote>
+
+<blockquote>"A very good introduction to SGML for programmers. ... It
+covers the general principles and philosophy behind SGML, and then
+dives into a careful discussion of SGML syntax, writing DTDs, common
+techniques and design issues, and ends with brief overviews of HyTime
+and DSSSL."</blockquote>
+
+     <P><A HREF=
+	"http://www.amazon.com/exec/obidos/ISBN=0136422993/pythonsoftwareacA/"
+        >Structuring XML Documents</A>; 
+	David Megginson; Paperback.
+
+<blockquote>"This book is aimed at serious XML document architects,
+covering the problems of designing DTDs that are backwards- and
+forwards-compatible, using design principles and architectural
+forms. ... It only covers DTDs for book-like markup, not database-like
+applications, and provides only a brief introduction to XML
+principles. ... If you're interested in the specific question of DTD
+design for the long term, this book is definitely worth considering;
+however, people who want a general introduction to XML should consider
+some of the other books listed here."</blockquote>
+
+       <blockquote>"Quite good, but requires you to know XML
+already. It's really a guide to DTD design that also covers
+architectural forms.  Good, but perhaps a bit long-winded."</blockquote>
+
+
+     <P><A HREF=
+	"http://www.amazon.com/exec/obidos/ISBN=155828592X/pythonsoftwareacA/"
+        >XML: A Primer</A>; 
+	Simon St. Laurent; Paperback.

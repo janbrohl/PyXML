@@ -1,0 +1,791 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>3. XBEL Document Structure
+</TITLE>
+<META NAME="description" CONTENT="3. XBEL Document Structure
+">
+<META NAME="keywords" CONTENT="xbel">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="xbel.css">
+<LINK REL="next" HREF="parameter-entities.html">
+<LINK REL="previous" HREF="requirements.html">
+<LINK REL="up" HREF="xbel.html">
+<LINK REL="next" HREF="parameter-entities.html">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<div class=navigation>
+<table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html111"
+ HREF="parameter-entities.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> <A NAME="tex2html108"
+ HREF="xbel.html"><img width=32 height=32 align=bottom border=0 alt="up"
+ src="./up.gif"></A> <A NAME="tex2html102"
+ HREF="requirements.html"><img width=32 height=32 align=bottom border=0 alt="previous"
+ src="./previous.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html110"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html112"
+ HREF="parameter-entities.html">4. DTD Structure</A>
+<b>Up:</b> <A NAME="tex2html109"
+ HREF="xbel.html">The XML Bookmark Exchange</A>
+<b>Previous:</b> <A NAME="tex2html103"
+ HREF="requirements.html">2. Requirements</A>
+<br><hr><p></div>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html113"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Date/time Attribute Values
+              </A>
+<LI><A NAME="tex2html114"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Top-level Information
+              </A>
+<UL>
+<LI><A NAME="tex2html115"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;xbel&gt;</TT> Element
+                   </A>
+<UL>
+<LI><A NAME="tex2html116"
+ HREF="top-level.html">Attributes</A>
+<LI><A NAME="tex2html117"
+ HREF="top-level.html">Processing Expectations</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html118"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Common Elements
+              </A>
+<UL>
+<LI><A NAME="tex2html119"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;title&gt;</TT> Element
+                   </A>
+<UL>
+<LI><A NAME="tex2html120"
+ HREF="top-level.html">Processing Expectations</A>
+<LI><A NAME="tex2html121"
+ HREF="top-level.html">Rationale</A>
+</UL>
+<LI><A NAME="tex2html122"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> The <TT>&lt;desc&gt;</TT> Element
+                   </A>
+<UL>
+<LI><A NAME="tex2html123"
+ HREF="top-level.html">Processing Expectations</A>
+<LI><A NAME="tex2html124"
+ HREF="top-level.html">Rationale</A>
+</UL>
+<LI><A NAME="tex2html125"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> The <TT>&lt;info&gt;</TT> Element
+                   </A>
+<UL>
+<LI><A NAME="tex2html126"
+ HREF="top-level.html">Processing Expectations</A>
+<LI><A NAME="tex2html127"
+ HREF="top-level.html">Rationale</A>
+</UL>
+<LI><A NAME="tex2html128"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> The <TT>&lt;metadata&gt;</TT> Element
+                   </A>
+<UL>
+<LI><A NAME="tex2html129"
+ HREF="top-level.html">Attributes</A>
+<LI><A NAME="tex2html130"
+ HREF="top-level.html">Processing Expectations</A>
+<LI><A NAME="tex2html131"
+ HREF="top-level.html">Rationale</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html132"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Data Organization
+              </A>
+<UL>
+<LI><A NAME="tex2html133"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;folder&gt;</TT> Element
+                   </A>
+<UL>
+<LI><A NAME="tex2html134"
+ HREF="top-level.html">Attributes</A>
+<LI><A NAME="tex2html135"
+ HREF="top-level.html">Processing Expectations</A>
+<LI><A NAME="tex2html136"
+ HREF="top-level.html">Rationale</A>
+</UL>
+<LI><A NAME="tex2html137"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> The <TT>&lt;separator&gt;</TT> Element
+                   </A>
+<UL>
+<LI><A NAME="tex2html138"
+ HREF="top-level.html">Processing Expectations</A>
+<LI><A NAME="tex2html139"
+ HREF="top-level.html">Rationale</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html140"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Bookmark Data
+              </A>
+<UL>
+<LI><A NAME="tex2html141"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;bookmark&gt;</TT> Element
+                   </A>
+<UL>
+<LI><A NAME="tex2html142"
+ HREF="top-level.html">Attributes</A>
+<LI><A NAME="tex2html143"
+ HREF="top-level.html">Processing Expectations</A>
+<LI><A NAME="tex2html144"
+ HREF="top-level.html">Rationale</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html145"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Internal References
+              </A>
+<UL>
+<LI><A NAME="tex2html146"
+ HREF="top-level.html"><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;alias&gt;</TT> Element
+                   </A>
+<UL>
+<LI><A NAME="tex2html147"
+ HREF="top-level.html">Attributes</A>
+<LI><A NAME="tex2html148"
+ HREF="top-level.html">Processing Expectations</A>
+<LI><A NAME="tex2html149"
+ HREF="top-level.html">Rationale</A>
+</UL></UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION000400000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>. XBEL Document Structure
+         
+</H1>
+
+<P>
+This section describes the structure of XBEL documents.  This
+  includes information on each element and attribute defined in the
+  DTD.  Some descriptions include references to the parameter entities 
+  used to construct the DTD; these are described in Section
+  <A HREF="parameter-entities.html#parameter-entities">4.1</A>, ``Use of Parameter Entities.''
+
+<P>
+
+<H2><A NAME="SECTION000410000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Date/time Attribute Values
+              
+</H2>
+
+<P>
+Several attributes defined in this document type require date/time
+    values stored as CDATA.  For these attributes, the value must be
+    formatted as an ISO 8601:1988 value containing a date
+    [<A
+ HREF="cite_xbel-home.html#iso8601">fS88</A>,<A
+ HREF="cite_xbel-home.html#iso8601-houston">Hou93</A>,<A
+ HREF="cite_xbel-home.html#iso8601-kuhn">Kuh98</A>].  A time value
+    should be supplied whenever the information is available to the
+    application which set the value.  The format of the values is
+    restricted to the forms specified in the profile defined in
+    <i>Date and Time Formats</i> [<A
+ HREF="cite_xbel-home.html#w3c-datetime">WW98</A>].  Attributes
+    which require this form of value are described below as having a
+    <i>date/time value</i> rather than a CDATA value.
+
+<P>
+
+<H2><A NAME="SECTION000420000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Top-level Information
+              
+</H2>
+
+<P>
+This section describes the top-level element type of XBEL
+    documents.
+
+<P>
+
+<H3><A NAME="SECTION000421000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;xbel&gt;</TT> Element
+                   
+</H3>
+
+<P>
+The <TT>&lt;xbel&gt;</TT> element defines the top-level data structure
+      stored in an XBEL instance.  It may contain optional
+      <TT>&lt;title&gt;</TT>, <TT>&lt;info&gt;</TT>, and <TT>&lt;desc&gt;</TT> elements,
+      followed by any number of elements from
+      <TT>&#37;nodes.mix;</TT>.  This is similar to the
+      <TT>&lt;folder&gt;</TT> element, but it may not be nested and carries
+      different attributes.
+
+<P>
+
+<H4><A NAME="SECTION000421100000000000000">
+Attributes</A>
+</H4>
+        The <TT>&lt;xbel&gt;</TT> element carries a <TT>version</TT>
+        attribute which has a fixed value that specifies the version
+        of the XBEL DTD.  Other attributes indicate the similarity to
+        the <TT>&lt;folder&gt;</TT> element.
+
+<P>
+<dl>          <dt><b><a name="l2h-306"><TT>version</TT>, <i>fixed</i></a></b>
+<dd>          Fixed value which specifies the version of the DTD in use.
+
+<P>
+<dt><b><a name="l2h-307"><TT>id</TT></a></b>
+<dd>          ID value to allow linking to this element; only the
+          <TT>&lt;alias&gt;</TT> element's <TT>ref</TT> attribute supports
+          a corresponding IDREF value.
+
+<P>
+<dt><b><a name="l2h-308"><TT>added</TT></a></b>
+<dd>          Date/time value which can be used to record when the
+          collection of bookmarks was created.
+	</dl>
+
+<P>
+
+<H4><A NAME="SECTION000421200000000000000">
+Processing Expectations</A>
+</H4>
+        The <TT>&lt;xbel&gt;</TT> element is in many ways similar to a
+        <TT>&lt;folder&gt;</TT> element, but may not be ``folded.''
+        Auxillary information, such as an optional <TT>&lt;title&gt;</TT>
+        element, may be shown in a substantially different way than
+        for <TT>&lt;folder&gt;</TT> in a user interface.
+
+<P>
+
+<H2><A NAME="SECTION000430000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Common Elements
+              
+</H2>
+
+<P>
+Elements described in this section may occur in different contexts
+    within an XBEL instance, but share fundamental semantic
+    interpretation in each case.
+
+<P>
+
+<H3><A NAME="SECTION000431000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;title&gt;</TT> Element
+                   
+</H3>
+
+<P>
+The <TT>&lt;title&gt;</TT> element is used to mark the title associated
+      with the immediately enclosing element.  It is used for
+      the <TT>&lt;xbel&gt;</TT>, <TT>&lt;folder&gt;</TT>, and <TT>&lt;bookmark&gt;</TT>
+      elements.  This element is always optional and may contain
+      only character data.
+
+<P>
+
+<H4><A NAME="SECTION000431100000000000000">
+Processing Expectations</A>
+</H4>
+        Software which presents bookmark information to the user in
+        any form should use the content of this element to identify
+        the resource to the user.  Additional information may be
+        needed to make the identification unambiguous.
+
+<P>
+Applications may use the text of the <TT>&lt;title&gt;</TT>
+        during search operations.
+
+<P>
+
+<H4><A NAME="SECTION000431200000000000000">
+Rationale</A>
+</H4>
+        Many Internet resources are described by a short title, often
+        displayed by the bookmarking facilities.  Storing the title
+        allows a significant improvement in user interface
+        responsiveness when compared to retrieving the resource to
+        reload the title.  Title storage is the approach taken by all
+        browsers known to the XBEL designers.
+
+<P>
+
+<H3><A NAME="SECTION000432000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> The <TT>&lt;desc&gt;</TT> Element
+                   
+</H3>
+
+<P>
+The <TT>&lt;desc&gt;</TT> element is used to store a human-readable
+      description of the enclosing element.  For a <TT>&lt;folder&gt;</TT> or 
+      the <TT>&lt;xbel&gt;</TT> element,
+      this may be used to more thoroughly explain the subject of the
+      bookmarks stored in the collection and why they may be
+      interesting.  For a <TT>&lt;bookmark&gt;</TT>, a summary of the
+      resource pointed to by the bookmark may be more appropriate.
+      This element is always optional and may contain only character
+      data.
+
+<P>
+
+<H4><A NAME="SECTION000432100000000000000">
+Processing Expectations</A>
+</H4>
+        The content of this element may be displayed to a user
+        requesting more information on the folder or bookmark
+        containing the description.  In the case of a
+        <TT>&lt;bookmark&gt;</TT>, this can be used before actually making a
+        request over the network to retrieve the resource.
+
+<P>
+Applications may use the text of the <TT>&lt;desc&gt;</TT>
+        during search operations.
+
+<P>
+
+<H4><A NAME="SECTION000432200000000000000">
+Rationale</A>
+</H4>
+        Many Internet browsers support simple annotation of bookmark
+        data with human readable text.  This element is required to
+        support exchange of this data.
+
+<P>
+
+<H3><A NAME="SECTION000433000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> The <TT>&lt;info&gt;</TT> Element
+                   
+</H3>
+
+<P>
+The <TT>&lt;info&gt;</TT> element is used to store metadata related to
+      the immediately enclosing element.  The intended use is for
+      <TT>&lt;info&gt;</TT> to store a series of <TT>&lt;metadata&gt;</TT> elements,
+      each of which ``belongs'' to some application.  An
+      ``application'' in this sense may be either a program, such as a
+      specific Internet browser, or a more general metadata scheme,
+      such as the Dublin Core [<A
+ HREF="cite_xbel-home.html#dublin-core">Dub97</A>].
+
+<P>
+The <TT>&lt;info&gt;</TT> element is always optional.  If present, it
+      must contain one or more <TT>&lt;metadata&gt;</TT> elements.
+
+<P>
+
+<H4><A NAME="SECTION000433100000000000000">
+Processing Expectations</A>
+</H4>
+        Applications are expected to ignore <TT>&lt;info&gt;</TT> elements if
+        they are not able to deal with the contents of constituent
+        <TT>&lt;metadata&gt;</TT> elements.  Whether or not <TT>&lt;info&gt;</TT>
+        elements should be ``passed through'' transparently or removed
+        depends on the purpose of the processing application, but an
+        effort should be made to retain the information whenever the
+        enclosing element is retained, even in a modified form.
+
+<P>
+
+<H4><A NAME="SECTION000433200000000000000">
+Rationale</A>
+</H4>
+        This element provides a clean way of isolating
+        application-specific metadata from more generally supported
+        constructs within the bookmark data.
+
+<P>
+
+<H3><A NAME="SECTION000434000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> The <TT>&lt;metadata&gt;</TT> Element
+                   
+</H3>
+
+<P>
+The <TT>&lt;metadata&gt;</TT> element is used as a container for all
+      auxillary information related to a node which belongs to a
+      single metadata scheme.  The specific contents of
+      <TT>&lt;metadata&gt;</TT> is highly dependent on the metadata scheme
+      which applies; XML namespaces should be used to identify
+      explicit markup used within the element.
+
+<P>
+<TT>&lt;metadata&gt;</TT> elements are always optional.  Note that an
+      <TT>&lt;info&gt;</TT> element which contains no <TT>&lt;metadata&gt;</TT>
+      elements must be removed.
+
+<P>
+
+<H4><A NAME="SECTION000434100000000000000">
+Attributes</A>
+</H4>
+        <dl>          <dt><b><a name="l2h-314"><TT>owner</TT>, <i>required</i></a></b>
+<dd>            CDATA value specifies the application which ``owns'' the
+            content of the element.  The value of this attribute
+            should be a URI which refers to a definition of the
+            application and content structure in either human- or
+            machine-processible form.  It is not required that the URI
+            be addressable through the network.
+	</dl>
+
+<P>
+It is expected that namespace attributes will be added to
+        the element to specify the markup defined for the content of
+        the <TT>&lt;metadata&gt;</TT> element.
+
+<P>
+
+<H4><A NAME="SECTION000434200000000000000">
+Processing Expectations</A>
+</H4>
+        Within an <TT>&lt;info&gt;</TT> element, each <TT>&lt;metadata&gt;</TT>
+        element is required to have a unique value for the
+        <TT>owner</TT> attribute.  Programs which modify the
+        contents of <TT>&lt;metadata&gt;</TT> elements should ensure that
+        only one <TT>&lt;metadata&gt;</TT> exists for any <TT>owner</TT>
+        value normally modified by the application within affected
+        <TT>&lt;info&gt;</TT> elements.  <TT>&lt;metadata&gt;</TT> elements for
+        other owners should remain unaffected.
+
+<P>
+Specific interpretation of <TT>&lt;metadata&gt;</TT> content is
+        highly dependent on both the <TT>owner</TT> and the
+        application, and is not otherwise within the scope of this
+        document.
+
+<P>
+
+<H4><A NAME="SECTION000434300000000000000">
+Rationale</A>
+</H4>
+        The <TT>&lt;metadata&gt;</TT> element is required to support owner
+        identification.  It is entirely reasonable for multiple owners
+        of data to share a document type for their information, but
+        otherwise require separate processing.  The Resource
+        Description Framework provides an example of an approach which
+        would require multiple applications to share a namespace
+        [<A
+ HREF="cite_xbel-home.html#w3c-rdf-syntax">LS98</A>,<A
+ HREF="cite_xbel-home.html#w3c-rdf-schema">BGL98</A>].  Some additional form of
+        ownership identification is required to ensure processors can
+        avoid destroying each other's data.
+
+<P>
+
+<H2><A NAME="SECTION000440000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Data Organization
+              
+</H2>
+
+<P>
+The elements described in this section are used to impose
+    organization on a collection of <TT>&lt;bookmark&gt;</TT> nodes.
+    <TT>&lt;folder&gt;</TT> is used to support hierarchical organization and
+    <TT>&lt;separator&gt;</TT> is used to support non-hierarchical
+    organization.
+
+<P>
+
+<H3><A NAME="SECTION000441000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;folder&gt;</TT> Element
+                   
+</H3>
+
+<P>
+The <TT>&lt;folder&gt;</TT> element is the element used to support
+      hierarchical data organization.  It is the only element type
+      which is allowed to nest within itself.
+
+<P>
+This element may contain optional <TT>&lt;title&gt;</TT>,
+      <TT>&lt;info&gt;</TT> and <TT>&lt;desc&gt;</TT> elements.  After this, any
+      number of elements from <TT>&#37;nodes.mix;</TT> are allowed.
+
+<P>
+
+<H4><A NAME="SECTION000441100000000000000">
+Attributes</A>
+</H4>
+        <dl>          <dt><b><a name="l2h-317"><TT>id</TT></a></b>
+<dd>          ID value to allow linking to this element; only the
+          <TT>&lt;alias&gt;</TT> element's <TT>ref</TT> attribute supports
+          a corresponding IDREF value.
+
+<P>
+<dt><b><a name="l2h-318"><TT>added</TT></a></b>
+<dd>          Date/time value which records when the folder was added to
+          the bookmark collection represented by the instance.
+
+<P>
+<dt><b><a name="l2h-319"><TT>folded</TT></a></b>
+<dd>          Token which records whether the contents of the folder
+          should be displayed by default in a user interface.  The
+          value may be <TT>yes</TT> or <TT>no</TT>.
+	</dl>
+
+<P>
+
+<H4><A NAME="SECTION000441200000000000000">
+Processing Expectations</A>
+</H4>
+        User interfaces should display <TT>&lt;folder&gt;</TT> elements as
+        collapsing lists, allowing the user to display or hide the
+        contents of the element on demand.  Appropriate behavior
+        outside of user interfaces is expected to be application
+        specific.
+
+<P>
+
+<H4><A NAME="SECTION000441300000000000000">
+Rationale</A>
+</H4>
+        The <TT>&lt;folder&gt;</TT> element may be used to represent
+        hierarchical relationships within a collection of bookmarks,
+        as deployed in current Internet browsers.
+
+<P>
+
+<H3><A NAME="SECTION000442000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> The <TT>&lt;separator&gt;</TT> Element
+                   
+</H3>
+
+<P>
+The <TT>&lt;separator&gt;</TT> element can be used to separate
+      bookmarks within a collection in a non-hierarchical fashion.  It 
+      may be used within a <TT>&lt;folder&gt;</TT> or the <TT>&lt;xbel&gt;</TT>
+      element.
+
+<P>
+
+<H4><A NAME="SECTION000442100000000000000">
+Processing Expectations</A>
+</H4>
+        The presence of this element may be represented by displaying
+        a horizontal line or vertical whitespace in an interactive
+        user interface or printed representation.
+
+<P>
+
+<H4><A NAME="SECTION000442200000000000000">
+Rationale</A>
+</H4>
+        A simple separator is required to support the bookmark
+        structures of existing Internet browsers.
+
+<P>
+
+<H2><A NAME="SECTION000450000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Bookmark Data
+              
+</H2>
+
+<P>
+Only one element type is used to encapsulate information specific
+    to an individual bookmark.  No need for alternate elements has
+    been demonstrated.
+
+<P>
+
+<H3><A NAME="SECTION000451000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;bookmark&gt;</TT> Element
+                   
+</H3>
+
+<P>
+A <TT>&lt;bookmark&gt;</TT> element is used to store information about
+      a specific resource.  This element may contain the optional
+      elements <TT>&lt;title&gt;</TT>, <TT>&lt;info&gt;</TT> and <TT>&lt;desc&gt;</TT>.
+
+<P>
+
+<H4><A NAME="SECTION000451100000000000000">
+Attributes</A>
+</H4>
+        The <TT>&lt;bookmark&gt;</TT> element carries more attributes than
+        other elements defined in XBEL.  These attributes are used to
+        carry much of the common information maintained on bookmarks
+        by the major browsers.
+
+<P>
+<dl>          <dt><b><a name="l2h-323"><TT>href</TT>, <i>required</i></a></b>
+<dd>          URI which specifies the resource described by the
+          <TT>&lt;bookmark&gt;</TT> element.
+
+<P>
+<dt><b><a name="l2h-324"><TT>id</TT></a></b>
+<dd>          ID value to allow linking to this element; only the
+          <TT>&lt;alias&gt;</TT> element's <TT>ref</TT> attribute supports
+          a corresponding IDREF value.
+
+<P>
+<dt><b><a name="l2h-325"><TT>added</TT></a></b>
+<dd>          Date/time value which indicates when the <TT>&lt;bookmark&gt;</TT>
+          element was added to the bookmark collection.
+
+<P>
+<dt><b><a name="l2h-326"><TT>modified</TT></a></b>
+<dd>          Date/time value which records the time of the
+          last known change to the resource identified by the
+          <TT>&lt;bookmark&gt;</TT>.
+
+<P>
+<dt><b><a name="l2h-327"><TT>visited</TT></a></b>
+<dd>          Date/time value which represents the time of the user's last
+          ``visit'' to the resource.  Note that the value for
+          <TT>modified</TT> may be more recent than the value for
+          <TT>visited</TT> if software is used that checks for
+          resources which have changed since the user last visited the
+          resource.  This feature is increasingly common in browsers.
+	</dl>
+
+<P>
+
+<H4><A NAME="SECTION000451200000000000000">
+Processing Expectations</A>
+</H4>
+        In a user interface, <TT>&lt;bookmark&gt;</TT> should typically be
+        represented by the contents of the <TT>&lt;title&gt;</TT> element, if 
+        present.  The representation of the bookmark should be
+        ``hot,'' allowing traversal to the referenced resource by the
+        user.  Additional information on the resource, such as the
+        description given in a <TT>&lt;desc&gt;</TT> element, should be
+        available to the user on demand.
+
+<P>
+Outside a user interface, processing may be too
+        application-specific to discuss here.
+
+<P>
+
+<H4><A NAME="SECTION000451300000000000000">
+Rationale</A>
+</H4>
+        The use of a single structured element type to represent
+        external resources simplifies processing while allowing a rich 
+        set of information to be maintained on each resource.
+
+<P>
+
+<H2><A NAME="SECTION000460000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Internal References
+              
+</H2>
+
+<P>
+A single element is provided to support internal references to
+    other elements within an XBEL instance.
+
+<P>
+
+<H3><A NAME="SECTION000461000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> The <TT>&lt;alias&gt;</TT> Element
+                   
+</H3>
+
+<P>
+
+<H4><A NAME="SECTION000461100000000000000">
+Attributes</A>
+</H4>
+        Only one attribute is needed for <TT>&lt;alias&gt;</TT>, and is
+        required to identify the link referent.
+
+<P>
+<dl>          <dt><b><a name="l2h-330"><TT>ref</TT>, <i>required</i></a></b>
+<dd>          IDREF value which refers to a <TT>&lt;bookmark&gt;</TT> or
+          <TT>&lt;folder&gt;</TT> element, or the document <TT>&lt;xbel&gt;</TT>
+          element.
+	</dl>
+
+<P>
+
+<H4><A NAME="SECTION000461200000000000000">
+Processing Expectations</A>
+</H4>
+        Software which presents bookmarks in a user interface should
+        distinguish aliases from other bookmarks visually, but
+        otherwise allow examination of the referent transparently.
+        Netscape Navigator does this by presenting the bookmark title
+        in an italic font; the appropriate visual distrinction is
+        likely to be dependent on other aspects of the user
+        interface.
+
+<P>
+Outside of user interface considerations, treatment of aliases 
+        is application-specific.  However, some guidance may prove
+        useful.  When encountering an <TT>&lt;alias&gt;</TT>, an application
+        should only need to traverse the <TT>&lt;alias&gt;</TT> and process
+        the referent if that referent would not otherwise be
+        processed, otherwise, the <TT>&lt;alias&gt;</TT> may usually be
+        ignored.  This should become an issue only when the
+        application is processing a portion of the bookmark hierarchy
+        rather than the complete tree.
+
+<P>
+
+<H4><A NAME="SECTION000461300000000000000">
+Rationale</A>
+</H4>
+        Netscape Navigator and Microsoft Internet Explorer bookmarks
+        can include ``aliases'' to other nodes in the hierarchical
+        structure.  Navigator supports only aliases to bookmark nodes,
+        while Internet Explorer also supports aliases to folders.
+
+<P>
+Navigator's format simply adds the attribute
+        <TT>aliasid</TT> to nodes which are referred to be aliases,
+        and the attribute <TT>aliasof</TT> to the actual alias.
+        All other information is duplicated for each alias of the
+        primary bookmark entry.  XBEL uses a distinct element and the
+        ID/IDREF mechanism provided by XML to avoid redundency and
+        support validation.
+
+<P>
+<p>
+<div class=navigation><hr><table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html111"
+ HREF="parameter-entities.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> <A NAME="tex2html108"
+ HREF="xbel.html"><img width=32 height=32 align=bottom border=0 alt="up"
+ src="./up.gif"></A> <A NAME="tex2html102"
+ HREF="requirements.html"><img width=32 height=32 align=bottom border=0 alt="previous"
+ src="./previous.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html110"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html112"
+ HREF="parameter-entities.html">4. DTD Structure</A>
+<b>Up:</b> <A NAME="tex2html109"
+ HREF="xbel.html">The XML Bookmark Exchange</A>
+<b>Previous:</b> <A NAME="tex2html103"
+ HREF="requirements.html">2. Requirements</A>
+</div>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

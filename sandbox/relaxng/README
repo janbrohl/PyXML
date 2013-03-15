@@ -1,0 +1,19 @@
+
+This source code was an attempt at implementing RELAX NG in Python,
+and is no longer being developed.  It never became fully compliant
+with the specification, as is apparent from the list of bugs in the
+TODO file, and the performance wasn't that good.
+
+If you want to use RELAX NG from Python, the best option is probably
+libxml (http://www.xmlsoft.org), a C library that implements RELAX NG
+and includes a Python interface.  Alternatively, you can invoke a
+command-line processor such as Jing
+(http://www.thaiopensource.com/relaxng/jing.html) or RNV
+(http://davidashen.net/rnv.html).
+
+There's another pure-Python implementation at
+http://downloads.xmlschemata.org/python/xvif/, but its completeness is
+unclear.
+
+--amk
+

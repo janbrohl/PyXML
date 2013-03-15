@@ -1,0 +1,6 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_general_entity(e, '<doc></doc>')
+dtd_end()
+fatal('Entity references not allowed outside root element')

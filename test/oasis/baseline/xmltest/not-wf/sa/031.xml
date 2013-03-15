@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_pi(pi, 'a form feed (\014) is not allowed in a pi')
+handle_end_tag(doc)
+doc_end()

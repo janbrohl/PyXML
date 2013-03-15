@@ -1,0 +1,3 @@
+doc_start()
+handle_start_tag(doc, {})
+fatal("Premature document end, element 'doc' not closed")

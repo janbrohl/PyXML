@@ -1,0 +1,34 @@
+Title: Python and XML Processing: Other Software: Fourthought
+Author: xml-sig@python.org
+Meta:  <META NAME="description" CONTENT="This page lists other XML-related
+	Python software, provided by Fourthought Inc.">
+
+<h3>Other Software: Fourthought</h3>
+
+<p><a href="http://www.fourthought.com">Fourthought Inc.</a> is a software vendor and consulting firm that has implemented several XML processing tools for
+use with Python; these tools are used as part of their business.
+
+<p>
+<b><a href="http://4Suite.org">4Suite</a></b><sup><small>TM</small></sup> is a platform for XML and RDF processing.  It allows users
+to take advantage of standard XML technologies rapidly and
+to develop and integrate Web-based applications.  It also puts practical
+technologies for knowledge management projects in the hands of developers.
+It is implemented in Python and C.
+</p>
+
+<p>
+At the core of 4Suite is a library of integrated tools for XML
+processing, including open technologies such as DOM, SAX, RDF, XSLT,
+XInclude, XPointer, XLink and XPath.  Layered upon this is an XML and RDF
+data repository and server.  The server supports multiple methods of
+data access, query, indexing, transformation  rich linking, and
+rules processing.  It provides the data infrastructure of a full
+database management system, including  transactions and concurrency
+support, access control and a variety of management tools.  For purposes
+of integration with other tools, it supports remote, cross-platform and
+cross-language access through HTTP (including native SOAP and WebDAV),
+RPC FTP and CORBA.  It offers APIs in Python, HTTP, SOAP and XSLT.
+
+</p>
+</tr> 
+</table>

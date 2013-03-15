@@ -1,0 +1,1184 @@
+Title: DOM Standards compliance
+Author: xml-sig@python.org
+Meta:  <META NAME="description" CONTENT="Information on how closely Python DOM implementations conform to W3C standards.">
+
+<H3>DOM Standards compliance</H3>
+
+<p>
+  The Python Library Reference includes a brief chapter on the required
+  <A HREF="http://www.python.org/doc/current/lib/dom-conformance.html">mappings
+  and conformance of Python DOM implementations</a>.
+</p>
+<p>
+  In practice, things are a little more complicated for authors of XML
+  applications, because implementations in common usage do not support the full
+  DOM standard as defined by W3C. This is partly due to design considerations
+  (for example some DOMs are optimised more for speed than full compliance), and
+  partly &#8212; particularly in older versions &#8212; due to bugs.
+</p>
+<p>
+  This table documents places where Python DOM implementations diverge from
+  the W3C DOM Level 2 Core/XML specification (with Python bindings). The
+  xml.dom.minidom module is tested in versions from the standard Python
+  language distributions, and from PyXML package versions. PyXML&#8217;s more
+  comprehensive 4DOM implementation and 4Suite&#8217;s C-based and Python-based
+  Domlettes are also included.
+</p>
+<p>
+  Any issues related to doctypes, normalization, validation and serialisation have not
+  been tested for and are not (yet) documented here; they are not always required
+  by DOM applications. Failure to raise exceptions in error conditions defined by
+  the standard is also not recorded here, as the implementations do not generally
+  perform strict error checking.
+</p>
+<p>
+  If you encounter any bugs in the latest implementations
+  of Python DOM implementations which are not already documented here, you can
+  discuss them on the <a href="http://mail.python.org/mailman/listinfo/xml-sig">XML-SIG
+  mailing list</a> and in the case of the Python/PyXML packages, enter them into
+  the <a href="http://sourceforge.net/tracker/?group_id=6473&atid=106473">PyXML
+  bug tracker</a>.
+</p>
+<style>
+  table.compliance {
+    font-size: 88%;
+  }
+  table.compliance th {
+    font-weight: normal;
+    text-align: left;
+    background: rgb(153, 204, 255);
+  }
+  table.compliance th.key {
+    font-weight: bold;
+    text-align: right;
+    background: white;
+  }
+  table.compliance td.bugs :link, table.compliance td.bugs :visited {
+    color: red;
+  }
+  table.compliance td.ok {
+    color: green;
+  }
+  table.compliance td.no {
+    color: gray;
+  }
+</style>
+<table class="compliance">
+  <thead>
+    <tr>
+      <th class="key"> Implementation </th>
+      <th colspan="9"> minidom </th>
+      <th colspan="2"> 4DOM </th>
+      <th colspan="2"> cDomlette </th>
+      <th> <span title="pDomlette">pDom</span> </th>
+      <th> <span title="FtMiniDom">FtMD</span> </th>
+    </tr>
+    <tr>
+      <th class="key"> Package </th>
+      <th colspan="4"> Python </th>
+      <th colspan="7"> PyXML </th>
+      <th colspan="4"> 4Suite </th>
+    </tr>
+    <tr>
+      <th class="key"> Version </th>
+      <th> 2.0 </th>
+      <th> 2.1 </th>
+      <th> 2.2 </th>
+      <th> 2.3 </th>
+      <th> 0.6.6 </th>
+      <th> 0.7.1 </th>
+      <th> 0.8.0 </th>
+      <th> 0.8.2 </th>
+      <th> 0.8.3 </th>
+      <th> 0.6.6 </th>
+      <th> 0.7+ </th>
+      <th> 0.11.1 </th>
+      <th> 1.0a1 </th>
+      <th> 0.11.1 </th>
+      <th> 1.0a1 </th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td> namespace declarations </td>
+      <td class="bugs"> <a href="#bug1">1</a> <a href="#bug2">2</a> </td>
+      <td class="bugs"> <a href="#bug2">2</a> </td>
+      <td class="bugs"> <a href="#bug3">3</a> </td>
+      <td class="bugs"> <a href="#bug3">3</a> </td>
+      <td class="bugs"> <a href="#bug3">3</a> </td>
+      <td class="bugs"> <a href="#bug3">3</a> </td>
+      <td class="bugs"> <a href="#bug3">3</a> </td>
+      <td class="bugs"> <a href="#bug3">3</a> </td>
+      <td class="bugs"> <a href="#bug3">3</a> </td>
+      <td class="bugs"> <a href="#bug4">4</a> <a href="#bug5">5</a> </td>
+      <td class="bugs"> <a href="#bug5">5</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug3">3</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> xml: namespace </td>
+      <td class="bugs"> <a href="#bug6">6</a> <a href="#bug7">7</a> </td>
+      <td class="bugs"> <a href="#bug6">6</a> <a href="#bug7">7</a> </td>
+      <td class="bugs"> <a href="#bug7">7</a> <a href="#bug8">8</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug6">6</a> <a href="#bug7">7</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Element namespaceURI </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="bugs"> <a href="#bug10">10</a> </td>
+    </tr>
+
+    <tr>
+      <td> Element prefix </td>
+      <td class="bugs"> <a href="#bug9">9</a> <a href="#bug11">11</a> </td>
+      <td class="bugs"> <a href="#bug9">9</a> <a href="#bug11">11</a> </td>
+      <td class="bugs"> <a href="#bug11">11</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> <a href="#bug11">11</a> </td>
+      <td class="bugs"> <a href="#bug11">11</a> </td>
+      <td class="bugs"> <a href="#bug11">11</a> </td>
+      <td class="bugs"> <a href="#bug11">11</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Attr.namespaceURI </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Attr prefix </td>
+      <td class="bugs"> <a href="#bug9">9</a> <a href="#bug11">11</a> </td>
+      <td class="bugs"> <a href="#bug9">9</a> <a href="#bug11">11</a> </td>
+      <td class="bugs"> <a href="#bug11">11</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug11">11</a> <a href="#bug12">12</a> </td>
+      <td class="bugs"> <a href="#bug11">11</a> </td>
+      <td class="bugs"> <a href="#bug11">11</a> </td>
+      <td class="bugs"> <a href="#bug11">11</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug9">9</a> </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Attr childNodes </td>
+      <td class="bugs"> <a href="#bug13">13</a> </td>
+      <td class="bugs"> <a href="#bug14">14</a> </td>
+      <td class="bugs"> <a href="#bug14">14</a> </td>
+      <td class="bugs"> <a href="#bug15">15</a> <a href="#bug16">16</a> </td>
+      <td class="bugs"> <a href="#bug14">14</a> </td>
+      <td class="bugs"> <a href="#bug14">14</a> </td>
+      <td class="bugs"> <a href="#bug15">15</a> <a href="#bug16">16</a> </td>
+      <td class="bugs"> <a href="#bug15">15</a> <a href="#bug16">16</a> </td>
+      <td class="bugs"> <a href="#bug15">15</a> <a href="#bug16">16</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug16">16</a> </td>
+      <td class="bugs"> <a href="#bug14">14</a> </td>
+      <td class="bugs"> <a href="#bug16">16</a> </td>
+      <td class="bugs"> <a href="#bug14">14</a> </td>
+    </tr>
+
+    <tr>
+      <td> Attr specified </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug17">17</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug17">17</a> </td>
+      <td class="bugs"> <a href="#bug17">17</a> </td>
+      <td class="bugs"> <a href="#bug17">17</a> </td>
+      <td class="bugs"> <a href="#bug18">18</a> </td>
+      <td class="bugs"> <a href="#bug18">18</a> </td>
+      <td class="bugs"> <a href="#bug17">17</a> </td>
+      <td class="bugs"> <a href="#bug18">18</a> </td>
+      <td class="bugs"> <a href="#bug17">17</a> </td>
+      <td class="bugs"> <a href="#bug18">18</a> </td>
+    </tr>
+
+    <tr>
+      <td> NodeList item, length </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug19">19</a> </td>
+      <td class="bugs"> <a href="#bug19">19</a> </td>
+      <td class="bugs"> <a href="#bug19">19</a> </td>
+      <td class="bugs"> <a href="#bug19">19</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> NamedNodeMap item, length </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> NamedNodeMap getNamedItem </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> NamedNodeMap getNamedItemNS </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> NamedNodeMap setNamedItem </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> NamedNodeMap setNamedItemNS </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug22">22</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> NamedNodeMap removeNamedItem </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug23">23</a> </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> NamedNodeMap removeNamedItemNS </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> CharacterData string ops </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug24">24</a> </td>
+      <td class="bugs"> <a href="#bug24">24</a> </td>
+      <td class="bugs"> <a href="#bug24">24</a> </td>
+      <td class="bugs"> <a href="#bug24">24</a> </td>
+      <td class="bugs"> <a href="#bug24">24</a> </td>
+      <td class="bugs"> <a href="#bug24">24</a> </td>
+      <td class="bugs"> <a href="#bug24">24</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug24">24</a> </td>
+    </tr>
+
+    <tr>
+      <td> Text </td>
+      <td class="bugs"> <a href="#bug25">25</a> </td>
+      <td class="bugs"> <a href="#bug25">25</a> </td>
+      <td class="bugs"> <a href="#bug25">25</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug25">25</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Node previousSibling, nextSibling </td>
+      <td class="bugs"> <a href="#bug26">26</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Node nodeValue </td>
+      <td class="bugs"> <a href="#bug27">27</a> <a href="#bug28">28</a> </td>
+      <td class="bugs"> <a href="#bug27">27</a> <a href="#bug28">28</a> </td>
+      <td class="bugs"> <a href="#bug27">27</a> <a href="#bug28">28</a> </td>
+      <td class="bugs"> <a href="#bug27">27</a> </td>
+      <td class="bugs"> <a href="#bug27">27</a> <a href="#bug28">28</a> </td>
+      <td class="bugs"> <a href="#bug27">27</a> <a href="#bug28">28</a> </td>
+      <td class="bugs"> <a href="#bug27">27</a> </td>
+      <td class="bugs"> <a href="#bug27">27</a> </td>
+      <td class="bugs"> <a href="#bug27">27</a> </td>
+      <td class="bugs"> <a href="#bug27">27</a> </td>
+      <td class="bugs"> <a href="#bug27">27</a> </td>
+      <td class="bugs"> <a href="#bug29">29</a> </td>
+      <td class="bugs"> <a href="#bug29">29</a> </td>
+      <td class="bugs"> <a href="#bug27">27</a> </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Node insertBefore </td>
+      <td class="bugs"> <a href="#bug30">30</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Document createElement, createAttribute </td>
+      <td class="bugs"> <a href="#bug31">31</a> </td>
+      <td class="bugs"> <a href="#bug31">31</a> </td>
+      <td class="bugs"> <a href="#bug31">31</a> </td>
+      <td class="bugs"> <a href="#bug31">31</a> </td>
+      <td class="bugs"> <a href="#bug31">31</a> </td>
+      <td class="bugs"> <a href="#bug31">31</a> </td>
+      <td class="bugs"> <a href="#bug31">31</a> </td>
+      <td class="bugs"> <a href="#bug31">31</a> </td>
+      <td class="bugs"> <a href="#bug31">31</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug31">31</a> </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Document createElementNS, createAttributeNS </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Node hasAttributes </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug32">32</a> </td>
+      <td class="bugs"> <a href="#bug32">32</a> </td>
+      <td class="bugs"> <a href="#bug32">32</a> </td>
+      <td class="bugs"> <a href="#bug32">32</a> </td>
+      <td class="bugs"> <a href="#bug32">32</a> </td>
+      <td class="bugs"> <a href="#bug32">32</a> </td>
+      <td class="bugs"> <a href="#bug32">32</a> </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Element hasAttribute </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug33">33</a> </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Element getAttribute </td>
+      <td class="bugs"> <a href="#bug23">23</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug33">33</a> </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Element getAttributeNode </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug33">33</a> </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Element setAttribute </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug34">34</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug34">34</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug34">34</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug34">34</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug34">34</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug34">34</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Element setAttributeNode </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug36">36</a>  </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="bugs"> <a href="#bug37">37</a> </td>
+      <td class="bugs"> <a href="#bug37">37</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Element removeAttribute </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> <a href="#bug23">23</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a>  <a href="#bug23">23</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Element removeAttributeNode </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug38">38</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug38">38</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug38">38</a> </td>
+      <td class="bugs"> <a href="#bug38">38</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug38">38</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug38">38</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug38">38</a> </td>
+      <td class="bugs"> <a href="#bug38">38</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug20">20</a> </td>
+      <td class="bugs"> <a href="#bug20">20</a> <a href="#bug39">39</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug38">38</a> </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Element getAttributeNS </td>
+      <td class="bugs"> <a href="#bug23">23</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug40">40</a> </td>
+      <td class="bugs"> <a href="#bug40">40</a> </td>
+      <td class="bugs"> <a href="#bug40">40</a> </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Element getAttributeNodeNS </td>
+      <td class="bugs"> <a href="#bug23">23</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug40">40</a> </td>
+      <td class="bugs"> <a href="#bug40">40</a> </td>
+      <td class="bugs"> <a href="#bug40">40</a> </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Element setAttributeNS </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> <a href="#bug34">34</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> <a href="#bug34">34</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> <a href="#bug34">34</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> <a href="#bug34">34</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> <a href="#bug34">34</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Element setAttributeNodeNS </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug22">22</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="bugs"> <a href="#bug35">35</a> </td>
+      <td class="bugs"> <a href="#bug37">37</a> </td>
+      <td class="bugs"> <a href="#bug37">37</a> </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug36">36</a> </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Element removeAttributeNS </td>
+      <td class="bugs"> <a href="#bug21">21</a> <a href="#bug23">23</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="bugs"> <a href="#bug21">21</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug40">40</a> </td>
+      <td class="bugs"> <a href="#bug40">40</a> </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Document, Element getElementsByTagName </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Document, Element getElementsByTagNameNS </td>
+      <td class="bugs"> <a href="#bug42">42</a> </td>
+      <td class="bugs"> <a href="#bug42">42</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="bugs"> <a href="#bug41">41</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Document getElementById </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug43">43</a> </td>
+      <td class="bugs"> <a href="#bug43">43</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug43">43</a> </td>
+      <td class="bugs"> <a href="#bug43">43</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Document importNode </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug44">44</a> </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> Document cloneNode </td>
+      <td class="bugs"> <a href="#bug45">45</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug46">46</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> DocumentFragment </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug47">47</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug47">47</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> DOMImplementation </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> EntityReference </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="bugs"> <a href="#bug48">48</a> </td>
+      <td class="bugs"> <a href="#bug48">48</a> </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+      <td class="no"> - </td>
+    </tr>
+
+    <tr>
+      <td> Comment </td>
+      <td class="bugs"> <a href="#bug49">49</a> </td>
+      <td class="bugs"> <a href="#bug49">49</a> </td>
+      <td class="bugs"> <a href="#bug49">49</a> </td>
+      <td class="ok"> OK </td>
+      <td class="bugs"> <a href="#bug49">49</a> </td>
+      <td class="bugs"> <a href="#bug49">49</a> </td>
+      <td class="bugs"> <a href="#bug49">49</a> </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+    <tr>
+      <td> CDATASection </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="ok"> OK </td>
+      <td class="no"> - </td>
+      <td class="ok"> OK </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<h4> Compliance issues key </h4>
+
+<p>
+  - no support
+</p>
+<ol>
+  <li id="bug1">
+    Parsing a default namespace declaration causes a TypeError.
+  </li>
+  <li id="bug2">
+    Namespace declarations are not included in DOM trees resulting from
+    normal parsing.
+  </li>
+  <li id="bug3">
+    Attribute value of an empty namespace declaration (xmlns="") is None, not
+    ''. (Can also cause serialisation errors.)
+  </li>
+  <li id="bug4">
+    For non-default namespace declarations, localName and prefix are the wrong
+    way round.
+  </li>
+  <li id="bug5">
+    For default namespace declarations, localName and prefix are the wrong way
+    round.
+  </li>
+  <li id="bug6">
+    xml:... attributes are not split into a prefix and localname on elements
+    other than the root element.
+  </li>
+  <li id="bug7">
+    A KeyError is generated when parsing xml:... attributes on the root
+    element.
+  </li>
+  <li id="bug8">
+    An IndexError is generated on parsing xml:... attributes on any element.
+  </li>
+  <li id="bug9">
+    Yields '' instead of None for null values.
+  </li>
+  <li id="bug10">
+    The namespaceURI of elements affected by an empty namespace declaration
+    is '' instead of None.
+  </li>
+  <li id="bug11">
+    The prefix is not necessarily the same as in the original document that
+    was parsed; instead, a prefix is guessed by trying to find one that
+    matches the namespaceURI. If there is more than one prefix that points
+    to that namespaceURI, the guess could be wrong.
+  </li>
+  <li id="bug12">
+    Yields empty string instead of null for default namespace declarations.
+  </li>
+  <li id="bug13">
+    Yields None.
+  </li>
+  <li id="bug14">
+    Yields an empty list.
+  </li>
+  <li id="bug15">
+    If the attribute node has been created by setAttribute[NS] methods or
+    indirectly cloned, childNodes will contain an inoperable Text node
+    (having no 'data' property, attempts to do anything with it cause
+    exceptions).
+  </li>
+  <li id="bug16">
+    Only read access works. In 4Suite 0.11.1&#8217;s cDomlette the childNodes are
+    readonly; in other DOMs changing the children puts the DOM into
+    an inconsistent state.
+  </li>
+  <li id="bug17">
+    Always yields False.
+  </li>
+  <li id="bug18">
+    Always yields True.
+  </li>
+  <li id="bug19">
+    Only available when running under Python 2.2 or later.
+  </li>
+  <li id="bug20">
+    Fails where the attributes have been created with namespace-aware methods
+    (this includes all normal parsed documents). Accessing attributes with these
+    methods uses a separate store for non-namespace attributes only which is
+    otherwise unused.
+  </li>
+  <li id="bug21">
+    Attributes removed or replaced by these methods are &#8216;unlinked&#8217; and have
+    eg. their ownerDocument properties reset to null. Unlinked nodes cannot be used again.
+  </li>
+  <li id="bug22">
+    When setting an attribute, the attribute with the same nodeName
+    will be replaced if it exists, instead of the attribute with the same
+    namespaceURI and localName.
+  </li>
+  <li id="bug23">
+    An exception is raised on an attempt to access a non-existant attribute,
+    instead of returning null or empty string or failing silently.
+  </li>
+  <li id="bug24">
+    replaceData, substringData, deleteData and insertData methods
+    fail when the offset parameter is equal to the length of the string.
+  </li>
+  <li id="bug25">
+    Document may not be parsed into normal form. There may be multiple
+    Text nodes next to each other.
+  </li>
+  <li id="bug26">
+    Changes to the hierarchy caused by nodes being moved out when inserted
+    into other places are not reflected in sibling pointers.
+  </li>
+  <li id="bug27">
+    Writing to nodeValue on elements where nodeValue is defined to be null
+    changes nodeValue, rather than leaving it as null.
+  </li>
+  <li id="bug28">
+    Setting nodeValue on a ProcessingInstruction does not update the &#8216;data&#8217;
+    value (and vice versa).
+  </li>
+  <li id="bug29">
+    Writing to nodeValue on elements where nodeValue is defined to be null
+    is disallowed.
+  </li>
+  <li id="bug30">
+    insertBefore with refChild set to null doesn&#8217;t work.
+  </li>
+  <li id="bug31">
+    Returns a node with localName set to its nodeName - localName should be
+    null.
+  </li>
+  <li id="bug32">
+    Method hasAttributes is not available on all node types, only Element.
+  </li>
+  <li id="bug33">
+    Never gets the attribute - always returns false for hasAttribute, empty string
+    for getAttribute, or null for getAttributeNode.
+  </li>
+  <li id="bug34">
+    Setting an attribute with a name that already exists results in that
+    attribute node being replaced with a new one, instead of changing the
+    existing node&#8217;s value.
+  </li>
+  <li id="bug35">
+    Except where setAttribute causes an existing attribute node&#8217;s value to
+    be changed, calling these methods will remove the attribute with the
+    same name <em>or</em> the attribute with the same namespaceURI and localName
+    <em>or both</em>, regardless of whether the NS version of the method
+    is being used.
+  </li>
+  <li id="bug36">
+    Does not return a replaced attribute node, always returns null.
+  </li>
+  <li id="bug37">
+    Trying to set an attribute node on an element that already owns
+    it causes an InuseAttribute error.
+  </li>
+  <li id="bug38">
+    Does not return the removed attribute node, always returns null.
+  </li>
+  <li id="bug39">
+    If the element has a node with the same namespaceURI and localName as the
+    node to be removed, but a different nodeName, the wrong attribute may
+    be removed; if this happens the ownerElement properties of both attributes
+    will be inconsistent.
+  </li>
+  <li id="bug40">
+    Default namespace declarations are indexed as having a localName of
+    '' or None even though their localName is, correctly, &#8216;xmlns&#8217;. Because
+    None cannot be passed as a localName in cDomlette 1.0a1, default namespace
+    declarations become inaccessible.
+  </li>
+  <li id="bug41">
+    NodeLists returned by getElementsByTagName[NS] are not &#8216;live&#8217; - they
+    act as static lists, which do not change as the document is updated.
+  </li>
+  <li id="bug42">
+    Raises TypeError.
+  </li>
+  <li id="bug43">
+    Fails to match any element, returns null. minidom may in some
+    (namespace) circumstances cause a TypeError.
+  </li>
+  <li id="bug44">
+    When an Attribute node is cloned as part of its owner element being cloned,
+    the clone's ownerElement property points to the original document, not the
+    cloner.
+  </li>
+  <li id="bug45">
+    An AttributeError is raised.
+  </li>
+  <li id="bug46">
+    Fails with a NameError when the node is an Attr, ProcessingInstruction, Comment,
+    DocumentFragment or Document, or, in &#8216;deep&#8217; clone mode, when there is
+    a ProcessingInstruction or Comment descendant.
+  </li>
+  <li id="bug47">
+    Insertion/replacement with fragments fails - only every second child
+    of a DocumentFragment is used.
+  </li>
+  <li id="bug48">
+    Document.createEntityReference returns EntityReference objects without the
+    childNodes filled in. Unbound entity references always cause an error on parsing.
+  </li>
+  <li id="bug49">
+    Comment objects exist but are not included in DOMs parsed from text.
+  </li>
+</ol>

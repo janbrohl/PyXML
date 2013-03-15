@@ -1,0 +1,6 @@
+doc_start()
+set_entity_info(1.0, None, None)
+handle_comment('because we are testing conformace to XML 1.0, there can be no\012    exhaustive tests of the VersionNum production.  The only\012    VersionNum a 1.0-compliant processor is required to pass\012    is "1.0" ')
+handle_start_tag(doc, {})
+handle_end_tag(doc)
+doc_end()

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+    DTD describing the test results for a database of XML tests.
+
+    Copyright (c) 2001 by Jürgen Hermann <jh@web.de>
+
+    This DTD extends "testcases.dtd", part of the OASIS XML 1.0 Test Suite.
+    It allows to report results of testing by annotating the original test
+    definitions.
+
+    URL:
+    http://www.oasis-open.org/committees/xml-conformance/xml-test-suite.shtml
+
+    $Id: testresults.dtd,v 1.2 2001/09/06 22:18:18 jhermann Exp $
+-->
+
+<!-- Include the testcases DTD -->
+<!ENTITY % testcases SYSTEM "testcases.dtd">
+%testcases;
+
+
+<!--
+    Root element of a report.
+
+    "@PROFILE" is a copy of "TESTSUITE/@PROFILE".
+    "@DATE" is the test date in ISO format ("YYYY-MM-DD HH:MM:SS").
+-->
+<!ELEMENT REPORT (PARSER, HARNESS, PLATFORM, RUNTIME, (MEMO | TESTRESULT)* )>
+<!ATTLIST REPORT PROFILE CDATA #IMPLIED>
+<!ATTLIST REPORT DATE CDATA #IMPLIED>
+
+<!--
+    Parser identification.
+-->
+<!ELEMENT PARSER (#PCDATA)>
+
+<!--
+    Test harness identification.
+-->
+<!ELEMENT HARNESS (#PCDATA)>
+
+<!--
+    Platform this test was run on.
+-->
+<!ELEMENT PLATFORM (#PCDATA)>
+
+<!--
+    Runtime environment (language) this test was run on.
+-->
+<!ELEMENT RUNTIME (#PCDATA)>
+
+<!--
+    General text the test harness wishes to insert into the report.
+    This can be used to emit descriptions of the testing environment etc.
+-->
+<!ELEMENT MEMO (#PCDATA | EM | B)*>
+
+<!--
+    "TEST" is a copy of the original TEST definition.
+    "@PROFILE" is a copy of "TESTCASES/@PROFILE".
+-->
+<!ELEMENT TESTRESULT (TEST, TESTRUN+)>
+<!ATTLIST TESTRESULT PROFILE CDATA #REQUIRED>
+
+<!--
+    Result of test, element may contain an informational message.
+-->
+<!ELEMENT TESTRUN (#PCDATA | EM | B)*>
+<!ATTLIST TESTRUN PARSER-TYPE (non-validating|validating) #REQUIRED>
+<!ATTLIST TESTRUN SEVERITY (success|low|medium|high) #REQUIRED>
+

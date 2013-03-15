@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>4.2.1 The Node class</title>
+<META NAME="description" CONTENT="4.2.1 The Node class">
+<META NAME="keywords" CONTENT="xml-howto">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="xml-howto.css">
+<LINK REL="next" HREF="node15.html">
+<LINK REL="previous" HREF="node13.html">
+<LINK REL="up" HREF="node13.html">
+<LINK REL="next" HREF="node15.html">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node13.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A HREF="node13.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node15.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node13.html">4.2 Manipulating The Tree</A>
+<b class="navlabel">Up:</b> <a class="sectref" HREF="node13.html">4.2 Manipulating The Tree</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node15.html">4.2.2 Document, Element, and</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000521000000000000000">
+4.2.1 The <tt class="class">Node</tt> class</A>
+</H3>
+
+<P>
+We'll start by considering the basic <tt class="class">Node</tt> class.  All the
+other DOM nodes -- <tt class="class">Document</tt>, <tt class="class">Element</tt>, <tt class="class">Text</tt>,
+and so forth -- are subclasses of <tt class="class">Node</tt>.  It's possible to
+perform many tasks using just the interface provided by <tt class="class">Node</tt>.
+
+<P>
+XXX table of attributes and methods
+            readonly attribute  DOMString            nodeName;
+                     attribute  DOMString            nodeValue;
+                                                           // raises(DOMException) on setting
+                                                           // raises(DOMException) on retrieval
+            readonly attribute  unsigned short       nodeType;
+            readonly attribute  Node                 parentNode;
+            readonly attribute  NodeList             childNodes;
+            readonly attribute  Node                 firstChild;
+            readonly attribute  Node                 lastChild;
+            readonly attribute  Node                 previousSibling;
+            readonly attribute  Node                 nextSibling;
+            readonly attribute  NamedNodeMap         attributes;
+            readonly attribute  Document             ownerDocument;
+
+<P>
+Node                      insertBefore(in Node newChild,
+                                                   in Node refChild)
+                                                   raises(DOMException);
+            Node                      replaceChild(in Node newChild,
+                                                   in Node oldChild)
+                                                   raises(DOMException);
+            Node                      removeChild(in Node oldChild)
+                                                  raises(DOMException);
+            Node                      appendChild(in Node newChild)
+                                                  raises(DOMException);
+            boolean                   hasChildNodes();
+            Node                      cloneNode(in boolean deep);
+
+<P>
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node13.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A HREF="node13.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node15.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node13.html">4.2 Manipulating The Tree</A>
+<b class="navlabel">Up:</b> <a class="sectref" HREF="node13.html">4.2 Manipulating The Tree</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node15.html">4.2.2 Document, Element, and</A>
+<hr>
+<span class="release-info">Release 0.6.1.</span>
+</DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,3 @@
+
+<!-- Another external PE, just for testing. -->
+<!ATTLIST dummy dummy CDATA #IMPLIED>

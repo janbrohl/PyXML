@@ -1,0 +1,6 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_data('\012')
+handle_end_tag(doc)
+fatal('XML declaration must appear first in document')
+fatal('XML declaration must appear first in document')

@@ -1,0 +1,6 @@
+xmlproc version 0.70
+
+Parsing 'in/doc4.xml'
+E:in/doc4.xml:1:19: Denne XML-versjonen er ikke støttet
+W:in/doc4.xml:10:9: Tegn nummer '256' i tegn-referansen er ikke støttet
+Parse complete, 1 error(s) and 1 warning(s)

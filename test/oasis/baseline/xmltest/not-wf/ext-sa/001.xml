@@ -1,0 +1,8 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_external_entity(e, None, '001.ent', None)
+dtd_end()
+handle_start_tag(doc, {})
+resolve_entity_pubid(None, '001.ent')
+fatal('Entity recursion detected')

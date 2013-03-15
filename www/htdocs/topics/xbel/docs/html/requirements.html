@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>2. Requirements
+</TITLE>
+<META NAME="description" CONTENT="2. Requirements
+">
+<META NAME="keywords" CONTENT="xbel">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="xbel.css">
+<LINK REL="next" HREF="top-level.html">
+<LINK REL="previous" HREF="origins.html">
+<LINK REL="up" HREF="xbel.html">
+<LINK REL="next" HREF="top-level.html">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<div class=navigation>
+<table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html97"
+ HREF="top-level.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> <A NAME="tex2html94"
+ HREF="xbel.html"><img width=32 height=32 align=bottom border=0 alt="up"
+ src="./up.gif"></A> <A NAME="tex2html88"
+ HREF="origins.html"><img width=32 height=32 align=bottom border=0 alt="previous"
+ src="./previous.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html96"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html98"
+ HREF="top-level.html">3. XBEL Document Structure</A>
+<b>Up:</b> <A NAME="tex2html95"
+ HREF="xbel.html">The XML Bookmark Exchange</A>
+<b>Previous:</b> <A NAME="tex2html89"
+ HREF="origins.html">1. Introduction</A>
+<br><hr><p></div>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html99"
+ HREF="requirements.html"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Relation to Browser Functionality
+              </A>
+<LI><A NAME="tex2html100"
+ HREF="requirements.html"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Advanced Application Support
+              </A>
+<LI><A NAME="tex2html101"
+ HREF="requirements.html"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Extensibility
+              </A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION000300000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">2</SPAN>. Requirements
+         
+</H1>
+
+<P>
+This section describes the functional capabilities which this
+  document type supports.  There are three categories of
+  functionality supported:  basic bookmark exchange between browsers,
+  data storage for advanced Internet resource management tools, and
+  simplicity in extending the DTD if needed for specific
+  applications.
+
+<P>
+
+<H2><A NAME="SECTION000310000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Relation to Browser Functionality
+              
+</H2>
+
+<P>
+XBEL instances must be able to describe sufficient data to
+    represent the bookmarks of all major Internet browsers.
+    It must be possible to convert browser-specific bookmark data to
+    XBEL in a lossless manner, though specific conversions may remove
+    data for application-specific reasons.  It is especially important
+    to consider privacy issues when exchanging bookmark data.
+
+<P>
+Conversion from XBEL to a browser-specific format may lose
+    information when the data originates from a browser supporting
+    bookmark features not available in all browsers.  It is expected
+    that software implementing the conversion be able to warn the user
+    if conversion will cause the loss of information, as appropriate.
+
+<P>
+
+<H2><A NAME="SECTION000320000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Advanced Application Support
+              
+</H2>
+
+<P>
+XBEL must be able to support interchange requirements for
+    applications not currently implemented as part of typical Internet
+    browsers, including (but not limited to!) application-specific
+    preference and history information which only pertains to specific
+    bookmarks, metadata information, and alternate sources or formats
+    for the documents.
+
+<P>
+It must be possible for applications to operate on subsets of the
+    information stored in an XBEL instance without affecting private
+    information stored by other applications.  Application-specific
+    data stored in an XBEL instance may be simple text or may be
+    heavily structured.
+
+<P>
+
+<H2><A NAME="SECTION000330000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Extensibility
+              
+</H2>
+
+<P>
+Some ability to extend the document type definition is required to 
+    encourage reuse of the existing design.  Due to the use of XML,
+    only a minimum of inherant flexibility is required, as new
+    document types may be formed using namespaces or by allowing the
+    use of well-formed but possibly invalid markup [<A
+ HREF="cite_xbel-home.html#w3c-xml-names">BHL98</A>].
+
+<P>
+<p>
+<div class=navigation><hr><table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html97"
+ HREF="top-level.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> <A NAME="tex2html94"
+ HREF="xbel.html"><img width=32 height=32 align=bottom border=0 alt="up"
+ src="./up.gif"></A> <A NAME="tex2html88"
+ HREF="origins.html"><img width=32 height=32 align=bottom border=0 alt="previous"
+ src="./previous.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html96"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html98"
+ HREF="top-level.html">3. XBEL Document Structure</A>
+<b>Up:</b> <A NAME="tex2html95"
+ HREF="xbel.html">The XML Bookmark Exchange</A>
+<b>Previous:</b> <A NAME="tex2html89"
+ HREF="origins.html">1. Introduction</A>
+</div>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

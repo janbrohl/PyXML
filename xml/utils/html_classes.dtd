@@ -1,0 +1,68 @@
+<!ELEMENT generate (header?, copyright?, class*)>
+
+<!--
+  Blob of header information to put in each file.
+  Special string $FILE$ is replaced by the name of the generated file
+-->
+<!ELEMENT header (#PCDATA)>
+
+<!-- blob of copyright information to place in each file -->
+<!ELEMENT copyright (#PCDATA)>
+
+<!--=============================== Classes ===============================-->
+<!-- Information about a class file to generate -->
+<!ELEMENT class (baseclass, (attribute|method)*)>
+<!ATTLIST class
+    name        CDATA       #REQUIRED
+    tagname     CDATA       #IMPLIED
+    multiple    (0|1)       0
+>
+
+<!ELEMENT baseclass EMPTY>
+<!ATTLIST baseclass
+    name        CDATA       #REQUIRED
+>
+
+<!-- attribute definition-->
+<!ELEMENT attribute (permissions)>
+<!--
+  Attribute types:
+    string  treat as text
+    list    a list of item (from DTD)
+    long    a number
+    bool    a single item list (from DTD)
+    node    data is stored in child TextNode
+    const   read-only single value
+    form    get parent form for form-based elements
+-->
+
+<!ATTLIST attribute
+    name        CDATA       #REQUIRED
+    type        (string|list|long|bool|node|const|form) #REQUIRED
+    htmlname    CDATA       #IMPLIED
+    value       CDATA       #IMPLIED
+>
+
+<!ELEMENT permissions EMPTY>
+<!ATTLIST permissions
+    readable    (0|1)       #REQUIRED
+    writeable   (0|1)       #REQUIRED
+>
+
+<!-- method declaration -->
+<!ELEMENT method (params+, code?)>
+<!ATTLIST method
+    name        CDATA       #REQUIRED
+>
+
+<!-- parameter definitions -->
+<!ELEMENT params (param*)>
+
+<!-- definition of an argument -->
+<!ELEMENT param (#PCDATA)>
+<!ATTLIST param
+    name        CDATA       #REQUIRED
+>
+
+<!-- optional code for the function -->
+<!ELEMENT code (#PCDATA)>

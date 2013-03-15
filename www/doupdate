@@ -1,0 +1,17 @@
+#!/bin/sh
+
+PROJECT=www
+DESTDIR=/home/groups/p/py/pyxml
+CVSROOT=:pserver:anonymous@cvs.pyxml.sourceforge.net:/cvsroot/pyxml
+export CVSROOT
+
+umask 2
+cd /var/tmp
+DIRNAME=/var/tmp/$PROJECT$$
+mkdir -p $DIRNAME
+cd $DIRNAME
+cvs export -Dnow $PROJECT 2> /dev/null >/dev/null
+
+cd $PROJECT/htdocs && (find . -name \*.ht|xargs ../ht2html/ht2html.py -s RemotePDOGenerator) >/dev/null
+cp -ur $DIRNAME/$PROJECT/* $DESTDIR
+rm -rf $DIRNAME

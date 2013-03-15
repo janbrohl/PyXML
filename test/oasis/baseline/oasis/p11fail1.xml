@@ -1,0 +1,6 @@
+doc_start()
+handle_comment('Inability to resolve a notation should not be reported as an error')
+handle_doctype(doc, None, None)
+handle_doctype(doc, None, None)
+fatal('Construct started, but never completed')
+fatal('Premature document end, no root element')

@@ -1,0 +1,3 @@
+doc_start()
+set_entity_info(1.0, None, None)
+fatal('Character references not allowed outside root element')

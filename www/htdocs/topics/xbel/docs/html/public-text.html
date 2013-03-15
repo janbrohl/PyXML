@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>A. Public Text
+</TITLE>
+<META NAME="description" CONTENT="A. Public Text
+">
+<META NAME="keywords" CONTENT="xbel">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="xbel.css">
+<LINK REL="next" HREF="cite_xbel-home.html">
+<LINK REL="previous" HREF="parameter-entities.html">
+<LINK REL="up" HREF="xbel.html">
+<LINK REL="next" HREF="cite_xbel-home.html">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<div class=navigation>
+<table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html177"
+ HREF="cite_xbel-home.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> <A NAME="tex2html174"
+ HREF="xbel.html"><img width=32 height=32 align=bottom border=0 alt="up"
+ src="./up.gif"></A> <A NAME="tex2html168"
+ HREF="parameter-entities.html"><img width=32 height=32 align=bottom border=0 alt="previous"
+ src="./previous.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html176"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html178"
+ HREF="cite_xbel-home.html">Bibliography</A>
+<b>Up:</b> <A NAME="tex2html175"
+ HREF="xbel.html">The XML Bookmark Exchange</A>
+<b>Previous:</b> <A NAME="tex2html169"
+ HREF="parameter-entities.html">4. DTD Structure</A>
+<br><hr><p></div>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000600000000000000000"></A>
+<BR>
+A. Public Text
+         
+</H1>
+
+<P>
+This section contains the entire public text of the XBEL DTD
+  corresponding to the Formal Public Identifier presented in Section
+  <A HREF="origins.html#formal-ident">1.4</A>.  No additional external entities are
+  referenced.
+
+<P>
+<SMALL CLASS="SMALL">
+<BR><PRE>
+&lt;!-- This is the XML Bookmarks Exchange Language, version 1.0.  It
+     should be used with the formal public identifier:
+
+        +//IDN python.org//DTD XML Bookmark Exchange Language 1.0//EN//XML
+
+     One valid system identifier at which this DTD will remain
+     available is:
+
+        http://www.python.org/topics/xml/dtds/xbel-1.0.dtd
+
+     More information the on the DTD, including reference
+     documentation, is available at:
+
+        http://www.python.org/topics/xml/xbel/
+
+    Attributes which take date/time values should encode the value
+    according to the W3C NOTE on date/time formats:
+
+        http://www.w3.org/TR/NOTE-datetime
+  --&gt;
+
+
+&lt;!-- Customization entities.  Define these before "including" this DTD
+     to create "subclassed" DTDs.
+  --&gt;
+&lt;!ENTITY % local.node.att  ""&gt;
+&lt;!ENTITY % local.url.att   ""&gt;
+&lt;!ENTITY % local.nodes.mix ""&gt;
+
+&lt;!ENTITY % node.att     "id       ID    #IMPLIED
+                         added    CDATA #IMPLIED
+                         %local.node.att;"&gt;
+
+&lt;!ENTITY % url.att      "href     CDATA #REQUIRED
+                         visited  CDATA #IMPLIED
+                         modified CDATA #IMPLIED
+                         %local.url.att;"&gt;
+
+&lt;!ENTITY % nodes.mix    "bookmark|folder|alias|separator
+                         %local.nodes.mix;"&gt;
+
+
+&lt;!ELEMENT xbel (title?, info?, desc?, (%nodes.mix;)*)&gt;
+&lt;!ATTLIST xbel
+            %node.att;
+            version  CDATA      #FIXED "1.0"
+&gt;
+&lt;!ELEMENT title      (#PCDATA)&gt;
+
+&lt;!--=================== Info ======================================--&gt;
+
+&lt;!ELEMENT info (metadata+)&gt;
+
+&lt;!ELEMENT metadata EMPTY&gt;
+&lt;!ATTLIST metadata
+            owner    CDATA      #REQUIRED
+&gt;
+
+&lt;!--=================== Folder ====================================--&gt;
+
+&lt;!ELEMENT folder   (title?, info?, desc?, (%nodes.mix;)*)&gt;
+&lt;!ATTLIST folder
+            %node.att;
+            folded   (yes|no)   'yes'   
+&gt;
+
+&lt;!--=================== Bookmark ==================================--&gt;
+
+&lt;!ELEMENT bookmark (title?, info?, desc?)&gt;
+&lt;!ATTLIST bookmark
+            %node.att;
+            %url.att;
+&gt;
+
+&lt;!ELEMENT desc       (#PCDATA)&gt;
+
+&lt;!--=================== Separator =================================--&gt;
+
+&lt;!ELEMENT separator EMPTY&gt;
+
+&lt;!--=================== Alias =====================================--&gt;
+
+&lt;!-- &lt;alias&gt; elements correspond to Netscape bookmark aliases.  The
+     required "ref" attribute must refer to a &lt;bookmark&gt; or &lt;folder&gt;
+     element.  Note that MSIE aliases can refer to folders, so that is
+     supported in XBEL.  Applications must be careful about traversing
+     aliases to folders to avoid improper recursion through circular
+     data structures.
+  --&gt;
+
+&lt;!ELEMENT alias EMPTY&gt;
+&lt;!ATTLIST alias
+            ref       IDREF     #REQUIRED
+&gt;
+</PRE></SMALL>
+<P>
+
+<p>
+<div class=navigation><hr><table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html177"
+ HREF="cite_xbel-home.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> <A NAME="tex2html174"
+ HREF="xbel.html"><img width=32 height=32 align=bottom border=0 alt="up"
+ src="./up.gif"></A> <A NAME="tex2html168"
+ HREF="parameter-entities.html"><img width=32 height=32 align=bottom border=0 alt="previous"
+ src="./previous.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html176"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html178"
+ HREF="cite_xbel-home.html">Bibliography</A>
+<b>Up:</b> <A NAME="tex2html175"
+ HREF="xbel.html">The XML Bookmark Exchange</A>
+<b>Previous:</b> <A NAME="tex2html169"
+ HREF="parameter-entities.html">4. DTD Structure</A>
+</div>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>3.1 Starting Out</title>
+<META NAME="description" CONTENT="3.1 Starting Out">
+<META NAME="keywords" CONTENT="xml-howto">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="xml-howto.css">
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" href="SAX.html">
+<LINK REL="up" href="SAX.html">
+<LINK REL="next" HREF="node8.html">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A href="SAX.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A href="SAX.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node8.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" href="SAX.html">3 SAX: The Simple</A>
+<b class="navlabel">Up:</b> <a class="sectref" href="SAX.html">3 SAX: The Simple</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node8.html">3.2 Error Handling</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000410000000000000000">
+3.1 Starting Out</A>
+</H2>
+
+<P>
+Following the earlier example, let's consider a simple XML format for
+storing information about a comic book collection.  Here's a sample
+document for a collection consisting of a single issue:
+
+<P>
+<dl><dd><pre class="verbatim">
+&lt;collection&gt;
+  &lt;comic title="Sandman" number='62'&gt;
+    &lt;writer&gt;Neil Gaiman&lt;/writer&gt;
+    &lt;penciller pages='1-9,18-24'&gt;Glyn Dillon&lt;/penciller&gt;
+    &lt;penciller pages="10-17"&gt;Charles Vess&lt;/penciller&gt;
+  &lt;/comic&gt;
+&lt;/collection&gt;
+</pre></dl>
+
+<P>
+An XML document must have a single root element; this is the
+"<tt class="samp">collection</tt>" element.  It has one child <code>comic</code> element
+for each issue; the book's title and number are given as attributes of
+the <code>comic</code> element, which can have one or more children
+containing the issue's writer and artists.  There may be several
+artists or writers for a single issue.
+
+<P>
+Let's start off with something simple: a document handler named
+<tt class="class">FindIssue</tt> that reports whether a given issue is in the
+collection.
+
+<P>
+<dl><dd><pre class="verbatim">
+from xml.sax import saxutils
+
+class FindIssue(saxutils.DefaultHandler):
+    def __init__(self, title, number):
+        self.search_title, self.search_number = title, number
+</pre></dl>
+
+<P>
+The <tt class="class">DefaultHandler</tt> class inherits from all four interfaces:
+<tt class="class">ContentHandler</tt>, <tt class="class">DTDHandler</tt>, <tt class="class">EntityResolver</tt>,
+and <tt class="class">ErrorHandler</tt>.  This is what you should use if you want to
+use one class for everything.  When you want separate classes for each
+purpose, or if you want to implement only a single interface, you can
+just subclass each interface individually.  Neither of the two
+approaches is always ``better'' than the other; their suitability
+depends on what you're trying to do, and on what you prefer.
+
+<P>
+Since this class is doing a search, an instance needs to know what to
+search for.  The desired title and issue number are passed to the
+<tt class="class">FindIssue</tt> constructor, and stored as part of the instance.
+
+<P>
+Now let's look at the function which actually does all the work.
+This simple task only requires looking at the attributes of a given
+element, so only the <tt class="method">startElement</tt> method is relevant.
+
+<P>
+<dl><dd><pre class="verbatim">
+    def startElement(self, name, attrs):
+        # If it's not a comic element, ignore it
+        if name != 'comic': return
+
+        # Look for the title and number attributes (see text)
+        title = attrs.get('title', None)
+        number = attrs.get('number', None)
+        if title == self.search_title and number == self.search_number:
+            print title, '#'+str(number), 'found'
+</pre></dl>
+
+<P>
+The <tt class="method">startElement()</tt> method is passed a string giving the name
+of the element, and an instance containing the element's attributes.
+The latter implements the <tt class="class">AttributeList</tt> interface, which
+includes most of the semantics of Python dictionaries.  Therefore, the 
+function looks for <code>comic</code> elements, and compares the
+specified <code>title</code> and <code>number</code> attributes to the
+search values.  If they match, a message is printed out.
+
+<P>
+<tt class="method">startElement()</tt> is called for every single element in the
+document.  If you added <code>print 'Starting element:', name</code> to the
+top of  <tt class="method">startElement()</tt>, you would get the following output.
+
+<P>
+<dl><dd><pre class="verbatim">
+Starting element: collection
+Starting element: comic
+Starting element: writer
+Starting element: penciller
+Starting element: penciller
+</pre></dl>
+
+<P>
+To actually use the class, we need top-level code that creates 
+instances of a parser and of <tt class="class">FindIssue</tt>, associates them, and
+then calls a parser method to process the input.
+
+<P>
+<dl><dd><pre class="verbatim">
+from xml.sax import make_parser
+from xml.sax.handler import feature_namespaces
+
+if __name__ == '__main__':
+    # Create a parser
+    parser = make_parser()
+    # Tell the parser we are not interested in XML namespaces
+    parser.setFeature(feature_namespaces, 0)
+
+    # Create the handler
+    dh = FindIssue('Sandman', '62')
+
+    # Tell the parser to use our handler
+    parser.setContentHandler(dh)
+
+    # Parse the input
+    parser.parse(file)
+</pre></dl>
+
+<P>
+The <tt class="function">make_parser</tt> class can automate the job of creating
+parsers.  There are already several XML parsers available to Python,
+and more might be added in future.  <span class="file">xmllib.py</span> is included with
+Python 1.5, so it's always available, but it's also not particularly
+fast.  A faster version of <span class="file">xmllib.py</span> is included in
+<tt class="module">xml.parsers</tt>.  The <tt class="module">xml.parsers.expat</tt> module is faster
+still, so it's obviously a preferred choice if it's available.
+<tt class="function">make_parser</tt> determines which parsers are available and
+chooses the fastest one, so you don't have to know what the different
+parsers are, or how they differ. (You can also tell
+<tt class="function">make_parser</tt> to try a list of parsers, if you want to use a
+specific one).
+
+<P>
+In SAX2, XML namespace are supported. Parsers will not call
+<tt class="method">startElement</tt>, but <tt class="method">startElementNS</tt> if namespace
+processing is active. Since our content handler does not implement the
+namespace-aware methods, we request that namespace processing is
+deactivated. The default of this setting varies from parser to parser,
+so you should always set it to a safe value - unless your handlers
+support either method.
+
+<P>
+Once you've created a parser instance, calling
+<tt class="method">setContentHandler</tt> tells the parser what to use as the
+handler.
+
+<P>
+If you run the above code with the sample XML document, it'll output
+<code>Sandman #62 found.</code>  
+
+<P>
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A href="SAX.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A href="SAX.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node8.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" href="SAX.html">3 SAX: The Simple</A>
+<b class="navlabel">Up:</b> <a class="sectref" href="SAX.html">3 SAX: The Simple</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node8.html">3.2 Error Handling</A>
+<hr>
+<span class="release-info">Release 0.6.1.</span>
+</DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

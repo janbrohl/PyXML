@@ -1,0 +1,3 @@
+doc_start()
+fatal('Not a valid version number (1.0?)')
+set_entity_info(1.0?, None, None)

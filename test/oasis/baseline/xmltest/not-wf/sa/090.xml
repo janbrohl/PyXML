@@ -1,0 +1,7 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_general_entity(e, "<foo a='<'></foo>")
+dtd_end()
+handle_start_tag(doc, {})
+fatal("'<' not allowed in attribute values")

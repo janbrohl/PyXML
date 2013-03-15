@@ -1,0 +1,177 @@
+Title: Python and XML Processing: Other Software
+Author: xml-sig@python.org
+Meta:  <META NAME="description" CONTENT="This page lists other XML-related
+	Python software.">
+
+<h3>Other Software</h3>
+
+<p>
+
+<p>There is a survey of Python/XML software in <a href="http://www.xml.com/pub/a/2002/09/18/py.html">The State of the Python-XML Art</a>, by Uche Ogbuji, with updates in <a href="http://www.xml.com/pub/au/84">subsequent articles</a> in the <i>Python &amp; XML</i> column.
+<p>
+<table cellpadding=2>
+
+<!--
+<tr>
+  <td valign=top><a href="http://www.stud.ifi.uio.no/~larsga/download/python/xml/xptr.html">PyPointers</a></td>
+  <td valign=top>
+    Implements part of the XPointer spec, 
+    allowing you to point to portions of a document, and if you combine this with 
+    a DOM representation of your doc, you might be able to get what you need.  
+   </td>
+</tr>
+-->
+
+<tr>
+  <td valign=top><a href="http://www.ontopia.net/software/tmproc/index.html">tmproc</a></td>
+  <td valign=top>
+    tmproc is an implementation of the new international standard <a href="http://www.ornl.gov/sgml/sc34/document/0008.htm">ISO/IEC 13250 Topic Maps</a>, containing a set of classes that represents a framework for doing topic
+map processing in Python.  It works with <a href="http://jython.sourceforge.net/">Jython</a>.
+   </td>
+</tr>
+
+<tr>
+  <td valign=top><a href="http://www.pyxie.org">Pyxie</a></td>
+  <td valign=top>
+Pyxie is an Open Source library for processing XML with the Python programming language. Pyxie is discussed -- along with language
+independent APIs such as SAX and DOM -- in Sean McGrath's book <u><a href="http://www1.fatbrain.com/asp/bookinfo/bookinfo.asp?theisbn=0130211192&vm=">XML Processing with Python</a></u>. 
+
+The Pyxie library makes use of a drop-dead simple, line-oriented notation for parsed XML known as PYX. An article on Pyxie that explains
+the PYX notation can be found on <a href="http://www.xml.com/pub/2000/03/15/feature/index.html">xml.com</a>. PYX generating utilities can be found on the <a href="http://www.digitome.com/pyxie_download.html">Pyxie download page</a>.
+  </td>
+</tr>
+
+<tr>
+  <td valign=top><a href="http://www.pythonware.com/products/soap/">soaplib</a></td>
+  <td valign=top>
+  A SOAP implementation for Python, allowing communication between objects using XML over HTTP, SMTP and other protocols.
+  </td>
+</tr>
+
+<tr>
+  <td valign=top><a href="http://www.biopython.org/~dalke/lye/">Lye</a></td>
+  <td valign=top>
+  Lye is a Python program which converts COM requests into SOAP calls.
+It uses win32com.server's DynamicPolicy to interpret the COM request
+and Fredrick Lundh's soaplib to make the SOAP query.
+  </td>
+</tr>
+
+<tr>
+  <td valign=top><a href="http://sourceforge.net/projects/redfoot/">Redfoot</a></td>
+  <td valign=top>
+  a Python-based framework for RDF servers.
+  </td>
+</tr>
+
+<tr>
+  <td valign=top><a href="http://www.comlounge.net/webdav/">python davserver</a></td>
+  <td valign=top>
+  python davserver is a collection of classes which should make it easy to write your own DAV server in Python.
+  </td>
+</tr>
+
+<!--
+<tr>
+  <td valign=top><a href=""></a></td>
+  <td valign=top>
+  </td>
+</tr>
+-->
+
+<tr>
+  <td valign=top><a href="http://csmctmto.interpoint.net/didx/xml.html">XML Toolkit</A></td>
+  <td valign=top>
+    Contains a client/server XML processor, and a WIDL implementation.
+   </td>
+  </tr>
+  <tr>
+  <td valign=top><a href="http://www.handshake.de/~dieter/pyprojects/xslpattern.html">XSL-Pattern</A></td>
+  <td valign=top>
+    An implementation of the pattern subset of the XSL working draft of 16-December-1998. 
+  </td>
+  </tr>
+  <tr>
+  <td valign=top><a href="ftp://ftp.cogsci.ed.ac.uk/pub/ht/PyXML.tar.gz">LT PyXML</A></td>
+  <td valign=top>
+    A Python module which interfaces to 
+    <a href="http://www.ltg.ed.ac.uk/software/xml/">LT XML</a>, 
+    a fast validating parser written in C.
+</tr> <tr>
+  <td valign=top><a href="http://www.ubka.uni-karlsruhe.de/~guenter/Sab-pyth/">Sab-pyth</A></td>
+  <td valign=top>
+    A Python module which interfaces to
+    <a href="http://www.gingerall.com/charlie-bin/get/webGA/act/sablotron.act">Sablotron</a>,
+    a fast, compact, and portable XSLT processor.
+  </td>
+</tr>
+<tr>
+  <td valign=top><a href="http://www.logilab.org/xmltools/">Python XmlTools</A></td>
+  <td valign=top>
+    a set of high level tools to help using XML in python, including
+    the pyGTK widgets XmlTree and XmlEditor to visualize XML.
+  </td>
+</tr>
+<tr>
+  <td valign=top><a href="http://www.ltg.ed.ac.uk/~ht/xsv-status.html">XSV</a></td>
+  <td valign=top>
+    an XML Schema Validator, based on LT XML.
+  </td>
+</tr>
+
+<tr>
+  <td valign=top><a href="http://www.garshol.priv.no/download/software/pysp/">pysp</a></td>
+  <td valign=top>
+  A Python wrapper for the 
+  <a href="http://www.jclark.com/sp/index.htm">SP SGML parser</a>.
+  </td>
+</tr>
+
+<tr>
+  <td valign=top><a href="http://pytrex.sourceforge.net/">PyTREX</a></td>
+  <td valign=top>
+    a Python implementation of TREX, an XML schema language.
+  </td>
+</td>
+
+<tr>
+  <td valign=top><a href="http://www.rexx.com/~dkuhlman/">libxml_saxlib,libxml_domlib</a></td>
+  <td valign=top>
+    Wrappers around the GNOME libxml libraries, convering SAX, DOM, and XSLT.
+  </td>
+</td>
+
+<tr>
+  <td valign=top><a href="http://pirxx.sourceforge.net/">PIRXX</a></td>
+  <td valign=to>
+    Wrapper around Xerces C++, covering SAX, DOM, and XSLT (through Xalan).
+  </td>
+</td>
+
+<tr>
+  <td valign=top><a href="http://pyana.sourceforge.net/">Pyana</a></td>
+  <td valign=to>
+    Interface between Apache Project's Xalan XSLT engine and Python.
+  </td>
+</td>
+
+<tr>
+  <td valign=top><a href="http://xpipe.sourceforge.net/">XPipe</a></td>
+  <td valign=to>
+    An architecture for XML processing based on the assembly line principle.
+  </td>
+</td>
+</tr>
+
+<tr>
+  <td valign=top><a href="http://www.reportlab.com/xml/pyrxp.html">pyRXP</a></td>
+
+  <td valign=top>
+pyRXP is a Python wrapper for RXP, a very fast validating 
+XML parser (written by Richard Tobin of the University of 
+Edinburgh) and returns Python tuple trees from XML.
+  </td>
+</tr>
+
+</table>
+

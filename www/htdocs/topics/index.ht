@@ -1,0 +1,70 @@
+Title: Python and XML Processing
+Author: xml-sig@python.org
+Meta:  <META NAME="keywords" CONTENT="Python, XML, XML-SIG">
+       <META NAME="description" CONTENT="The home page for XML processing with Python.">
+
+<H3>Python and XML Processing</H3>
+
+<P>XML is the 'Extensible Markup Language', a data format for structured
+document interchange.  It seems to have considerable momentum behind
+it, and will probably become very important over the next few years.
+
+<P>
+Python's power and ease of use combine to make it an excellent choice
+for writing programs that process XML data.  This Topic Guide links
+to documentation and code for handling XML in Python, and also lists
+some selected resources for learning about XML.
+
+<P>
+<table cellpadding=2>
+<tr><td bgcolor="#99CCFF" colspan=2><big>General XML Resources</big></td></tr>
+
+<tr>
+  <td valign=top><A HREF="books.html">XML Books</A></td>
+  <td valign=top>Books that are recommended for learning about XML.
+   <P>
+  </td>
+</tr> 
+
+<tr><td bgcolor="#99CCFF" colspan=2><big>Python Software for XML</big></td></tr>
+
+<tr>
+  <td valign=top><A HREF="docs.html">Documentation</A></td>
+  <td valign=top>Tutorials and reference documention.</td></tr> 
+<tr>
+  <td valign=top><A HREF="download.html">Download</A></td>
+  <td valign=top>How to get the code</td></tr> 
+<!--<tr>
+  <td valign=top><A HREF="sample.html">Sample Code</A></td>
+  <td valign=top>Example programs that demonstrate XML processing.
+  <P></td></tr>-->
+<tr>
+  <td valign=top><A HREF="software.html">Other Software</A></td>
+  <td valign=top>Other Python software for XML.
+  <P></td></tr> 
+<tr>
+  <td valign=top><A HREF="fourthought.html">Software from Fourthought</A></td>
+  <td valign=top>Other software for XML, written by Fourthought, Inc.
+  <P></td></tr> 
+
+<tr><td bgcolor="#99CCFF" colspan=2><big>The Python/XML Special Interest Group</big></td></tr>
+
+<tr>
+  <td valign=top><A HREF="http://www.python.org/sigs/xml-sig/">SIG page</A></td>
+  <td valign=top>Information about the XML-SIG</td></tr> 
+<tr>
+  <td valign=top><A HREF="http://www.python.org/mailman/listinfo/xml-sig">Subscribing</A></td>
+  <td valign=top>How to join the mailing list</td>
+</tr> <tr>
+  <td valign=top><A HREF="http://www.python.org/pipermail/xml-sig/">Archives</A></td>
+  <td valign=top>Archives of past discussion</td>
+</tr> <tr>
+  <td valign=top><A HREF="dtds/index.html">DTDs</A></td>
+  <td valign=top>XML-SIG participants have invented some specialized Document Type Declarations.  Those DTDs have a permanent home here.
+  <P></td>
+</tr> <tr>
+  <td valign=top><A HREF="xbel/">XBEL</A></td>
+  <td valign=top>The XML Bookmark Exchange Language grew out of an idea for a demonstration of using Python for XML processing.  More information, including complete documentation on the DTD, is available.</td>
+</tr> 
+</table>
+

@@ -1,0 +1,6 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_external_entity(e, None, 'nul', None)
+dtd_end()
+fatal('External entity references not allowed in attribute values')

@@ -1,0 +1,6 @@
+If you make updates to these files, just commit them and they sould be automatically updated by the doupdate script every hour.  The reevant entry is in MvL's  private crontab, and the crontab line is:
+
+10 * * * * /home/groups/p/py/pyxml/doupdate
+
+ergo, run at 10 past every hour.
+

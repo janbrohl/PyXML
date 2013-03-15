@@ -1,0 +1,9 @@
+
+-- This is a test catalog --
+
+DOCUMENT "doc.xml"
+
+-- Test test -
+
+PUBLIC "whoops, we appear to have terminated the comment incorrectly"
+       "cant-be-helped.xml"

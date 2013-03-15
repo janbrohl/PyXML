@@ -1,0 +1,8 @@
+doc_start()
+handle_doctype(doc, None, None)
+dtd_start()
+new_element_type(doc, ('', [('a', '*')], ''))
+dtd_end()
+handle_start_tag(doc, {})
+handle_end_tag(doc)
+doc_end()

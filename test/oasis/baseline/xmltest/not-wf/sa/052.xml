@@ -1,0 +1,3 @@
+doc_start()
+handle_comment(' a comment ')
+fatal('Character references not allowed outside root element')

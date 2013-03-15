@@ -1,0 +1,27 @@
+Parser:
+    Where does the value of xml:base go?
+
+Write __repr__ for Pattern and NameClass classes
+Write test suites for everything
+
+Current sources of error:
+   * Case 56-58: urlparse.py is really lenient and makes no 
+     attempt to report malformed URLs.
+   * Case 86, 87: Not clear why these cases are incorrect
+   * Case 101, 104, 105, 106, 107: bad xml:base handling?
+   * Case 122-127: handling of default NS for attributes w/o prefix?
+       <attribute><name>bar... vs. <attribute name="bar">
+   * Case 156: "except" in "nsName" contains "nsName"
+   * Case 176: parameterless datatypes
+   * Case 206, 210, 213: bad recursive reference to pattern 
+   * Case 260: requires XML Schema data type implementation
+   * Case 275-278: unknown datatype
+   * Case 284 and onward: checking of invalid paths (section 7.1 in RNG spec)
+   * Make handling of null namespaces consistent ("" vs. None)
+   * Datatypes not implemented
+
+Write a strict URL parser and use it in check_uri
+Implement package for XML Schema datatype validation
+
+   
+

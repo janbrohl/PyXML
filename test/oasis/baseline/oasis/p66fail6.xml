@@ -1,0 +1,6 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_data('\ud802')
+handle_data('\udc02')
+handle_end_tag(doc)
+doc_end()

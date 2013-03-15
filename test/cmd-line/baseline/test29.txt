@@ -1,0 +1,13 @@
+xmlproc version 0.70
+Parsing catalog file 'in/catalog3.soc'
+E:in/catalog3.soc:4:10: Ugyldig eller ikke støttet konstruksjon: HJSJJDHDD.
+E:in/catalog3.soc:4:20: Ugyldig eller ikke støttet konstruksjon: "abc-def".
+E:in/catalog3.soc:4:30: Ugyldig eller ikke støttet konstruksjon: "ghi-jkl".
+E:in/catalog3.soc:8:7: Ugyldig eller ikke støttet konstruksjon: JKKKJJ.
+E:in/catalog3.soc:8:8: For tidlig slutt på entiteten
+Parsing DOCUMENT 'in/in/doc.xml' from catalog
+
+Parsing 'in/in/doc.xml'
+E:in/in/doc.xml:1:0: Kunne ikke åpne 'in/in/doc.xml'
+
+Parse complete, 6 error(s) and 0 warning(s)

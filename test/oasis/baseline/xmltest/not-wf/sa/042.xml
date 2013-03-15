@@ -1,0 +1,6 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_end_tag(doc)
+fatal("'>' expected")
+fatal("Element 'doc' not open")
+fatal('Character data not allowed outside root element')

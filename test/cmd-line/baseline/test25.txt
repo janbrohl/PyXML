@@ -1,0 +1,12 @@
+xmlproc version 0.70
+
+Parsing 'in/doc6.xml'
+E:in/doc6.xml:1:7: Character data not allowed in the content of this element
+E:in/doc6.xml:9:7: Element 'doc' ended, but not finished
+
+Parse complete, 2 error(s) and 0 warning(s)
+
+Parsing '--entstck'
+E:--entstck:1:0: Couldn't open resource '--entstck'
+
+Parse complete, 1 error(s) and 0 warning(s)

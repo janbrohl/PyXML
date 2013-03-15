@@ -1,0 +1,4 @@
+doc_start()
+fatal('Not a valid name')
+fatal("Undeclared entity ''")
+fatal("';' expected")

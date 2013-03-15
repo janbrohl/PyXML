@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>1 Introduction to XML</title>
+<META NAME="description" CONTENT="1 Introduction to XML">
+<META NAME="keywords" CONTENT="xml-howto">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="xml-howto.css">
+<LINK REL="next" HREF="node4.html">
+<LINK REL="previous" href="contents.html">
+<LINK REL="up" HREF="xml-howto.html">
+<LINK REL="next" HREF="node3.html">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A href="contents.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A HREF="xml-howto.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node3.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" href="contents.html">Contents</A>
+<b class="navlabel">Up:</b> <a class="sectref" HREF="xml-howto.html">Python/XML HOWTO</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node3.html">1.1 Related Links</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION000200000000000000000">
+1 Introduction to XML</A>
+</H1>
+
+<P>
+XML, the eXtensible Markup Language, is a simplified dialect of SGML,
+the Standardized General Markup Language.  XML is intended to be
+reasonably simple to implement and use, and is already being used for
+specifying markup languages for various new standards: MathML for
+expressing mathematical equations, Synchronized Multimedia
+   Integration Language for
+multimedia presentations, and so forth.
+
+<P>
+SGML and XML represent a document by tagging the document's various
+components with their function, or meaning.  For example, an academic
+paper contains several parts: it has a title, one or more authors, an
+abstract, the actual text of the paper, a list of references, and so
+forth.  A markup languge for writing such papers would therefore have
+tags for indicating what the contents of the abstract are, what the
+title is, and so forth.  This should not be confused with the physical
+details of how the document is actually printed on paper.  The
+abstract might be printed with narrow margins in a smaller font than
+the rest of the document, but the markup usually won't be concerned
+with details such as this; other software will translate from the
+markup language to a typesetting language such as <SPAN CLASS="logo-TeX">T<SMALL>E</SMALL>X</SPAN>, and will
+handle the details.
+
+<P>
+A markup language specified using XML looks a lot like HTML; a
+document consists of a single <i class="dfn">element</i>, which contains
+sub-elements, which can have further sub-elements inside them.
+Elements are indicated by <i class="dfn">tags</i> in the text.  Tags are always
+inside angle brackets <code>&lt;</code>&nbsp;<code>&gt;</code>.  There are two forms of
+elements.  An element can contain content between opening and closing
+tags, as in <code>&lt;name&gt;Euryale&lt;/name&gt;</code>, which is a <code>name</code>
+element containing the data "<tt class="samp">Euryale</tt>". This content may be text
+data, other XML elements, or a mixture of both.  Elements can also be
+empty, in which case they contain nothing, and are represented as a
+single tag ended with a slash, as in <code>&lt;stop/&gt;</code>, which is an empty
+<code>stop</code> element.  Unlike HTML, XML element names are
+case-sensitive; <code>stop</code> and <code>Stop</code> are two different
+element types.
+
+<P>
+Opening and empty tags can also contain attributes, which specify
+values associated with an element.  For example, text such as
+<code>&lt;name lang='greek'&gt;Herakles&lt;/name&gt;</code>, the <code>name</code> element
+has a <code>lang</code> attribute which has a value of "<tt class="samp">greek</tt>".
+This would contrast with <code>&lt;name lang='latin'&gt;Hercules&lt;/name&gt;</code>,
+where the attribute's value is "<tt class="samp">latin</tt>".
+
+<P>
+A given XML language is specified with a Document Type Definition, or
+<i class="dfn">DTD</i>.  The DTD declares the element names that are allowed, and
+how elements can be nested inside each other.  The DTD also specifies
+the attributes that can be provided for each element, their default
+values, and if they can be omitted.  For example, to take an example
+from HTML, the <code>LI</code> element, representing an entry in a list,
+can only occur inside certain elements which represent lists, such as
+<code>OL</code> or <code>UL</code>.  A <i class="dfn">validating parser</i> can be given
+a DTD and a document, and verify whether a given document is legal
+according to the DTD's rules, or determine that one or more rules have
+been violated.
+
+<P>
+Applications that process XML can be classed into two types.  The
+simplest class is an application that only handles one particular
+markup language.  For example, a chemistry program may only need to
+process Chemical Markup Language, but not MathML.  This
+application can therefore be written specifically for a single DTD,
+and doesn't need to be capable of handling multiple markup
+languages.  This type is simpler to write, and can easily be
+implemented with the available Python software.
+
+<P>
+The second type of application is less common, and has to be able to
+handle any markup language you throw at it.  An example might be a
+smart XML editor that helps you to write XML that conforms to a
+selected DTD; it might do so by not letting you enter an element where
+it would be illegal, or by suggesting elements that can be placed at
+the current cursor location.  Such an application needs to handle any
+possible XML-defined markup, and therefore must be able to obtain a
+data structure embodying the DTD in use.  XXX This type of application
+can't currently be implemented in Python without difficulty (XXX but
+wait and see if a DTD module is included...)
+
+<P>
+For the full details of XML's syntax, the one definitive source is the
+XML 1.0 specification, available on the Web at
+<a class="url" href="http://www.w3.org/TR/xml-spec.html">http://www.w3.org/TR/xml-spec.html</a>.  However, like all
+specifications, it's quite formal and isn't intended to be a friendly
+introduction or a tutorial.  The annotated version of the standard, at
+<a class="url" href="http://www.xml.com/xml/pub/axml/axmlintro.html">http://www.xml.com/xml/pub/axml/axmlintro.html</a>, is quite helpful
+in clarifying the specification's intent.  There are also various
+informal tutorials and books available to introduce you to XML.
+
+<P>
+The rest of this HOWTO will assume that you're familiar with the
+relevant terminology.  Most section will use XML terms such as
+<i>element</i> and <i>attribute</i>; section&nbsp;<A href="DOM.html#DOM">4</A> on the Document
+Object Model will assume that you've read the relevant Working Draft,
+and are familiar with things like Iterators and Nodes.
+Section&nbsp;<A href="SAX.html#SAX">3</A> does not require that you have experience with the
+Java SAX implentations.
+
+<P>
+
+<p><hr>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html65"
+  HREF="node3.html">1.1 Related Links</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A href="contents.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A HREF="xml-howto.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node3.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" href="contents.html">Contents</A>
+<b class="navlabel">Up:</b> <a class="sectref" HREF="xml-howto.html">Python/XML HOWTO</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node3.html">1.1 Related Links</A>
+<hr>
+<span class="release-info">Release 0.6.1.</span>
+</DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

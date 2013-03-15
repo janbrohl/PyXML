@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_data('\012')
+handle_data("\012<![CDATA[XML doesn't allow CDATA sections to nest")
+fatal("']]>' must not occur in character data")

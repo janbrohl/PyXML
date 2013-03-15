@@ -1,0 +1,21 @@
+<!-- This document checks that all the XMLNS error checks are performed -->
+
+<!DOCTYPE root [
+
+  <!ELEMENT root ANY>
+  <!ELEMENT prefix:test:check ANY>
+  <!ELEMENT test ANY>
+  <!ELEMENT prefix3:test ANY>
+
+  <!ATTLIST root xmlns CDATA #IMPLIED
+                 xmlns:prefix CDATA #IMPLIED>
+  <!ATTLIST test xmlns:prefix2 #IMPLIED>		
+
+]>
+
+<root xmlns="def-ns" xmlns:prefix="prefixed-ns">
+  <prefix:test:check/> <!-- Error 1900 -->
+
+  <test xmlns:prefix2=""/> <!-- 1901 -->
+  <prefix3:test/>          <!-- 1902 -->
+</root>

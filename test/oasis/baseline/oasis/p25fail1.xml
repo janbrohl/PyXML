@@ -1,0 +1,7 @@
+doc_start()
+fatal("'=' expected")
+fatal('One of \'"\' or \'\'\' expected')
+fatal('Not a valid version number ()')
+set_entity_info(, None, None)
+fatal("'?>' expected")
+fatal('Character data not allowed outside root element')

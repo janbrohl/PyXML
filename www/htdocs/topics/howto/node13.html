@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>4.2 Manipulating The Tree</title>
+<META NAME="description" CONTENT="4.2 Manipulating The Tree">
+<META NAME="keywords" CONTENT="xml-howto">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="xml-howto.css">
+<LINK REL="next" HREF="node16.html">
+<LINK REL="previous" HREF="node12.html">
+<LINK REL="up" href="DOM.html">
+<LINK REL="next" HREF="node14.html">
+</head>
+<body>
+<DIV CLASS="navigation">
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node12.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A href="DOM.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node14.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node12.html">4.1 Getting A DOM</A>
+<b class="navlabel">Up:</b> <a class="sectref" href="DOM.html">4 DOM: The Document</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node14.html">4.2.1 The Node class</A>
+<br><hr>
+</DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000520000000000000000">
+4.2 Manipulating The Tree</A>
+</H2>
+
+<P>
+This HOWTO can't be a complete introduction to the Document Object
+Model, because there are lots of interfaces and lots of
+methods. Luckily, the DOM Recommendation is quite a readable document,
+so I'd recommend that you read it to get a complete picture of the
+available interfaces; this will only be a partial overview.
+
+<P>
+The Document Object Model represents a XML document as a tree of
+nodes, represented by an instance of some subclass of the <tt class="class">Node</tt>
+class.  Some subclasses of <tt class="class">Node</tt> are <tt class="class">Element</tt>,
+<tt class="class">Text</tt>, and <tt class="class">Comment</tt>.  
+
+<P>
+We'll use a single example document throughout this section.  Here's the sample:
+
+<P>
+<dl><dd><pre class="verbatim">
+&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;xbel&gt;  
+  &lt;?processing instruction?&gt;
+  &lt;desc&gt;No description&lt;/desc&gt;
+  &lt;folder&gt;
+    &lt;title&gt;XML bookmarks&lt;/title&gt;
+    &lt;bookmark href="http://www.python.org/sigs/xml-sig/" &gt;
+      &lt;title&gt;SIG for XML Processing in Python&lt;/title&gt;
+    &lt;/bookmark&gt;
+  &lt;/folder&gt;
+&lt;/xbel&gt;
+</pre></dl>
+
+<P>
+Converted to a DOM tree, this document could produce the following tree:
+
+<P>
+<dl><dd><pre class="verbatim">
+Element xbel None
+   Text #text '  \012  '
+   ProcessingInstruction processing 'instruction'
+   Text #text '\012  '
+   Element desc None
+      Text #text 'No description'
+   Text #text '\012  '
+   Element folder None
+      Text #text '\012    '
+      Element title None
+         Text #text 'XML bookmarks'
+      Text #text '\012    '
+      Element bookmark None
+         Text #text '\012      '
+         Element title None
+            Text #text 'SIG for XML Processing in Python'
+         Text #text '\012    '
+      Text #text '\012  '
+   Text #text '\012'
+</pre></dl>
+
+<P>
+This isn't the only possible tree, because different parsers may
+differ in how they generate <tt class="class">Text</tt> nodes; any of the
+<tt class="class">Text</tt> nodes in the above tree might be split into multiple nodes.)
+
+<P>
+
+<p><hr>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html194"
+  HREF="node14.html">4.2.1 The <tt class="class">Node</tt> class</A>
+<LI><A NAME="tex2html195"
+  HREF="node15.html">4.2.2 <tt class="class">Document</tt>, <tt class="class">Element</tt>, and <tt class="class">Text</tt> nodes</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation">
+<p><hr>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td><A HREF="node12.html"><img src="icons/previous.gif"
+  border="0" height="32"
+  alt="Previous Page" width="32"></A></td>
+<td><A href="DOM.html"><img src="icons/up.gif"
+  border="0" height="32"
+  alt="Up One Level" width="32"></A></td>
+<td><A HREF="node14.html"><img src="icons/next.gif"
+  border="0" height="32"
+  alt="Next Page" width="32"></A></td>
+<td align="center" width="100%">Python/XML HOWTO</td>
+<td><A href="contents.html"><img src="icons/contents.gif"
+  border="0" height="32"
+  alt="Contents" width="32"></A></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+<td><img src="icons/blank.gif"
+  border="0" height="32"
+  alt="" width="32"></td>
+</tr></table>
+<b class="navlabel">Previous:</b> <a class="sectref" HREF="node12.html">4.1 Getting A DOM</A>
+<b class="navlabel">Up:</b> <a class="sectref" href="DOM.html">4 DOM: The Document</A>
+<b class="navlabel">Next:</b> <a class="sectref" HREF="node14.html">4.2.1 The Node class</A>
+<hr>
+<span class="release-info">Release 0.6.1.</span>
+</DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

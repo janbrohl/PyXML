@@ -1,0 +1,5 @@
+doc_start()
+fatal('One of \'"\' or \'\'\' expected')
+fatal('Not a valid standalone declaration')
+set_entity_info(1.0, None, )
+fatal("'?>' expected")

@@ -1,0 +1,10 @@
+xmlproc version 0.70
+
+Parsing 'in/nstest4.xml'
+E:in/nstest4.xml:12:32: Expected type or alternative list
+<def-ns root>&#10;  W:in/nstest4.xml:17:23: Namespace prefix names cannot contain ':'s.
+<prefix:test:check>W:in/nstest4.xml:17:23: Namespace prefix names cannot contain ':'s.
+</prefix:test:check> &#10;&#10;  W:in/nstest4.xml:19:27: Namespace URI cannot be empty
+<def-ns test></def-ns test> &#10;  W:in/nstest4.xml:20:18: Namespace prefix not declared
+<prefix3:test>W:in/nstest4.xml:20:18: Namespace prefix not declared
+</prefix3:test>          &#10;</def-ns root>Parse complete, 1 error(s) and 5 warning(s)

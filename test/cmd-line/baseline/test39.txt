@@ -1,0 +1,7 @@
+Error language 'uggabugga' not available
+xmlproc version 0.70
+
+Parsing 'in/doc4.xml'
+E:in/doc4.xml:1:19: Unsupported XML version
+W:in/doc4.xml:10:9: Unsupported character number '256' in character reference
+Parse complete, 1 error(s) and 1 warning(s)

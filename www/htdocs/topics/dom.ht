@@ -1,0 +1,20 @@
+Title: General DOM Information
+Author: xml-sig@python.org
+Meta:  <META NAME="description" CONTENT="A collection of links that will be helpful in learning about DOM, the Document Object Model.">
+
+<H3>General DOM Information</H3>
+
+<P>The DOM (Document Object Model) is a WWW Consortium API for
+accessing the contents of an SGML document.  The specification for
+Level 1 of the Document Object Model was finalized in October, 1998.
+
+<UL>
+  <LI><A HREF="http://www.w3.org/DOM/">W3C's DOM page</A><BR>
+  <LI><A HREF="http://www.w3.org/TR/REC-DOM-Level-1/">The DOM Level 1 Specification</A><BR>
+  <LI><A HREF="http://www.w3.org/TR/DOM-Level-2-Core/">The DOM Level 2 Core Specification</A><BR>
+  <LI><A HREF="http://lists.w3.org/Archives/Public/www-dom/">Public
+archive of www-dom</a><BR>
+Public discussion of the DOM working drafts takes place on this mailing list.
+
+</UL>
+

@@ -1,0 +1,6 @@
+doc_start()
+set_entity_info(1.0, None, None)
+handle_comment('Non-terminal Misc only appears as Misc*, so we cannot test the fact\012    that Misc must match exactly one comment, PI, or S')
+handle_start_tag(doc, {})
+handle_end_tag(doc)
+doc_end()

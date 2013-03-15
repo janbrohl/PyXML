@@ -1,0 +1,6 @@
+doc_start()
+fatal('Not a valid name')
+fatal('Not a valid name')
+fatal("'=' expected")
+fatal("One of '>' or '/>' expected")
+fatal("Element 'notname' not open")

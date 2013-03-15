@@ -1,0 +1,6 @@
+xmlproc version 0.70
+
+Parsing 'in/doc2.xml'
+E:in/doc2.xml:8:15: Slutt-tagg for 'tsst', men 'tst' forventet
+E:in/doc2.xml:10:7: Slutt-tagg for 'doc', men 'tst' forventet
+Parse complete, 2 error(s) and 0 warning(s)

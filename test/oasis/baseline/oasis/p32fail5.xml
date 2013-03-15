@@ -1,0 +1,3 @@
+doc_start()
+fatal('Not a valid standalone declaration')
+set_entity_info(1.0, None, YES)

@@ -1,0 +1,8 @@
+xmlproc version 0.70
+
+Parsing 'in/doc7.xml'
+<doc></doc>Parse complete, 0 error(s) and 0 warning(s)
+
+Parsing '--extsub'
+E:--extsub:1:0: Couldn't open resource '--extsub'
+Parse complete, 1 error(s) and 0 warning(s)

@@ -1,0 +1,4 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_comment(' a comment ')
+fatal("'-->' expected")

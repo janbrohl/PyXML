@@ -1,0 +1,56 @@
+Title: XML-SIG Status
+Author: xml-sig@python.org
+Meta:  <META NAME="keywords" CONTENT="Python, XML, XML-SIG">
+       <META NAME="description" CONTENT="The XML-SIG is for discussion and implementation of XML processing tools for the Python programming language; this page describes the current status of the project, and has links to useful XML resources.">
+
+<H3>XML-SIG Status</H3>
+
+<P>This page describes the current status of the work taken on by the
+XML SIG.  A local copy of the relevant files is available via <A
+HREF="files/">HTTP</A> or <A
+HREF="ftp://ftp.python.org/pub/www.python.org/sigs/xml-sig/files/">FTP</A>.
+
+<H3>Current release</H3>
+
+<P>The current release is PyXML 0.6.3, available in a variety of convenient packages courtesy <A HREF="http://www.python.org/sigs/distutils-sig/">distutils</A>.  It supports Python 1.5 and 2.0, but if you use Python 1.5, you will need to obtain distutils separately.</P>
+
+<H3>To-do</H3>
+
+<UL>
+
+<P><LI><B>An XML-HOWTO containing an overview of Python and XML processing.</B>
+
+<BR>
+A draft version is at <A HREF="http://www.python.org/doc/howto/xml/">here</A>, but needs heavy updating.  There is also an out-of-date <A HREF="http://www.python.org/doc/howto/xml-ref/">reference manual</A>
+
+<P><LI><B>XPath and XSLT</B>
+
+<BR>
+4XPath and 4XSLT will be moved into PyXML.  Jeremy Kloth, Uche Ogbuji, Mike Olson, and Martin von Loewis will work on this.  The effort will be coordinated with the 4Suite 1.0 release.
+
+</UL>
+
+<H3>Wish list</H3>
+
+These are not formal deliverable items, but suggestions for useful
+XML-related projects.  Feel free to start working on any of them.
+
+<UL>
+
+ <LI> An XML/XSL/XLL browser in Python. Linked to XED for editing, of
+course, and possibly with WEBDAV for read/write work while we are at
+it.
+
+<LI> Someone's proposed <A
+HREF="http://www.scripting.com/frontier5/xml/code/rpc.html">doing RPC
+over HTTP with XML</A>.  While it's not obvious that this will prove
+to be of much significance, it shouldn't be hard to implement, so why
+not include it?  <A HREF="http://www.w3.org/Submission/1998/07/">A
+similiar proposal</A> has been submitted to the W3C as a Note. (To be
+coded by AMK, probably.)
+
+<LI>A module to parse DTDs, perhaps?  That would pave the way for
+checking whether a document is conformant to a DTD.  LMG's xmlproc
+parser already supports some (all?) of what's needed.
+
+</UL

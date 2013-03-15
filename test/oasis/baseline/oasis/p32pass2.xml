@@ -1,0 +1,5 @@
+doc_start()
+set_entity_info(1.0, None, no)
+handle_start_tag(doc, {})
+handle_end_tag(doc)
+doc_end()

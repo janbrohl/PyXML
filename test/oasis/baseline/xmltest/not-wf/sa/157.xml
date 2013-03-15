@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+handle_data('\012')
+fatal("Processing instruction target names beginning with 'xml' are reserved")
+handle_pi(xmL, '')

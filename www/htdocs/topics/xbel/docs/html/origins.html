@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!--Converted with LaTeX2HTML 98.2 beta6 (August 14th, 1998)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>1. Introduction
+</TITLE>
+<META NAME="description" CONTENT="1. Introduction
+">
+<META NAME="keywords" CONTENT="xbel">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK REL="STYLESHEET" HREF="xbel.css">
+<LINK REL="next" HREF="requirements.html">
+<LINK REL="previous" HREF="contents.html">
+<LINK REL="up" HREF="xbel.html">
+<LINK REL="next" HREF="requirements.html">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<div class=navigation>
+<table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html82"
+ HREF="requirements.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> <A NAME="tex2html79"
+ HREF="xbel.html"><img width=32 height=32 align=bottom border=0 alt="up"
+ src="./up.gif"></A> <A NAME="tex2html73"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="previous"
+ src="./previous.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html81"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html83"
+ HREF="requirements.html">2. Requirements</A>
+<b>Up:</b> <A NAME="tex2html80"
+ HREF="xbel.html">The XML Bookmark Exchange</A>
+<b>Previous:</b> <A NAME="tex2html74"
+ HREF="contents.html">Contents</A>
+<br><hr><p></div>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html84"
+ HREF="origins.html"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Origins
+              </A>
+<LI><A NAME="tex2html85"
+ HREF="origins.html"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Contributors
+              </A>
+<LI><A NAME="tex2html86"
+ HREF="origins.html"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Availability
+              </A>
+<LI><A NAME="tex2html87"
+ HREF="origins.html"><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Formal Identification
+              </A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION000200000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">1</SPAN>. Introduction
+         
+</H1>
+
+<P>
+The XML Bookmark Exchange Language, or XBEL, is an interchange
+  format for the hierarchical bookmark data used by current Internet
+  browsers.  It is defined as an application of the Extensible Markup
+  Language, or XML [<A
+ HREF="cite_xbel-home.html#w3c-xml">BPSM98</A>].
+
+<P>
+This section descibes the origin of the effort which created the XML
+  Bookmark Exchange Language (XBEL), identifies the contributors, and
+  provides information on the availability of the public text of the
+  DTD and additional documentation on the applications which support
+  XBEL.
+
+<P>
+
+<H2><A NAME="SECTION000210000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Origins
+              
+</H2>
+
+<P>
+The XML Bookmark Exchange Language is a product of the Python XML
+    Special Interest Group (XML-SIG), sponsored by the Python Software
+    Activity (PSA).  The initial intent of the XBEL effort was to
+    create a demonstration of XML facilities available to Python
+    programmers which would also be useful.
+
+<P>
+
+<H2><A NAME="SECTION000220000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Contributors
+              
+</H2>
+
+<P>
+The initial idea for XBEL was contributed by Mark Hammond.  Mark
+    sent his idea to the Python XML-SIG mailing list.  This was closely
+    followed by discussions and additional ideas by many of the list
+    participants.  The following people contributed to the design of
+    the DTD and the related software (listed in alphabetical order by
+    last name):
+
+<P>
+<dl><dt><b><a name="l2h-350">Fred L. Drake, Jr. (<font face=sans-serif>fdrake@acm.org</font>)</a></b>
+<dd>        Documentation.  Design input on DTD and the storage of
+        metadata.  Implemented direct support for XBEL in Grail.
+
+<P>
+<dt><b><a name="l2h-353">Stefane Fermigier (<font face=sans-serif>fermigie@math.jussieu.fr</font>)</a></b>
+<dd>        Modified implementation of software for Internet Explorer
+        Favorites conversion using his original Python DOM
+        implementation.
+
+<P>
+<dt><b><a name="l2h-356">Lars Marius Garshol (<font face=sans-serif>larsga@ifi.uio.no</font>)</a></b>
+<dd>        Extended the concept to cover all Internet browsers bookmarks
+        and came up with the name and acronym.  Implemented support
+        for Navigator and Opera bookmark formats.
+
+<P>
+<dt><b><a name="l2h-359">Geir Ove Gronmo (<font face=sans-serif>grove@infotek.no</font>)</a></b>
+<dd>        General input on XML and the desired level of complexity.
+
+<P>
+<dt><b><a name="l2h-362">Marc van Grootel (<font face=sans-serif>bwaumg@urc.tue.nl</font>)</a></b>
+<dd>        Design input on the DTD, storage of metadata, and comments on
+        the use of XBEL with architectural forms.
+
+<P>
+<dt><b><a name="l2h-365">Mark Hammond (<font face=sans-serif>MHammond@skippinet.com.au</font>)</a></b>
+<dd>        Original concept and DTD for an archival storage format for
+        Internet Explorer ``Favorites.''
+
+<P>
+<dt><b><a name="l2h-368">Jack Jansen (<font face=sans-serif>Jack.Jansen@cwi.nl</font>)</a></b>
+<dd>        General input on potential advanced applications.
+
+<P>
+<dt><b><a name="l2h-371">Andrew M. Kuchling (<font face=sans-serif>akuchling@acm.org</font>)</a></b>
+<dd>        Implemented conversion software between XBEL and Lynx
+        bookmarks.
+
+<P>
+<dt><b><a name="l2h-374">Fredrik Lundh (<font face=sans-serif>fredrik@pythonware.com</font>)</a></b>
+<dd>        Initial software implementation for Internet Explorer.
+
+<P>
+<dt><b><a name="l2h-377">Sean McGrath (<font face=sans-serif>digitome@iol.ie</font>)</a></b>
+<dd>        General input on XML and document type definitions.
+
+<P>
+<dt><b><a name="l2h-380">Greg Stein (<font face=sans-serif>gstein@lyra.org</font>)</a></b>
+<dd>        General input on XML Namespaces and moderator of complexity.
+
+<P>
+<dt><b><a name="l2h-383">Walter R. Underwood (<font face=sans-serif>wunder@infoseek.com</font>)</a></b>
+<dd>        General input on the use of XML character entites instead of
+        adding general entities, and discussion on date/time values in 
+        XML.
+    </dl>
+
+<P>
+
+<H2><A NAME="SECTION000230000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Availability
+              
+</H2>
+
+<P>
+Information on XBEL, including the public text and this document,
+    is available on the PSA Web site at
+    <a href="http://www.python.org/topics/xml/xbel/"><font face=sans-serif>http://www.python.org/topics/xml/xbel/</font></a> [<A
+ HREF="cite_xbel-home.html#xbel-home">Dra</A>].
+    Please refer to this Web resource for information on new versions,
+    DTD variants, and supporting software.
+
+<P>
+The public text for XBEL will be made available through a SOCAT
+    catalog at available at:
+    <a href="http://www.python.org/topics/xml/dtds/catalog"><font face=sans-serif>http://www.python.org/topics/xml/dtds/catalog</font></a>.  This catalog
+    may be used by including a DELEGATE entry in a catalog already
+    used by XML processing software.  The DELEGATE entry should be:
+
+<P>
+<dl><dd><pre>
+DELEGATE "+//IDN python.org" "http://www.python.org/topics/xml/dtds/catalog"
+</pre></dl>
+
+<P>
+
+<H2><A NAME="SECTION000240000000000000000"></A>
+<BR>
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Formal Identification
+              
+</H2>
+
+<P>
+The XBEL DTD documented in this report has the Formal Public
+    Identifier:
+
+<P>
+<dl><dd><pre>
++//IDN python.org//DTD XML Bookmark Exchange Language 1.0//EN//XML
+</pre></dl>
+
+<P>
+Valid instances of this document type may use the following document
+    type declaration:
+
+<P>
+<dl><dd><pre>
+&lt;!DOCTYPE xbel
+  PUBLIC "+//IDN python.org//DTD XML Bookmark Exchange Language 1.0//EN//XML"
+         "http://www.python.org/topics/xml/dtds/xbel-1.0.dtd"&gt;
+</pre></dl>
+
+<P>
+<p>
+<div class=navigation><hr><table width="100%" cellpadding=0 cellspacing=0><tr><td width="20%"><A NAME="tex2html82"
+ HREF="requirements.html"><img width=32 height=32 align=bottom border=0 alt="next"
+ src="./next.gif"></A> <A NAME="tex2html79"
+ HREF="xbel.html"><img width=32 height=32 align=bottom border=0 alt="up"
+ src="./up.gif"></A> <A NAME="tex2html73"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="previous"
+ src="./previous.gif"></A> </td>
+<td align=center width="60%"><b>The XML Bookmark Exchange Language</b></td>
+<td align=right width="20%"><A NAME="tex2html81"
+ HREF="contents.html"><img width=32 height=32 align=bottom border=0 alt="contents"
+ src="./contents.gif"></A>  </td></tr></table>
+<hr>
+<b>Next:</b> <A NAME="tex2html83"
+ HREF="requirements.html">2. Requirements</A>
+<b>Up:</b> <A NAME="tex2html80"
+ HREF="xbel.html">The XML Bookmark Exchange</A>
+<b>Previous:</b> <A NAME="tex2html74"
+ HREF="contents.html">Contents</A>
+</div>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

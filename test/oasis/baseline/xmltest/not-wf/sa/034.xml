@@ -1,0 +1,8 @@
+doc_start()
+fatal('Not a valid name')
+fatal("'=' expected")
+fatal("One of '>' or '/>' expected")
+fatal('Character data not allowed outside root element')
+fatal("'>' expected")
+fatal("Element 'doc' not open")
+fatal('Character data not allowed outside root element')

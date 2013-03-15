@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE book [
+  <!ELEMENT book ANY>
+  <!ELEMENT title ANY>
+  <!ELEMENT isbn:number ANY>
+  <!ELEMENT notes ANY>
+  <!ELEMENT p ANY>
+  <!ELEMENT i ANY>
+
+  <!ATTLIST book xmlns CDATA #IMPLIED
+                 xmlns:isbn CDATA #IMPLIED>
+
+  <!ATTLIST p xmlns CDATA #IMPLIED>			
+]>
+
+<!-- initially, the default namespace is "books" -->
+<book xmlns='urn:loc.gov:books'
+      xmlns:isbn='urn:ISBN:0-395-36341-6'>
+    <title>Cheaper by the Dozen</title>
+    <isbn:number>1568491379</isbn:number>
+    <notes>
+      <!-- drop the default into HTML for some commentary -->
+      <p xmlns='urn:w3-org-ns:HTML'>
+          This is a <i>funny</i> book!
+      </p>
+    </notes>
+</book>

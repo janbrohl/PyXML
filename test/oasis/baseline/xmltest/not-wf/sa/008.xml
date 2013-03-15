@@ -1,0 +1,5 @@
+doc_start()
+handle_start_tag(doc, {})
+fatal('Not a valid name')
+fatal("';' expected")
+fatal("Undeclared entity ''")

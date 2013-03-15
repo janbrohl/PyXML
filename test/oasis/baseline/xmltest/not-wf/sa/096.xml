@@ -1,0 +1,3 @@
+doc_start()
+fatal('Whitespace expected here')
+set_entity_info(1.0, utf-8, None)

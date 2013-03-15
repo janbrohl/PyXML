@@ -1,0 +1,5 @@
+xmlproc version 0.70
+
+Parsing 'in/doc5.xml'
+<?target data?><doc attr="value">&#10;  Hu og hei!&#10;  <tst></tst>&#10;</doc>
+Parse complete, 0 error(s) and 0 warning(s)
