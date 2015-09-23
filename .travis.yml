@@ -3,4 +3,4 @@ python:
   - "2.6"
   - "2.7"
 install: true
-script: python xml/setup.by build
+script: python xml/setup.py build
