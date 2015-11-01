@@ -3,4 +3,4 @@ python:
   - "2.6"
   - "2.7"
 install: true
-script: cd xml && python setup.py build && cd tests && python testxml.py
+script: cd xml && python setup.py build && cd test && python testxml.py
